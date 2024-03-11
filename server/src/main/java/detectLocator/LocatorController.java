@@ -1,4 +1,4 @@
-package com.example.detectlocator;
+package detectLocator;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
