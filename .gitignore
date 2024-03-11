@@ -1,0 +1,4 @@
+/client/node_modules
+/server/target
+/server/HELP.md
+/server/.idea
