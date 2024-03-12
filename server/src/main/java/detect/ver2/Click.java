@@ -28,16 +28,12 @@ public class Click {
 //            }
 //        }
         List<Element> clickableElements = HandleClick.getClickableElements(document);
-        List<Element> visitedClickableElements = new ArrayList<>();
         for (String s : input) {
             int max_weight = -1;
             double max_full = -1;
             Element res = null;
             String tmp = "";
             for (Element e : clickableElements) {
-                if (visitedClickableElements.contains(e)) {
-                    continue;
-                }
                 String text = HandleClick.getTextForClickableElement(e);
                 Weight w = new Weight(s, e, text);
                 double full = w.getFull();
@@ -63,7 +59,6 @@ public class Click {
                 result.put(s, Process.getXpath(res));
                 System.out.println(s + " " + Process.getXpath(res) + max_full + " " + max_weight + " " + tmp);
             }
-            visitedClickableElements.add(res);
         }
         return result;
     }

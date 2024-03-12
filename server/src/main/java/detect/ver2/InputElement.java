@@ -12,7 +12,6 @@ import java.util.*;
 public class InputElement {
     public static Map<String, String> detectInputElement(List<String> input, Document document) {
         Elements inputElements = HandleInput.getInputElements(document);
-        List<Element> visited = new ArrayList<>();
         Map<String, String> result = new HashMap<>();
 //        List<Weight> list = new ArrayList<>();
         for (String s : input) {
@@ -21,9 +20,6 @@ public class InputElement {
             Element res = null;
             String tmp = "";
             for (Element e : inputElements) {
-                if (visited.contains(e)) {
-                    continue;
-                }
                 String text = HandleInput.getTextForInput(e);
                 Weight w = new Weight(s, e, text);
                 double full = w.getFull();
@@ -49,8 +45,6 @@ public class InputElement {
                 result.put(s, Process.getXpath(res));
                 System.out.println(s + " " + Process.getXpath(res) + max_full + " " + max_weight + " " + tmp);
             }
-            visited.add(res);
-
         }
 //        Map<String, String> res = new HashMap<>();
 //        if (list.size() == 1) {

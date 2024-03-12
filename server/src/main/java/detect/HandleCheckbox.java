@@ -1,5 +1,6 @@
 package detect;
 
+import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
@@ -74,4 +75,9 @@ public class HandleCheckbox {
         String res = getTextForCheckboxElementInSubtree(e);
         return res;
     }
+
+    public static Elements getCheckboxElements(Document document) {
+        return document.select("input[type='checkbox']");
+    }
+
 }

@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.*;
 
 import detect.ver2.Click;
+import detect.ver2.ClickCheckbox;
 import detect.ver2.InputElement;
 import detect.ver2.Select;
 import org.json.simple.*;
@@ -56,6 +57,11 @@ public class Process {
                     Action act = new SelectAction(question, choice);
                     list.add(act);
                 }
+                if (type.equals("checkbox")) {
+                    String choice = (String) action.get("choice");
+                    Action act = new ClickCheckboxAction(choice);
+                    list.add(act);
+                }
                 if (type.equals("assertUrl")) {
                     String expectedUrl = (String) action.get("expectedUrl");
                     Action act = new AssertURL(expectedUrl);
@@ -101,6 +107,22 @@ public class Process {
                     Map<String, String> res = Click.detectClickElement(text_locators, document);
                     for (Action action : clickActions) {
                         action.setDom_locator(res.get(action.getText_locator()));
+                    }
+                }
+                if (map.containsKey("Checkbox")) {
+                    List<Action> clickCheckboxActions = map.get("Checkbox");
+                    List<String> listChoice = new ArrayList<>();
+                    Map<Action, String> mp = new HashMap<>();
+                    for (Action action : clickCheckboxActions) {
+                        ClickCheckboxAction act = (ClickCheckboxAction) action;
+                        String choice = act.getChoice();
+                        listChoice.add(choice);
+                        mp.put(action, choice);
+                    }
+                    Map<String, String> res = ClickCheckbox.detectCheckboxElement(listChoice, document);
+                    for (Action action : clickCheckboxActions) {
+                        action.setDom_locator(res.get(mp.get(action)));
+                        System.out.println(res.get(mp.get(action)));
                     }
                 }
                 if (map.containsKey("Select")) {
@@ -153,6 +175,15 @@ public class Process {
                         map.get("Click").add(list.get(i));
                     }
                 }
+                if (list.get(i) instanceof ClickCheckboxAction) {
+                    if (!map.containsKey("Checkbox")) {
+                        List<Action> checkboxActions = new ArrayList<>();
+                        checkboxActions.add(list.get(i));
+                        map.put("Checkbox", checkboxActions);
+                    } else {
+                        map.get("Checkbox").add(list.get(i));
+                    }
+                }
                 if (list.get(i) instanceof SelectAction) {
                     if (!map.containsKey("Select")) {
                         List<Action> selectActions = new ArrayList<>();
@@ -183,6 +214,22 @@ public class Process {
                         Map<String, String> res = Click.detectClickElement(text_locators, document);
                         for (Action action : clickActions) {
                             action.setDom_locator(res.get(action.getText_locator()));
+                        }
+                    }
+                    if (map.containsKey("Checkbox")) {
+                        List<Action> clickCheckboxActions = map.get("Checkbox");
+                        List<String> listChoice = new ArrayList<>();
+                        Map<Action, String> mp = new HashMap<>();
+                        for (Action action : clickCheckboxActions) {
+                            ClickCheckboxAction act = (ClickCheckboxAction) action;
+                            String choice = act.getChoice();
+                            listChoice.add(choice);
+                            mp.put(action, choice);
+                        }
+                        Map<String, String> res = ClickCheckbox.detectCheckboxElement(listChoice, document);
+                        for (Action action : clickCheckboxActions) {
+                            action.setDom_locator(res.get(mp.get(action)));
+                            System.out.println(res.get(mp.get(action)));
                         }
                     }
                     if (map.containsKey("Select")) {
@@ -267,7 +314,7 @@ public class Process {
     }
 
     public static void main(String[] args) {
-        Pair<String, List<Action>> res = parseJson("C:\\Users\\admin\\Desktop\\sample_saucedemo.json");
+        Pair<String, List<Action>> res = parseJson("C:\\Users\\admin\\Desktop\\sample.json");
         String url = res.getFirst();
         List<Action> actions = res.getSecond();
         List<Action> result = detectLocators(actions, url);
