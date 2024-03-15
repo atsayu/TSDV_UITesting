@@ -2,6 +2,11 @@ package detect.object;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class ClickCheckboxAction extends Action{
     private String choice;
@@ -25,6 +30,9 @@ public class ClickCheckboxAction extends Action{
 
     @Override
     public void run(WebDriver driver) {
-        driver.findElement(By.xpath(dom_locator)).click();
+        WebElement element = driver.findElement(By.xpath(dom_locator));
+        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+        wait.until(driver1 -> element.isEnabled());
+        element.click();
     }
 }

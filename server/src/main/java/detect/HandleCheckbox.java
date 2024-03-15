@@ -15,19 +15,17 @@ public class HandleCheckbox {
             return searchCheckboxInSubtree(e.parent()
                     , choices);
         }
-        for (Element elem : elems) {
-            if (!TypeElement.isCheckboxElement(elem)) {
-                return null;
-            }
-        }
+
         Map<String, Element> res = new HashMap<>();
         int cnt = 0;
         for (Element elem :elems) {
-            String t = getTextForCheckbox(elem);
-            if (choices.contains(t)) {
-                if (!res.containsKey(t)) {
-                    res.put(t, elem);
-                    cnt++;
+            if (TypeElement.isCheckboxElement(elem)) {
+                String t = getTextForCheckbox(elem);
+                if (choices.contains(t)) {
+                    if (!res.containsKey(t)) {
+                        res.put(t, elem);
+                        cnt++;
+                    }
                 }
             }
         }
