@@ -1,5 +1,6 @@
 package detect;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -64,5 +65,35 @@ public class Calculator {
             }
         }
         return -1;
+    }
+
+    public static int compareBetweenTwoString(String source, String target) {
+        List<String> wordsInSource = HandleString.separateWordsInString(source);
+        HandleString.lowercaseWordsInList(wordsInSource);
+        List<String> distinctWordsInSource = HandleString.distinctWordsInString(wordsInSource);
+        List<String> wordsInTarget = HandleString.separateWordsInString(target);
+        HandleString.lowercaseWordsInList(wordsInTarget);
+        Set<String> visitedWords = new HashSet<>();
+        calculatePercentBetweenTwoStrings(source, target, visitedWords);
+        double full = visitedWords.size() * 1.0 / distinctWordsInSource.size();
+        if (full < 1) {
+            return 2;
+        } else {
+            String s = String.join("",wordsInSource);
+            String t = String.join("", wordsInTarget);
+            System.out.println(s + " " + t);
+            if (s.equals(t)) {
+                return 1;
+            } else {
+                return 0;
+            }
+
+        }
+    }
+
+    public static void main(String[] args) {
+        String s = "log-in";
+        String t = "Login";
+        System.out.println(compareBetweenTwoString(t, s));
     }
 }

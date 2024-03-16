@@ -75,13 +75,11 @@ public class InputElement {
     }
 
     public static void main(String[] args) {
-        String linkHtml = "https://www.saucedemo.com/";
-//        String linkHtml = "https://form.jotform.com/233591551157458?fbclid=IwAR1ggczzG7OoN6Dgb2SDWtNyznCAAJNW-G8-_3gnejJwPFunwwBuN_NCvh0";
+
+        String linkHtml = "https://form.jotform.com/233591551157458?fbclid=IwAR1ggczzG7OoN6Dgb2SDWtNyznCAAJNW-G8-_3gnejJwPFunwwBuN_NCvh0";
         String htmlContent = Process.getHtmlContent(linkHtml);
         Document document = Process.getDomTree(htmlContent);
         List<String> input = new ArrayList<>();
-        input.add("username");
-        input.add("pass");
 //        input.add("First-name_in_passenger");
 //        input.add("last_name in passenger");
 //        input.add("first_name in contact_person");
@@ -91,8 +89,8 @@ public class InputElement {
 //        input.add("e-mail");
 //        input.add("area code");
 //        input.add("phone");
-//        input.add("street address");
-//        input.add("street address 2");
+        input.add("street address");
+        input.add("street address line 2");
 //        input.add("city in address");
 //        input.add("zip");
 //        input.add("state or province");
