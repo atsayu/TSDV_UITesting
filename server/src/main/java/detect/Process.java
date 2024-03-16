@@ -314,7 +314,7 @@ public class Process {
     }
 
     public static void main(String[] args) {
-        Pair<String, List<Action>> res = parseJson("C:\\Users\\admin\\Desktop\\sample.json");
+        Pair<String, List<Action>> res = parseJson("src/main/resources/testcase/sample.json");
         String url = res.getFirst();
         List<Action> actions = res.getSecond();
         List<Action> result = detectLocators(actions, url);

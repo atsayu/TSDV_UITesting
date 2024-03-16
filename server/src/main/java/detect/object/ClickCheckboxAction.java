@@ -31,8 +31,8 @@ public class ClickCheckboxAction extends Action{
     @Override
     public void run(WebDriver driver) {
         WebElement element = driver.findElement(By.xpath(dom_locator));
-        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(2));
-        wait.until(driver1 -> element.isEnabled());
+        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(4));
+        wait.until(driver1 -> element.isEnabled() && element.isDisplayed());
         element.click();
     }
 }
