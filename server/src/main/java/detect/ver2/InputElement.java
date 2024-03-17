@@ -10,6 +10,8 @@ import org.jsoup.select.Elements;
 
 import java.util.*;
 
+import static detect.ver2.Click.detectClickElement;
+
 public class InputElement {
     public static Map<String, String> detectInputElement(List<String> input, Document document) {
         Elements inputElements = HandleInput.getInputElements(document);
@@ -98,32 +100,32 @@ public class InputElement {
     }
 
     public static void main(String[] args) {
-        String linkHtml = "https://testdetect.wordpress.com/2024/03/17/test-input/";
+//        String linkHtml = "https://testdetect.wordpress.com/2024/03/17/test-input/";
 
-//        String linkHtml = "https://form.jotform.com/233591551157458";
+        String linkHtml = "https://form.jotform.com/233591551157458";
         String htmlContent = Process.getHtmlContent(linkHtml);
         Document document = Process.getDomTree(htmlContent);
-        List<String> input = new ArrayList<>();
-//        input.add("First-name_in_passenger");
-//        input.add("last_name in passenger");
-//        input.add("first_name in contact_person");
-//        input.add("last-Name In contact_person");
-//        input.add("title in contact person");
-//        input.add("Title in passenger name");
-//        input.add("e-mail");
-//        input.add("area code");
-//        input.add("phone");
-//        input.add("city in address");
-//        input.add("zip");
-//        input.add("state or province");
-//        input.add("Street address line 2");
-//        input.add("Street address");
-        //        input.add("Username");
-//        input.add("password");
-        input.add("password");
-//        input.add("confirm password");
-//        input.add("new password");
-        Map<String, String> res = detectInputElement(input, document);
+        List<String> input = Arrays.asList("First-name_in_passenger", "last_name in passenger", "first_name in contact_person","last-Name In contact_person"
+        ,"title in contact person", "Title in passenger name", "e-mail", "area code", "phone", "city in address", "zip","state or province", "Street address", "Street address line 2"
+        );
+        List<String> click = Arrays.asList("next_btn", "back_btn", "submit_Button");
+
+        Map<String, String> res_click = detectClickElement(click, document);
+        Map<String, String> res_input = detectInputElement(input, document);
+        /* Đầu vào cho hàm detect các phần tử select là các cặp câu hỏi (có thể rỗng) và lựa chọn của người dùng
+        Output cho mỗi cặp đó là xpath của phần tử select.
+         */
+//        List<Pair<String, String >> select = new ArrayList<>();
+//        select.add(new Pair<>("", "March"));
+//        select.add(new Pair<>("Country", "Aruba"));
+//        select.add(new Pair<>("", "One Way"));
+//        select.add(new Pair<>("Airline", "Airline 1"));
+//        Map<Pair<String, String>, String> res_select = Select.detectSelectElement(select, document);
+//        for (Map.Entry<Pair<String, String>, String> entry : res_select.entrySet()) {
+//            Pair<String, String> pair = entry.getKey();
+//            String loc = entry.getValue();
+//            System.out.println(pair.getFirst() + " " + pair.getSecond() + " " + loc);
+//        }
 
     }
 }
