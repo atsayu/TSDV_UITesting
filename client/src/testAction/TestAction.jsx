@@ -4,9 +4,13 @@ import InputAction from './InputAction'
 import HoverAction from './Hover'
 import Flow from './Flow'
 import { Checkbox } from '@mui/material'
-export default function TestAction({ type, describedLocator, value }) {
+import OpenWebsiteAction from './OpenWebsiteAction'
+export default function TestAction({ type, describedLocator, value, url }) {
     let ActionComponent;
     switch (type) {
+        case "open":
+            ActionComponent = <OpenWebsiteAction url={url}/>
+            break;
         case "click":
             ActionComponent = <ClickAction describedLocator={describedLocator} />
             break;
@@ -22,7 +26,7 @@ export default function TestAction({ type, describedLocator, value }) {
     }
     return (
         <div>
-            <Checkbox size='small'></Checkbox>
+            {/* <Checkbox size='small'></Checkbox> */}
             {ActionComponent}
         </div>
 

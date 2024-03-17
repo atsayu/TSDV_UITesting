@@ -22,8 +22,15 @@ export default function Flow() {
         const newActions = [];
 
         lines.forEach((line) => {
+            line = line.replace(/^[^A-Za-z]+/, '');
             const words = line.match(/(?:[^\s"]+|"[^"]*")+/g);
-            switch (words[0]) {
+            switch (words[0].toLowerCase()) {
+                case "open":
+                    newActions.push({
+                        type: "open",
+                        url: words[1]
+                    });
+                    break;
                 case "click":
                     newActions.push({
                         type: "click",

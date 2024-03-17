@@ -69,7 +69,6 @@ export default function TestCase() {
                     <MenuItem onClick={() => handleAddFlow(testcaseIndex)}>Describe Your Procedure</MenuItem>
                 </Menu>
             </div>
-            <div>{testActions.length}</div>
             <List sx={{ listStyle: "decimal", pl: 4 }}>
 
                 {

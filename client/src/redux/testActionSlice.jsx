@@ -39,6 +39,9 @@ export const testActionSlice = createSlice({
                 describedLocator: action.payload.locator,
             })
         },
+        changeUrl: (state, action) => {
+            state.testcases[action.payload.testcaseIndex].actions[action.payload.actionIndex].url = action.payload.newUrl;
+        },
         changeDescribedLocator: (state, action) => {
             state.testcases[action.payload.testcaseIndex].actions[action.payload.actionIndex].describedLocator = action.payload.newLocator;
         },
@@ -58,6 +61,6 @@ export const testActionSlice = createSlice({
     }
 })
 
-export const {addClickAction, addFlowDescribe, addTestCase, addInputAction,addHoverAction, changeDescribedLocator, changeValue, changeFlow, insertActions} = testActionSlice.actions;
+export const {addClickAction, addFlowDescribe, addTestCase, addInputAction,addHoverAction,changeUrl, changeDescribedLocator, changeValue, changeFlow, insertActions} = testActionSlice.actions;
 
 export default testActionSlice.reducer;
