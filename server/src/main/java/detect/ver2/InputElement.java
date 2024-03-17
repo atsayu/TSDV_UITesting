@@ -1,6 +1,7 @@
 package detect.ver2;
 
 import detect.HandleInput;
+import detect.Pair;
 import detect.Process;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -15,35 +16,57 @@ public class InputElement {
         Map<String, String> result = new HashMap<>();
 //        List<Weight> list = new ArrayList<>();
         for (String s : input) {
-            int max_weight = -1;
-            double max_full = -1;
-            Element res = null;
-            String tmp = "";
-            for (Element e : inputElements) {
-                String text = HandleInput.getTextForInput(e);
-                Weight w = new Weight(s, e, text);
-                double full = w.getFull();
-                int weight = w.getWeight();
-                if (full > max_full) {
-                    res = e;
-                    max_full = full;
-                    max_weight = weight;
-                    tmp = text;
-                } else {
-                    if (full == max_full) {
-                        if (weight > max_weight) {
-                            res = e;
-                            max_weight = weight;
-                            tmp = text;
-                        }
-                    }
+            Weight max = new Weight();
+//            int max_weight = -1;
+//            double max_full = -1;
+//            Element res = null;
+//            String tmp = "";
+//            for (Element e : inputElements) {
+//                Pair<String, Boolean> pair = HandleInput.getTextForInput(e);
+//                String text = pair.getFirst();
+//                Boolean textIsAttribute = pair.getSecond();
+//                Weight w = new Weight(s, e, text, textIsAttribute);
+//
+//                double full = w.getFull();
+//                int weight = w.getWeight();
+//                if (full > max_full) {
+//                    res = e;
+//                    max_full = full;
+//                    max_weight = weight;
+//                    tmp = text;
+//                } else {
+//                    if (full == max_full) {
+//                        if (weight > max_weight) {
+//                            res = e;
+//                            max_weight = weight;
+//                            tmp = text;
+//                        }
+//                    }
+//                }
+//
+////                list.add(w);
+//            }
+//            if (res != null) {
+//                result.put(s, Process.getXpath(res));
+//                System.out.println(s + " " + Process.getXpath(res) + max_full + " " + max_weight + " " + tmp);
+//            }
+            for (int i = 0; i < inputElements.size(); i++) {
+                Element e = inputElements.get(i);
+                Pair<String, Boolean> pair = HandleInput.getTextForInput(e);
+                String text = pair.getFirst();
+                Boolean textIsAttribute = pair.getSecond();
+                Weight w = new Weight(s, e, text, textIsAttribute);
+                if (i == 0) {
+                    max = w;
+                    continue;
                 }
-
-//                list.add(w);
+                if (w.compareTo(max) > 0) {
+                    max = w;
+                }
             }
-            if (res != null) {
-                result.put(s, Process.getXpath(res));
-                System.out.println(s + " " + Process.getXpath(res) + max_full + " " + max_weight + " " + tmp);
+            if (max.e != null) {
+                result.put(s, Process.getXpath(max.e));
+                System.out.println(s + " " + Process.getXpath(max.e) + max.getFull() + " " + max.getWeight() + " " + max.text);
             }
         }
 //        Map<String, String> res = new HashMap<>();
@@ -75,8 +98,9 @@ public class InputElement {
     }
 
     public static void main(String[] args) {
+        String linkHtml = "https://testdetect.wordpress.com/2024/03/17/test-input/";
 
-        String linkHtml = "https://form.jotform.com/233591551157458?fbclid=IwAR1ggczzG7OoN6Dgb2SDWtNyznCAAJNW-G8-_3gnejJwPFunwwBuN_NCvh0";
+//        String linkHtml = "https://form.jotform.com/233591551157458";
         String htmlContent = Process.getHtmlContent(linkHtml);
         Document document = Process.getDomTree(htmlContent);
         List<String> input = new ArrayList<>();
@@ -89,11 +113,16 @@ public class InputElement {
 //        input.add("e-mail");
 //        input.add("area code");
 //        input.add("phone");
-        input.add("street address");
-        input.add("street address line 2");
 //        input.add("city in address");
 //        input.add("zip");
 //        input.add("state or province");
+//        input.add("Street address line 2");
+//        input.add("Street address");
+        //        input.add("Username");
+//        input.add("password");
+        input.add("password");
+//        input.add("confirm password");
+//        input.add("new password");
         Map<String, String> res = detectInputElement(input, document);
 
     }

@@ -81,7 +81,7 @@ public class Calculator {
         } else {
             String s = String.join("",wordsInSource);
             String t = String.join("", wordsInTarget);
-            System.out.println(s + " " + t);
+//            System.out.println(s + " " + t);
             if (s.equals(t)) {
                 return 1;
             } else {
@@ -93,7 +93,7 @@ public class Calculator {
 
     public static void main(String[] args) {
         String s = "log-in";
-        String t = "Login";
-        System.out.println(compareBetweenTwoString(t, s));
+        String t = "Login He";
+        System.out.println(compareBetweenTwoString(s, t));
     }
 }
