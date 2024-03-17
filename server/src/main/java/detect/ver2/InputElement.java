@@ -100,8 +100,7 @@ public class InputElement {
     }
 
     public static void main(String[] args) {
-//        String linkHtml = "https://testdetect.wordpress.com/2024/03/17/test-input/";
-
+        /* Chỉnh sửa đầu vào cho các phần tử input ở list input, cho phần tử click ở list click. */
         String linkHtml = "https://form.jotform.com/233591551157458";
         String htmlContent = Process.getHtmlContent(linkHtml);
         Document document = Process.getDomTree(htmlContent);
