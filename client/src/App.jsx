@@ -24,6 +24,29 @@ function App() {
     }
   }
 
+  const runScript = () => {
+    console.log(scriptArray);
+    fetch("http://localhost:8082/selenium", {
+      body: JSON.stringify(scriptArray),
+      headers: {
+        'content-type': 'application/json',
+        'Access-Control-Allow-Origin':'*',
+        'Access-Control-Allow-Methods':'POST,PATCH,OPTIONS'
+      },
+      method: "POST",
+    })
+    .then((response) => {
+      console.log(response);
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((error) => {
+      console.error('There was a problem with your fetch operation:', error);
+    }); 
+  }
+
   const getScript = () => {
     console.log(JSON.stringify(testcases));
     fetch("http://localhost:8080/locator", {
@@ -75,6 +98,9 @@ function App() {
       <Box display="flex" justifyContent="space-between" width={300}>
         <Button size="small" variant="contained" color='primary' onClick={() => dispatch(addTestCase())}>Add Test Case</Button>
         <Button size="small" variant="contained" color='primary' onClick={getScript}>Generate Script</Button>
+        {
+          scriptArray.length != 0 && <Button size="small" variant="contained" color='primary' onClick={runScript}>Run Script</Button>
+        }
       </Box>
       {
         scriptString !== '' && <TestScript code={scriptString}/>
