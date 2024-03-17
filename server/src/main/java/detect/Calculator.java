@@ -92,8 +92,8 @@ public class Calculator {
     }
 
     public static void main(String[] args) {
-        String s = "log-in";
-        String t = "Login He";
+        String s = "Street Address";
+        String t = "Street Address Line 2";
         System.out.println(compareBetweenTwoString(s, t));
     }
 }

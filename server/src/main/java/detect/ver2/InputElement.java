@@ -99,32 +99,39 @@ public class InputElement {
         return result;
     }
 
-    public static void main(String[] args) {
-        /* Chỉnh sửa đầu vào cho các phần tử input ở list input, cho phần tử click ở list click. */
-        String linkHtml = "https://form.jotform.com/233591551157458";
-        String htmlContent = Process.getHtmlContent(linkHtml);
-        Document document = Process.getDomTree(htmlContent);
-        List<String> input = Arrays.asList("First-name_in_passenger", "last_name in passenger", "first_name in contact_person","last-Name In contact_person"
-        ,"title in contact person", "Title in passenger name", "e-mail", "area code", "phone", "city in address", "zip","state or province", "Street address", "Street address line 2"
-        );
-        List<String> click = Arrays.asList("next_btn", "back_btn", "submit_Button");
-
-        Map<String, String> res_click = detectClickElement(click, document);
-        Map<String, String> res_input = detectInputElement(input, document);
-        /* Đầu vào cho hàm detect các phần tử select là các cặp câu hỏi (có thể rỗng) và lựa chọn của người dùng
-        Output cho mỗi cặp đó là xpath của phần tử select.
-         */
-//        List<Pair<String, String >> select = new ArrayList<>();
-//        select.add(new Pair<>("", "March"));
-//        select.add(new Pair<>("Country", "Aruba"));
-//        select.add(new Pair<>("", "One Way"));
-//        select.add(new Pair<>("Airline", "Airline 1"));
-//        Map<Pair<String, String>, String> res_select = Select.detectSelectElement(select, document);
-//        for (Map.Entry<Pair<String, String>, String> entry : res_select.entrySet()) {
-//            Pair<String, String> pair = entry.getKey();
-//            String loc = entry.getValue();
-//            System.out.println(pair.getFirst() + " " + pair.getSecond() + " " + loc);
-//        }
-
-    }
+//    public static void main(String[] args) {
+//        /* Chỉnh sửa đầu vào cho các phần tử input ở list input, cho phần tử click ở list click. */
+//        String linkHtml = "https://form.jotform.com/233591551157458";
+//        String htmlContent = Process.getHtmlContent(linkHtml);
+//        Document document = Process.getDomTree(htmlContent);
+//        List<String> input = Arrays.asList("First-name_in_passenger", "last_name in passenger", "first_name in contact_person","last-Name In contact_person"
+//        ,"title in contact person", "Title in passenger name", "e-mail", "area code", "phone", "city in address", "zip","state or province", "Street address", "Street address line 2"
+//        );
+//        List<String> click = Arrays.asList("next_btn", "back_btn", "submit_Button");
+//
+//        Map<String, String> res_click = detectClickElement(click, document);
+//        Map<String, String> res_input = detectInputElement(input, document);
+//        /* Đầu vào cho hàm detect các phần tử select là các cặp câu hỏi (có thể rỗng) và lựa chọn của người dùng
+//        Output cho mỗi cặp đó là xpath của phần tử select.
+//         */
+////        List<Pair<String, String >> select = new ArrayList<>();
+////        select.add(new Pair<>("", "March"));
+////        select.add(new Pair<>("Country", "Aruba"));
+////        select.add(new Pair<>("", "One Way"));
+////        select.add(new Pair<>("Airline", "Airline 1"));
+////        Map<Pair<String, String>, String> res_select = Select.detectSelectElement(select, document);
+////        for (Map.Entry<Pair<String, String>, String> entry : res_select.entrySet()) {
+////            Pair<String, String> pair = entry.getKey();
+////            String loc = entry.getValue();
+////            System.out.println(pair.getFirst() + " " + pair.getSecond() + " " + loc);
+////        }
+//
+//    }
+public static void main(String[] args) {
+    String linkHtml = "http://127.0.0.1:5500/src/main/resources/testcase/example.html";
+    String htmlContent = Process.getHtmlContent(linkHtml);
+    Document document = Process.getDomTree(htmlContent);
+    List<String> input = Arrays.asList("password");
+    Map<String, String> res_input = detectInputElement(input, document);
+}
 }
