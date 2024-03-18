@@ -43,7 +43,7 @@ public class Select {
                     }
                 }
             }
-            if (tmp != null && max_weight > 0 && max_full > 0) {
+            if (tmp != null) {
                 res.put(pair, Process.getXpath(tmp));
             } else {
                 System.out.println("Cant detect element with pair " + "question is " + question + " and choice is " + choice);
