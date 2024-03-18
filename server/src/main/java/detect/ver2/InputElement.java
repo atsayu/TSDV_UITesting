@@ -66,9 +66,11 @@ public class InputElement {
                     max = w;
                 }
             }
-            if (max.e != null) {
+            if (max.e != null && max.getFull() > 0 && max.getWeight() > 0) {
                 result.put(s, Process.getXpath(max.e));
                 System.out.println(s + " " + Process.getXpath(max.e) + max.getFull() + " " + max.getWeight() + " " + max.text);
+            } else {
+                System.out.println("Cant detect element with input is " + s);
             }
         }
 //        Map<String, String> res = new HashMap<>();
@@ -104,13 +106,14 @@ public class InputElement {
         String linkHtml = "https://form.jotform.com/233591762291461";
         String htmlContent = Process.getHtmlContent(linkHtml);
         Document document = Process.getDomTree(htmlContent);
+        List<String> input = Arrays.asList("Cong");
 //        List<String> input = Arrays.asList("First-name_in_passenger", "last_name in passenger", "first_name in contact_person","last-Name In contact_person"
 //        ,"title in contact person", "Title in passenger name", "e-mail", "area code", "phone", "city in address", "zip","state or province", "Street address", "Street address line 2"
 //        );
 //        List<String> click = Arrays.asList("next_btn", "back_btn", "submit_Button");
 //
 //        Map<String, String> res_click = detectClickElement(click, document);
-//        Map<String, String> res_input = detectInputElement(input, document);
+        Map<String, String> res_input = detectInputElement(input, document);
         /* Đầu vào cho hàm detect các phần tử select là các cặp câu hỏi (có thể rỗng) và lựa chọn của người dùng (ghi giống trên giao diện web)
         Output cho mỗi cặp đó là xpath của phần tử select.
          */
@@ -127,7 +130,7 @@ public class InputElement {
 //        }
         /* Đầu vào cho hàm detect các phần tử checkbox là các cặp câu hỏi (có thể rỗng) và lựa chọn của người dùng (ghi giống trên giao diện web)
         Với những checkbox chỉ có lựa chọn duy nhất trên web thì người dùng có thể cho câu hỏi rỗng, còn những checkbox mà lựa chọn của chúng giống nhau, người
-        dùng nên thêm câu hỏi vào.inte
+        dùng nên thêm câu hỏi vào.
         Output là xpath của mỗi phần tử checkbox với từng cặp đó.
          */
         Map<String, List<String>> map = new HashMap<>();
@@ -140,7 +143,6 @@ public class InputElement {
             String loc = entry.getValue();
             System.out.println(pair.getFirst() + " " + pair.getSecond() + " " + loc);
         }
-
     }
 
 }
