@@ -21,14 +21,13 @@ public class Select {
         for (Pair<String, String> pair : list) {
             String question = pair.getFirst();
             String choice = pair.getSecond();
-            System.out.println(question + " " + choice);
+
             Element tmp = null;
             int max_weight = -1;
             double max_full = -1;
             for (Element e : selectElements) {
                 if (HandleSelect.hasOption(e, choice)) {
                     if (question.isEmpty()) {
-                        System.out.println(100);
                         tmp = e;
                         break;
                     } else {
@@ -44,7 +43,12 @@ public class Select {
                     }
                 }
             }
-            res.put(pair, Process.getXpath(tmp));
+            if (tmp != null && max_weight > 0 && max_full > 0) {
+                res.put(pair, Process.getXpath(tmp));
+            } else {
+                System.out.println("Cant detect element with pair " + "question is " + question + " and choice is " + choice);
+            }
+
         }
         return res;
     }
@@ -54,9 +58,9 @@ public class Select {
         String htmlContent = Process.getHtmlContent(linkHtml);
         Document document = Process.getDomTree(htmlContent);
         List<Pair<String, String >> list = new ArrayList<>();
-        list.add(new Pair<>("", "March"));
+        list.add(new Pair<>("", "Cong"));
         list.add(new Pair<>("Country", "Aruba"));
-        list.add(new Pair<>("", "One Way"));
+        list.add(new Pair<>("Happy", "One Way"));
         list.add(new Pair<>("Airline", "Airline 1"));
         Map<Pair<String, String>, String> res = detectSelectElement(list, document);
         for (Map.Entry<Pair<String, String>, String> entry : res.entrySet()) {
