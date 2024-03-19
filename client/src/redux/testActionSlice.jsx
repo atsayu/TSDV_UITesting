@@ -17,7 +17,12 @@ export const testActionSlice = createSlice({
                 type: 'flow',
             })
         },
-        
+        addOpenWebSiteAction: (state, action) => {
+            state.testcases[action.payload.testcaseIndex].actions.push({
+                type: 'open',
+                url: action.payload.url
+            })
+        },
         addClickAction: (state, action) => {
             console.log(action.payload.testcaseIndex);
             state.testcases[action.payload.testcaseIndex].actions.push({
@@ -61,6 +66,6 @@ export const testActionSlice = createSlice({
     }
 })
 
-export const {addClickAction, addFlowDescribe, addTestCase, addInputAction,addHoverAction,changeUrl, changeDescribedLocator, changeValue, changeFlow, insertActions} = testActionSlice.actions;
+export const {addClickAction, addFlowDescribe, addOpenWebSiteAction, addTestCase, addInputAction,addHoverAction,changeUrl, changeDescribedLocator, changeValue, changeFlow, insertActions} = testActionSlice.actions;
 
 export default testActionSlice.reducer;

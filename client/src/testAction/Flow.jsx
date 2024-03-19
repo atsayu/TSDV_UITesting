@@ -23,7 +23,11 @@ export default function Flow() {
 
         lines.forEach((line) => {
             line = line.replace(/^[^A-Za-z]+/, '');
-            const words = line.match(/(?:[^\s"]+|"[^"]*")+/g);
+            let words = line.match(/(?:[^\s"]+|"[^"]*")+/g);
+            words = words.map((word) => {
+                if (word[0] === "\"") word = word.slice(1, -1);
+                return word;
+            });
             switch (words[0].toLowerCase()) {
                 case "open":
                     newActions.push({

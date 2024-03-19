@@ -27,12 +27,12 @@ function App() {
   const runScript = () => {
     console.log(scriptArray);
     fetch("http://localhost:8082/selenium", {
-      body: JSON.stringify(scriptArray),
       headers: {
-        'content-type': 'application/json',
+        'Content-Type': 'application/json',
         'Access-Control-Allow-Origin':'*',
         'Access-Control-Allow-Methods':'POST,PATCH,OPTIONS'
       },
+      body: JSON.stringify(scriptArray),
       method: "POST",
     })
     .then((response) => {
@@ -68,7 +68,7 @@ function App() {
       let newScriptString = '';
       testcases.forEach((testcase, index) => {
         let testcaseScript = '';
-        let testcasename = 'Test ' + index + 1;
+        let testcasename = 'Test' + index + 1;
         newScriptString = newScriptString.concat(testcasename + "\n");
         testcase.actions.forEach((action) => {
           testcaseScript = testcaseScript.concat(getScriptOfAction(action, data));

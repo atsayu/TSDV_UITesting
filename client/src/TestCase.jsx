@@ -2,7 +2,7 @@ import React, { createContext, useContext } from 'react'
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { addClickAction, addFlowDescribe, addHoverAction, addInputAction } from './redux/testActionSlice';
+import { addClickAction, addFlowDescribe, addHoverAction, addInputAction, addOpenWebSiteAction } from './redux/testActionSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import TestAction from './testAction/TestAction';
 import { List, ListItem } from '@mui/material';
@@ -20,6 +20,11 @@ export default function TestCase() {
     };
     const handleClose = () => {
         setAnchorEl(null);
+    }
+
+    const handleAddOpenWebsite = (testcaseIndex) => {
+        dispatch(addOpenWebSiteAction({testcaseIndex}));
+        handleClose();
     }
     const handleAddClick = (testcaseIndex) => {
         dispatch(addClickAction({ testcaseIndex }));
@@ -63,6 +68,7 @@ export default function TestCase() {
                         'aria-labelledby': 'basic-button',
                     }}
                 >
+                    <MenuItem onClick={() => handleAddOpenWebsite(testcaseIndex)}>Open website</MenuItem>
                     <MenuItem onClick={() => handleAddClick(testcaseIndex)}>Click</MenuItem>
                     <MenuItem onClick={() => handleAddInput(testcaseIndex)}>Input</MenuItem>
                     <MenuItem onClick={() => handleAddHover(testcaseIndex)}>Hover</MenuItem>

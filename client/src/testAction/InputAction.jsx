@@ -14,9 +14,9 @@ export default function InputAction({describedLocator, value}) {
   return (
     <>
         <span>Fill </span>
-        <Input margin='none' onChange={(e) => handleChangeValue(dispatch, e, testcaseIndex, actionIndex)} defaultValue={value || ''}/>
+        <Input sx={{input: {fontFamily: 'Times New Roman', textAlign: 'center', fontStyle:'italic'}}}  margin='none' onChange={(e) => handleChangeValue(dispatch, e, testcaseIndex, actionIndex)} defaultValue={value || ''}/>
         <span> into </span>
-        <Input margin='none' onChange={(e) => handleDescribedLocatorChange(dispatch, e, testcaseIndex, actionIndex)} defaultValue={describedLocator || ''}/>
+        <Input sx={{input: {fontFamily: 'Times New Roman', textAlign: 'center', fontStyle:'italic'}}}  margin='none' onChange={(e) => handleDescribedLocatorChange(dispatch, e, testcaseIndex, actionIndex)} defaultValue={describedLocator || ''}/>
     </>
   )
 }

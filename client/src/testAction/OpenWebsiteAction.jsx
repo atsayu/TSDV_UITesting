@@ -12,7 +12,7 @@ export default function OpenWebsiteAction({url}) {
   return (
     <>
         <span>Open browser and navigate to </span>
-        <Input margin='none' onChange={(e) => handleChangeUrl(dispatch, e, testcaseIndex, actionIndex)} defaultValue={url || ''}/>
+        <Input sx={{input: {fontFamily: 'Times New Roman', textAlign: 'center', fontStyle:'italic'}}} margin='none' onChange={(e) => handleChangeUrl(dispatch, e, testcaseIndex, actionIndex)} defaultValue={url || ''}/>
     </>
   )
 }
