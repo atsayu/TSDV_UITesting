@@ -2,6 +2,11 @@ package detect.object;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class InputAction extends Action {
 
@@ -32,6 +37,9 @@ public class InputAction extends Action {
 
     @Override
     public void run(WebDriver driver) {
-        driver.findElement(By.xpath(dom_locator)).sendKeys(value);
+        WebElement element = driver.findElement(By.xpath(dom_locator));
+        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(4));
+        wait.until(driver1 -> element.isEnabled() && element.isDisplayed());
+        element.sendKeys(value);
     }
 }

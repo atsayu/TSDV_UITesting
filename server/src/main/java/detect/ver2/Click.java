@@ -63,6 +63,4 @@ public class Click {
         Map<String, String> res_click = detectClickElement(click, document);
         Map<String, String> res_input = InputElement.detectInputElement(input, document);
     }
-
-
 }

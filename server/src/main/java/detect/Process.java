@@ -4,6 +4,7 @@ import detect.object.*;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
@@ -149,7 +150,15 @@ public class Process {
                     driver.get(url);
                     Action.runActions(visited, driver);
                     String pageSource = driver.getPageSource();
+                    try {
+                        FileWriter file = new FileWriter("src/main/resources/testcase/pagesource.html");
+                        file.write(pageSource);
+                        file.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     document = getDomTree(pageSource);
+
                     driver.quit();
                 }
                 visited.add(list.get(i));
@@ -314,7 +323,7 @@ public class Process {
     }
 
     public static void main(String[] args) {
-        Pair<String, List<Action>> res = parseJson("src/main/resources/testcase/sample.json");
+        Pair<String, List<Action>> res = parseJson("src/main/resources/testcase/test2.json");
         String url = res.getFirst();
         List<Action> actions = res.getSecond();
         List<Action> result = detectLocators(actions, url);
