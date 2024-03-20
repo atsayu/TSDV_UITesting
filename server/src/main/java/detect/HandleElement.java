@@ -4,6 +4,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import javax.print.Doc;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -19,6 +20,13 @@ public class HandleElement {
         } else {
             return label.get(0).text();
         }
+    }
+
+    public static void getElementsOfVariousTypes(Document document, Elements inputElements, Elements clickableElements, Elements selectElements) {
+        inputElements = HandleInput.getInputElements(document);
+        System.out.println(inputElements.size());
+        selectElements = HandleSelect.getSelectElements(document);
+        clickableElements = HandleClick.getClickableElements(document);
     }
 
     public static Elements selectInteractableElementsInSubtree(Element e) {
@@ -60,5 +68,35 @@ public class HandleElement {
         return false;
     }
 
+    public static int findNearestCommonAncestor (Element source, Element target) {
+        Elements elements = source.select("*");
+        if (elements.contains(target)) {
+            return 0;
+        } else {
+            return 1 + findNearestCommonAncestor(source.parent(), target);
+        }
+//        if (e != null) {
+//            if (e.equals(target)) {
+//                return 0;
+//            } else {
+//                return 1 + findNearestCommonAncestor(source.parent(), target);
+//            }
+//        }
+//        return -1;
+    }
+
+    public static Element findNearestElementWithSpecifiedElement(Element source, List<Element> list) {
+        int min_distance = Integer.MAX_VALUE;
+        Element res = null;
+        for (Element target : list) {
+            int dis = findNearestCommonAncestor(source, target);
+            System.out.println(dis);
+            if (dis >= 0 && dis < min_distance) {
+                min_distance = dis;
+                res = target;
+            }
+        }
+        return res;
+    }
 
 }

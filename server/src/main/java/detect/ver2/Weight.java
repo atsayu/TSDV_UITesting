@@ -134,5 +134,44 @@ public class Weight implements Comparable<Weight> {
         }
     }
 
+    public int compareAfterActionHover(Weight o) {
+        double f1 = getFull();
+        double f2 = o.getFull();
+        int c1 = compareBetweenSourceAndText();
+        int c2 = o.compareBetweenSourceAndText();
+        if (f1 > f2) {
+            return 1;
+        } else {
+            if (f1 == f2) {
+                if (c1 < 1) {
+                    if (c2 < 1) {
+                        return 0;
+                    }
+                    if (c2 == 1) {
+                        return -1;
+                    }
+                    if (c2 > 1) {
+                        return 1;
+                    }
+                } else {
+                    if (c1 == 1) {
+                        if (c2 == 1) {
+                            return 0;
+                        } else {
+                            return 1;
+                        }
+                    } else {
+                        if (c2 > 1) {
+                            return 0;
+                        } else {
+                            return -1;
+                        }
+                    }
+                }
+            }
+            return -1;
+        }
+    }
+
 
 }

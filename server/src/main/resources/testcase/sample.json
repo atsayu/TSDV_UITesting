@@ -42,9 +42,12 @@
             "expectedUrl": "https://webtest.ranorex.org/wp-admin/edit.php"
         },
         {
-            "type": "select",
-            "question": "",
-            "choice": "Edit"
+            "type": "hover",
+            "locator": "Hello"
+        },
+        {
+            "type": "click",
+            "locator": "Edit"
         }
     ]
   }
