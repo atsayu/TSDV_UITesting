@@ -42,7 +42,7 @@ public class Select {
                     }
                 }
             }
-            if (tmp != null && max_full > 0 && max_weight > 0) {
+            if (tmp != null) {
                 res.put(pair, tmp);
             } else {
                 System.out.println("Cant detect element with pair " + "question is " + question + " and choice is " + choice);
