@@ -19,6 +19,12 @@ function App() {
         return `\tdriver.get("${action.url}");\n`;
       case "click":
         return `\tdriver.findElement(By.xpath("${dict[action.describedLocator]}")).click();\n`;
+      case "hover":
+        return `new Actions(driver)
+        .moveToElement(driver.findElement(By.xpath("${dict[action.describedLocator]}")))
+        .perform();\n`;
+      case "select":
+        return `new Select(driver.findElement(By.xpath("${dict[action.describedLocator]}"))).selectByVisibleText("${dict[action.value]}");\n`;
       case "input":
         return `\tdriver.findElement(By.xpath("${dict[action.describedLocator]}")).sendKeys("${action.value}");\n`
     }
