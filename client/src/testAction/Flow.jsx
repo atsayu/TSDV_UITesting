@@ -54,6 +54,34 @@ export default function Flow() {
                         describedLocator: words.splice(2).join(" "),
                     });
                     break;
+                case "select":
+                    newActions.push({
+                        type: "select",
+                        describedLocator: words.splice(1).join(" "),
+                    });
+                    break;
+                case "check":
+                    newActions.push({
+                        type: "checkbox",
+                        describedLocator: words.splice(1).join(" "),
+                    });
+                    break;
+                case "verify":
+                    switch(words[1].toLowerCase()) {
+                        case "url" :
+                            newActions.push({
+                                type: "verifyUrl",
+                                url: words[2]
+                            });
+                            break;
+                        case "element":
+                            newActions.push({
+                                type: "verifyElement",
+                                describedLocator: words.splice(2).join(" ")
+                            });
+                            break;
+                    }
+                break;
             }
         });
         console.log(newActions);
@@ -61,7 +89,7 @@ export default function Flow() {
     }
     return (
         <>
-            <TextField onChange={handleChangeFlow} variant='outlined' multiline rows={5} fullWidth placeholder='Describe your test procedure' />
+            <TextField sx={{display: 'inline-block'}} size='small' onChange={handleChangeFlow} variant='outlined' multiline rows={5} fullWidth placeholder='Describe your test procedure' />
             <Button onClick={turnFlowToAction} size='small' variant='outlined'>Turn to element</Button>
         </>
     )
