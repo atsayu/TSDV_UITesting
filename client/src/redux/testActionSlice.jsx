@@ -45,6 +45,7 @@ export const testActionSlice = createSlice({
             })
         },
         changeUrl: (state, action) => {
+            console.log("Changing URL")
             state.testcases[action.payload.testcaseIndex].actions[action.payload.actionIndex].url = action.payload.newUrl;
         },
         changeDescribedLocator: (state, action) => {
@@ -76,11 +77,17 @@ export const testActionSlice = createSlice({
             })
         },
         deleteAction:(state, action) => {
-            state.testcases[action.payload.testcaseIndex].actions.splice(action.payload.actionIndex, 1);
+            const selectedIndexes = action.payload.selectedIndexes;
+            let oldActions = state.testcases[action.payload.testcaseIndex].actions;
+            state.testcases[action.payload.testcaseIndex].actions = oldActions.filter((action, index) => !selectedIndexes.includes(index));
+            // state.testcases[action.payload.testcaseIndex].actions = state.testcases[action.payload.testcaseIndex].actions.toSpliced(action.payload.actionIndex, 1);
+            // let actions = state.testcases[action.payload.testcaseIndex].actions;
+            // state.testcases[action.payload.testcaseIndex].actions = actions.filter((act, index) => index !== action.payload.actionIndex);
         },
         toogleSelectAction: (state, action) => {
             let oldSelectState = state.testcases[action.payload.testcaseIndex].actions[action.payload.actionIndex].selected;
             state.testcases[action.payload.testcaseIndex].actions[action.payload.actionIndex].selected = !oldSelectState;
+            console.log("toogle")
         },
         addSelectAction: (state, action) => {
             state.testcases[action.payload.testcaseIndex].actions.push({

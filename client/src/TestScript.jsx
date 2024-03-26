@@ -12,6 +12,9 @@ export default function TestScript({code}) {
             size
             />
         </div>
+        // <div>
+        //     {code}
+        // </div>
         
       );
 }

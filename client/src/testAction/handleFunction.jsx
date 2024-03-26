@@ -12,7 +12,7 @@ export const handleDescribedLocatorChange = (dispatch, e, testcaseIndex, actionI
 }
 export const handleChangeUrl = (dispatch, e, testcaseIndex, actionIndex) => {
     let newUrl = e.target.value;
-    dispatch(changeUrl({dispatch, actionIndex, newUrl}));
+    dispatch(changeUrl({dispatch, testcaseIndex, actionIndex, newUrl}));
 }
 
 

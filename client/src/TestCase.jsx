@@ -65,11 +65,9 @@ export default function TestCase() {
     }
 
     const deleteSelectedAction = () => {
+        console.log(selectedIndexes);
+        dispatch(deleteAction({testcaseIndex, selectedIndexes}));
         
-
-        selectedIndexes.forEach(testActionIndex => {
-            dispatch(deleteAction({testcaseIndex, testActionIndex}));
-        })
     }
     const handleAddCheckbox = () => {
         dispatch(addCheckboxAction({testcaseIndex}));

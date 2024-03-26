@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Box, Button, Stack, TextField } from '@mui/material'
+import { Box, Button, Stack, Input, TextField } from '@mui/material'
 import { TestCaseContext } from '../App'
 import { TestActionContext } from '../TestCase';
 import { useDispatch, useSelector } from 'react-redux';
@@ -89,7 +89,7 @@ export default function Flow() {
     }
     return (
         <>
-            <TextField sx={{display: 'inline-block'}} size='small' onChange={handleChangeFlow} variant='outlined' multiline rows={5} fullWidth placeholder='Describe your test procedure' />
+            <TextField sx={{input:{display: 'inline'}}} size='small' onChange={handleChangeFlow} variant='outlined' multiline rows={5} fullWidth placeholder='Describe your test procedure' />
             <Button onClick={turnFlowToAction} size='small' variant='outlined'>Turn to element</Button>
         </>
     )

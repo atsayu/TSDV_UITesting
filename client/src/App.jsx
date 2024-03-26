@@ -12,7 +12,8 @@ function App() {
   const dispatch = useDispatch();
   const [scriptArray, setScriptArray] = useState([]);
   const [scriptString, setScriptString] = useState('');
-
+  const [result, setResult] = useState('');
+ 
   const getScriptOfAction = (action, dict) => {
     switch(action.type) {
       case "open":
@@ -27,6 +28,9 @@ function App() {
         return `new Select(driver.findElement(By.xpath("${dict[action.describedLocator]}"))).selectByVisibleText("${dict[action.value]}");\n`;
       case "input":
         return `\tdriver.findElement(By.xpath("${dict[action.describedLocator]}")).sendKeys("${action.value}");\n`
+      case "verifyUrl":
+        return `Assert.assertTrue(driver.getCurrentUrl().equals("${action.url}"));\n`;
+      
     }
   }
 
@@ -47,6 +51,7 @@ function App() {
     })
     .then((data) => {
       console.log(data);
+      setResult(data.html);
     })
     .catch((error) => {
       console.error('There was a problem with your fetch operation:', error);
@@ -111,6 +116,7 @@ function App() {
       {
         scriptString !== '' && <TestScript code={scriptString}/>
       }
+      
 
     </>
   )
