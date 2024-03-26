@@ -37,8 +37,9 @@ public class InputAction extends Action {
 
     @Override
     public void run(WebDriver driver) {
+        System.out.println(dom_locator);
         WebElement element = driver.findElement(By.xpath(dom_locator));
-        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(4));
+        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(1));
         wait.until(driver1 -> element.isEnabled() && element.isDisplayed());
         element.sendKeys(value);
     }

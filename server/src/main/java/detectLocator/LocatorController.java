@@ -1,5 +1,6 @@
 package detectLocator;
 
+import detect.Pair;
 import detect.Process;
 import detect.object.*;
 import org.json.simple.JSONArray;
@@ -22,7 +23,7 @@ public class LocatorController {
             JSONArray testcases = (JSONArray) new JSONParser().parse(payload);
             for (Object testcase: testcases) {
                 JSONObject jsonTestCase = (JSONObject) testcase;
-                String url="";
+                String url = "";
                 List<Action> list = new ArrayList<>();
                 for (Object action: (JSONArray) jsonTestCase.get("actions")) {
                     JSONObject actionObject = (JSONObject) action;
@@ -38,14 +39,22 @@ public class LocatorController {
                         Action act = new ClickAction(locator);
                         list.add(act);
                     }
+                    if (type.equals("hover")) {
+                        Action act = new HoverAction((String) actionObject.get("describedLocator"));
+                        list.add(act);
+                    }
                     if (type.equals("select")) {
-                        String question = (String) actionObject.get("question");
-                        String choice = (String) actionObject.get("choice");
+                        String question = "";
+                        String choice = (String) actionObject.get("describedLocator");
                         Action act = new SelectAction(question, choice);
                         list.add(act);
                     }
-                    if (type.equals("assertUrl")) {
-                        String expectedUrl = (String) actionObject.get("expectedUrl");
+                    if (type.equals("checkbox")) {
+                        Action act = new ClickCheckboxAction((String)actionObject.get("describedLocator"));
+                        list.add(act);
+                    }
+                    if (type.equals("verifyUrl")) {
+                        String expectedUrl = (String) actionObject.get("url");
                         Action act = new AssertURL(expectedUrl);
                         list.add(act);
                     }
@@ -53,9 +62,11 @@ public class LocatorController {
                         url = (String) actionObject.get("url");
                     }
                 }
+                Pair<String, List<Action>> pair = Process.parseJson2(jsonTestCase);
+
                 List<Action> detectedLocatorActions = Process.detectLocators(list, url);
                 for (Action action: detectedLocatorActions) {
-                    if (!response.containsKey(action.getText_locator())) {
+                    if (action.getText_locator() != null && !response.containsKey(action.getText_locator())) {
                         response.put(action.getText_locator(), action.getDom_locator());
                     }
                 }

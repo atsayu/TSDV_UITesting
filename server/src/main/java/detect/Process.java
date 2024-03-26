@@ -23,6 +23,57 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import javax.print.Doc;
 
 public class Process {
+    public static Pair<String, List<Action>> parseJson2(JSONObject object) {
+        String url = "";
+        List<Action> list = new ArrayList<>();
+        JSONParser parser = new JSONParser();
+
+
+
+            JSONObject jsonObject =  object;
+
+            url = (String) jsonObject.get("url");
+
+            JSONArray actions = (JSONArray) jsonObject.get("actions");
+            for (Object o : actions) {
+                JSONObject action = (JSONObject) o;
+                String type = (String) action.get("type");
+                if (type.equals("input")) {
+                    String value = (String) action.get("value");
+                    String locator = (String) action.get("locator");
+                    Action act = new InputAction(value, locator);
+                    list.add(act);
+                }
+                if (type.equals("click")) {
+                    String locator = (String) action.get("locator");
+                    Action act = new ClickAction(locator);
+                    list.add(act);
+                }
+                if (type.equals("select")) {
+                    String question = (String) action.get("question");
+                    String choice = (String) action.get("choice");
+                    Action act = new SelectAction(question, choice);
+                    list.add(act);
+                }
+                if (type.equals("checkbox")) {
+                    String choice = (String) action.get("describedLocator");
+                    Action act = new ClickCheckboxAction(choice);
+                    list.add(act);
+                }
+                if (type.equals("hover")) {
+                    String locator = (String) action.get("describedLocator");
+                    Action act = new HoverAction(locator);
+                    list.add(act);
+                }
+                if (type.equals("verifyUrl")) {
+                    String expectedUrl = (String) action.get("url");
+                    Action act = new AssertURL(expectedUrl);
+                    list.add(act);
+                }
+            }
+
+        return new Pair<>(url, list);
+    }
     public static Pair<String, List<Action>> parseJson(String pathToJson) {
         String url = "";
         List<Action> list = new ArrayList<>();
@@ -157,7 +208,13 @@ public class Process {
 //                }
                 if (i != list.size() - 1) {
                     WebDriver driver = new ChromeDriver();
-                    driver.get(url);
+                    System.out.println(url);
+                    System.out.println(driver);
+                    try {
+                        driver.get(url);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                     Action.runActions(visited, driver);
                     String pageSource = driver.getPageSource();
                     try {
@@ -171,7 +228,12 @@ public class Process {
                     inputElements = HandleInput.getInputElements(document);
                     selectElements = HandleSelect.getSelectElements(document);
                     clickableElements = HandleClick.getClickableElements(document);
-                    driver.quit();
+                    try {
+                        driver.quit();
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
                 visited.add(list.get(i));
                 isAfterHoverAction = false;
