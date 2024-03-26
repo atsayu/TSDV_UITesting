@@ -51,7 +51,7 @@ public class Click {
                     for (Weight w : map.get(max)) {
                         if (w.e != null) {
                             elementList.add(w.e);
-                            System.out.println( Process.getXpath(w.e) + " " + w.text);
+                            System.out.println( Process.getAbsoluteXpath(w.e, "") + " " + w.text);
                         }
                     }
                     result.put(s, elementList);

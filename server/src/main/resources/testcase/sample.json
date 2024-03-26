@@ -5,7 +5,6 @@
             "type": "input",
             "locator": "username",
             "value": "ranorex webtest"
-
         },
         {
             "type": "input",

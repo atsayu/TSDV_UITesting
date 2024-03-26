@@ -86,7 +86,13 @@ public class Process {
 
     public static List<Action> detectLocators(List<Action> list, String url) {
         String htmlContent = getHtmlContent(url);
-
+        try {
+            FileWriter file = new FileWriter("src/main/resources/testcase/pagesource.html");
+            file.write(htmlContent);
+            file.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Element previousElement = null;
         Document document = getDomTree(htmlContent);
         Elements inputElements = HandleInput.getInputElements(document);
@@ -159,6 +165,11 @@ public class Process {
                     WebDriver driver = new ChromeDriver();
                     driver.get(url);
                     Action.runActions(visited, driver);
+                    try {
+                        Thread.sleep(3000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     String pageSource = driver.getPageSource();
                     try {
                         FileWriter file = new FileWriter("src/main/resources/testcase/pagesource.html");
@@ -186,12 +197,12 @@ public class Process {
                     List<Element> elementList = res.get(text_locator);
                     if (elementList.size() == 1) {
                         Element e = elementList.get(0);
-                        String locator = Process.getXpath(e);
+                        String locator = Process.getAbsoluteXpath(e, "");
                         list.get(i).setDom_locator(locator);
                         previousElement = e;
                     } else {
                         Element e = HandleElement.findNearestElementWithSpecifiedElement(previousElement, elementList);
-                        String locator = Process.getXpath(e);
+                        String locator = Process.getAbsoluteXpath(e, "");
                         list.get(i).setDom_locator(locator);
                         previousElement = e;
                     }
@@ -205,12 +216,12 @@ public class Process {
                     List<Element> elementList = res.get(text_locator);
                     if (elementList.size() == 1) {
                         Element e = elementList.get(0);
-                        String locator = Process.getXpath(e);
+                        String locator = Process.getAbsoluteXpath(e, "");
                         list.get(i).setDom_locator(locator);
                         previousElement = e;
                     } else {
                         Element e = HandleElement.findNearestElementWithSpecifiedElement(previousElement, elementList);
-                        String locator = Process.getXpath(e);
+                        String locator = Process.getAbsoluteXpath(e, "");
                         list.get(i).setDom_locator(locator);
                         previousElement = e;
                     }
@@ -323,6 +334,11 @@ public class Process {
     public static String getHtmlContent(String linkHtml) {
         WebDriver driver = new ChromeDriver();
         driver.get(linkHtml);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         String htmlContent = driver.getPageSource();
         driver.quit();
         return htmlContent;
@@ -376,6 +392,54 @@ public class Process {
         return xpath;
     }
 
+//    private String generateXPATH(WebElement childElement, String current) {
+//        String childTag = childElement.getTagName();
+//        if(childTag.equals("html")) {
+//            return "/html[1]"+current;
+//        }
+//        WebElement parentElement = childElement.findElement(By.xpath(".."));
+//        List<WebElement> childrenElements = parentElement.findElements(By.xpath("*"));
+//        int count = 0;
+//        for(int i=0;i<childrenElements.size(); i++) {
+//            WebElement childrenElement = childrenElements.get(i);
+//            String childrenElementTag = childrenElement.getTagName();
+//            if(childTag.equals(childrenElementTag)) {
+//                count++;
+//            }
+//            if(childElement.equals(childrenElement)) {
+//                return generateXPATH(parentElement, "/" + childTag + "[" + count + "]"+current);
+//            }
+//        }
+//        return null;
+//    }
+
+    public static String getAbsoluteXpath(Element e, String current) {
+        String tag = e.tagName();
+        if(tag.equals("html")) {
+            return "/html"+current;
+        }
+        Element parentElement = e.parent();
+        Elements childrenElements = parentElement.children();
+        int count = 0;
+        int idx = 0;
+        for (int i = 0; i < childrenElements.size(); i++) {
+            Element childrenElement = childrenElements.get(i);
+            String childrenElementTag = childrenElement.tagName();
+            if(tag.equals(childrenElementTag)) {
+                count++;
+            }
+            if(e.equals(childrenElement)) {
+                idx = count;
+            }
+            if (i == childrenElements.size() - 1) {
+                if (count == 1) {
+                    return getAbsoluteXpath(parentElement, "/" + tag + current);
+                }
+                return getAbsoluteXpath(parentElement, "/" + tag + "[" + idx + "]"+current);
+            }
+        }
+        return null;
+    }
     public static void main(String[] args) {
         Pair<String, List<Action>> res = parseJson("src/main/resources/testcase/sample.json");
         String url = res.getFirst();
