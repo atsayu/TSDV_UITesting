@@ -1,0 +1,28 @@
+{
+  "url": "https://detect2.wordpress.com/login",
+  "actions": [
+    {
+      "type": "input",
+      "locator": "Email Address or Username",
+      "value": "uitesting2024@gmail.com"
+    },
+    {
+      "type": "click",
+      "locator": "Continue"
+    },
+    {
+      "type": "assertUrl",
+      "expectedUrl": "https://detect2.wordpress.com/wp-admin/"
+    },
+    {
+      "type": "input",
+      "locator": "Password",
+      "value": "testing_UI24"
+
+    },
+    {
+      "type": "click",
+      "locator": "Log in"
+    }
+  ]
+}
