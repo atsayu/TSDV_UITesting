@@ -1,5 +1,7 @@
+TSDV - UET: UI Testing
+## Requirements
+NodeJS, JDK, Apache Maven
 ## Instruction
-
 1. Khởi chạy 2 services Locator Detector và Test Runner bằng IntelliJ
 2. Mở terminal tại thư mục client, chạy lệnh sau với lần chạy đầu tiên
 ``` 
