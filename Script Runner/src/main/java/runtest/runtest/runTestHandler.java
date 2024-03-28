@@ -26,6 +26,8 @@ public class runTestHandler {
             "import org.testng.annotations.AfterMethod;\n" +
             "import org.testng.annotations.BeforeMethod;\n" +
             "import org.testng.annotations.Test;\n" +
+            "import org.openqa.selenium.interactions.Actions;\n" +
+            "import org.openqa.selenium.support.ui.Select;\n" +
             "\n" +
             "public class Main {\n" +
             "    WebDriver driver;\n" +

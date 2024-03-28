@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73d88b12-7b40-4e08-93a3-030b701cd029" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/TestCase.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/TestCase.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/testActionSlice.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/testActionSlice.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/testAction/ClickAction.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/testAction/ClickAction.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/testAction/Flow.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/testAction/Flow.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/testAction/TestAction.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/testAction/TestAction.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/testAction/handleFunction.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/testAction/handleFunction.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,9 +16,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2daEYiUffdoza0xbAlN1mRyQTzY" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -37,10 +30,22 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/LAB UI/TSDV_UITesting",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.9-corretto-17.0.9-4caba194b151-107bc6b7" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

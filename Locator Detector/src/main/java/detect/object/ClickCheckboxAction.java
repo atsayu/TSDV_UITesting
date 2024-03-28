@@ -15,7 +15,7 @@ public class ClickCheckboxAction extends Action{
         this.choice = choice;
         this.dom_locator = "";
     }
-
+    
     public String getChoice() {
         return choice;
     }

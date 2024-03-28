@@ -66,8 +66,21 @@ public class LocatorController {
 
                 List<Action> detectedLocatorActions = Process.detectLocators(list, url);
                 for (Action action: detectedLocatorActions) {
-                    if (action.getText_locator() != null && !response.containsKey(action.getText_locator())) {
-                        response.put(action.getText_locator(), action.getDom_locator());
+                    if (!(action instanceof ClickCheckboxAction) && !(action instanceof SelectAction)) {
+                        if (action.getText_locator() != null && !response.containsKey(action.getText_locator())) {
+                            response.put(action.getText_locator(), action.getDom_locator());
+                        }
+                    } else {
+                        String choice = "";
+                        if (action instanceof ClickCheckboxAction) {
+                            choice = ((ClickCheckboxAction)action).getChoice();
+                        } else {
+                            choice = ((SelectAction)action).getChoice();
+                        }
+
+                        if (!choice.isEmpty() && !response.containsKey(choice)) {
+                            response.put(choice, action.getDom_locator());
+                        }
                     }
                 }
             }

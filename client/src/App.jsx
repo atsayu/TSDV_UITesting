@@ -21,22 +21,24 @@ function App() {
       case "click":
         return `\tdriver.findElement(By.xpath("${dict[action.describedLocator]}")).click();\n`;
       case "hover":
-        return `new Actions(driver)
+        return `\tnew Actions(driver)
         .moveToElement(driver.findElement(By.xpath("${dict[action.describedLocator]}")))
         .perform();\n`;
       case "select":
-        return `new Select(driver.findElement(By.xpath("${dict[action.describedLocator]}"))).selectByVisibleText("${dict[action.value]}");\n`;
+        return `\tnew Select(driver.findElement(By.xpath("${dict[action.describedLocator]}"))).selectByVisibleText("${action.describedLocator}");\n`;
+      case "checkbox":
+        return `\tdriver.findElement(By.xpath("${dict[action.describedLocator]}")).click();\n`;
       case "input":
         return `\tdriver.findElement(By.xpath("${dict[action.describedLocator]}")).sendKeys("${action.value}");\n`
       case "verifyUrl":
-        return `Assert.assertTrue(driver.getCurrentUrl().equals("${action.url}"));\n`;
+        return `\tAssert.assertTrue(driver.getCurrentUrl().equals("${action.url}"));\n`;
       
     }
   }
 
   const runScript = () => {
     console.log(scriptArray);
-    fetch("http://localhost:8082/selenium", {
+    fetch("http://localhost:8083/selenium", {
       headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin':'*',
