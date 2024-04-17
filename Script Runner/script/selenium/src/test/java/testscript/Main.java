@@ -9,7 +9,11 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
-
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
 public class Main {
     WebDriver driver;
     @BeforeMethod
@@ -21,22 +25,13 @@ public class Main {
         driver.quit();
     }@Test
 public void Test01() {
-	driver.get("http://webtest.ranorex.org/wp-login.php");
-	driver.findElement(By.xpath("//input[@id='user_login']")).sendKeys("ranorex webtest");
-	driver.findElement(By.xpath("//input[@id='user_pass']")).sendKeys("ranorex");
-	driver.findElement(By.xpath("//input[@id='wp-submit']")).click();
-	Assert.assertTrue(driver.getCurrentUrl().equals("https://webtest.ranorex.org/wp-admin/"));
-	driver.findElement(By.xpath("//a[@id='show-settings-link']")).click();
-	driver.findElement(By.xpath("//input[@id='dashboard_activity-hide']")).click();
-	driver.findElement(By.xpath("//a[@id='show-settings-link']")).click();
-	driver.findElement(By.xpath("//a[@href='edit.php' and @aria-haspopup='true']")).click();
-	Assert.assertTrue(driver.getCurrentUrl().equals("https://webtest.ranorex.org/wp-admin/edit.php"));
-	new Select(driver.findElement(By.xpath("//select[@name='m']"))).selectByVisibleText("March 2024");
-	new Actions(driver)
-        .moveToElement(driver.findElement(By.xpath("//a[@href='https://webtest.ranorex.org/wp-admin/post.php?post=99481&action=edit' and @title='Edit “Hello”' and normalize-space()='Hello']")))
-        .perform();
-	driver.findElement(By.xpath("//a[@href='https://webtest.ranorex.org/wp-admin/post.php?post=99481&action=edit' and @title='Edit this item' and normalize-space()='Edit']")).click();
-	Assert.assertTrue(driver.getCurrentUrl().equals("https://webtest.ranorex.org/wp-admin/post.php?post=99481&action=edit"));
+	driver.get("https://www.saucedemo.com/");
+	driver.findElement(By.xpath("//input[@id='user-name']")).sendKeys("standard_user");
+	driver.findElement(By.xpath("//input[@id='password']")).sendKeys("secret_sauce");
+	driver.findElement(By.xpath("//input[@id='login-button']")).click();
+	Assert.assertTrue(driver.getCurrentUrl().equals("https://www.saucedemo.com/inventory.html"));
+	driver.findElement(By.xpath("//a[@id='item_4_title_link']")).click();
+	Assert.assertTrue(driver.getCurrentUrl().equals("https://www.saucedemo.com/inventory-item.html?id=4"));
 
 }
 }

@@ -210,14 +210,12 @@ public class Process {
                     WebDriver driver = new ChromeDriver();
                     System.out.println(url);
                     System.out.println(driver);
-                    try {
-                        driver.get(url);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+
+                    driver.get(url);
                     Action.runActions(visited, driver);
                     String pageSource = driver.getPageSource();
                     try {
+
                         FileWriter file = new FileWriter("src/main/resources/testcase/pagesource.html");
                         file.write(pageSource);
                         file.close();

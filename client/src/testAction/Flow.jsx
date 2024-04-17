@@ -70,7 +70,7 @@ export default function Flow() {
                     switch(words[1].toLowerCase()) {
                         case "url" :
                             newActions.push({
-                                type: "verifyUrl",
+                                type: "verifyURL",
                                 url: words[2]
                             });
                             break;

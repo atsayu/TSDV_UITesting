@@ -23,6 +23,7 @@ public class LocatorController {
             JSONArray testcases = (JSONArray) new JSONParser().parse(payload);
             for (Object testcase: testcases) {
                 JSONObject jsonTestCase = (JSONObject) testcase;
+
                 String url = "";
                 List<Action> list = new ArrayList<>();
                 for (Object action: (JSONArray) jsonTestCase.get("actions")) {
@@ -53,7 +54,7 @@ public class LocatorController {
                         Action act = new ClickCheckboxAction((String)actionObject.get("describedLocator"));
                         list.add(act);
                     }
-                    if (type.equals("verifyUrl")) {
+                    if (type.equals("verifyURL")) {
                         String expectedUrl = (String) actionObject.get("url");
                         Action act = new AssertURL(expectedUrl);
                         list.add(act);
@@ -63,7 +64,7 @@ public class LocatorController {
                     }
                 }
                 Pair<String, List<Action>> pair = Process.parseJson2(jsonTestCase);
-
+                System.out.println(url);
                 List<Action> detectedLocatorActions = Process.detectLocators(list, url);
                 for (Action action: detectedLocatorActions) {
                     if (!(action instanceof ClickCheckboxAction) && !(action instanceof SelectAction)) {

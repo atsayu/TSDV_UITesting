@@ -66,7 +66,7 @@ export const testActionSlice = createSlice({
         },
         addAssertUrlAction: (state, action) => {
             state.testcases[action.payload.testcaseIndex].actions.push({
-                type: 'verifyUrl',
+                type: 'verifyURL',
                 url: action.payload.url
             })
         },

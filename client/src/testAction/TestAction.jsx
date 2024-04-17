@@ -37,7 +37,7 @@ export default function TestAction({ type, describedLocator, value, url, testSte
         case "flow":
             ActionComponent = <Flow />
             break;
-        case "verifyUrl":
+        case "verifyURL":
             ActionComponent = <AssertURLAction url={url}/>
             break;
         case "verifyElement":
