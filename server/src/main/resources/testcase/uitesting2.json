@@ -26,16 +26,15 @@
     },
     {
       "type": "click",
-      "locator": "Log out"
+      "locator": "Edit Profile"
     },
     {
       "type": "assertUrl",
       "expectedUrl": "https://uitesting2024.lovestoblog.com/wp-admin/"
     },
     {
-      "type": "input",
-      "locator": "password",
-      "value": "uitesting2024"
+      "type": "checkbox",
+      "locator": "Disable the visual editor when writing"
     }
   ]
 }

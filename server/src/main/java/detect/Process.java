@@ -87,7 +87,7 @@ public class Process {
     public static List<Action> detectLocators(List<Action> list, String url) {
         String htmlContent = getHtmlContent(url);
         try {
-            FileWriter file = new FileWriter("src/main/resources/testcase/pagesource.html");
+            FileWriter file = new FileWriter("server/src/main/resources/testcase/pagesource.html");
             file.write(htmlContent);
             file.close();
         } catch (IOException e) {
@@ -197,12 +197,14 @@ public class Process {
                     List<Element> elementList = res.get(text_locator);
                     if (elementList.size() == 1) {
                         Element e = elementList.get(0);
+//                        String locator = Process.getXpath(e);
                         String locator = Process.getAbsoluteXpath(e, "");
                         list.get(i).setDom_locator(locator);
                         previousElement = e;
                     } else {
                         Element e = HandleElement.findNearestElementWithSpecifiedElement(previousElement, elementList);
                         String locator = Process.getAbsoluteXpath(e, "");
+//                        String locator = Process.getXpath(e);
                         list.get(i).setDom_locator(locator);
                         previousElement = e;
                     }
@@ -216,12 +218,14 @@ public class Process {
                     List<Element> elementList = res.get(text_locator);
                     if (elementList.size() == 1) {
                         Element e = elementList.get(0);
+//                        String locator = Process.getXpath(e);
                         String locator = Process.getAbsoluteXpath(e, "");
                         list.get(i).setDom_locator(locator);
                         previousElement = e;
                     } else {
                         Element e = HandleElement.findNearestElementWithSpecifiedElement(previousElement, elementList);
                         String locator = Process.getAbsoluteXpath(e, "");
+//                        String locator = Process.getXpath(e);
                         list.get(i).setDom_locator(locator);
                         previousElement = e;
                     }
@@ -234,12 +238,16 @@ public class Process {
                     List<Element> elementList = res.get(text_locator);
                     if (elementList.size() == 1) {
                         Element e = elementList.get(0);
-                        String locator = Process.getXpath(e);
+//                        String locator = Process.getXpath(e);
+                        String locator = Process.getAbsoluteXpath(e, "");
+
                         list.get(i).setDom_locator(locator);
                         previousElement = e;
                     } else {
                         Element e = HandleElement.findNearestElementWithSpecifiedElement(previousElement, elementList);
-                        String locator = Process.getXpath(e);
+//                        String locator = Process.getXpath(e);
+                        String locator = Process.getAbsoluteXpath(e, "");
+
                         list.get(i).setDom_locator(locator);
                         previousElement = e;
                     }
@@ -251,7 +259,10 @@ public class Process {
                     Map<String, Element> res = ClickCheckbox.detectCheckboxElement(listChoices, document);
                     Element checkbox = res.get(choice);
                     isAfterHoverAction = false;
-                    list.get(i).setDom_locator(Process.getXpath(checkbox));
+                    String locator = Process.getAbsoluteXpath(checkbox, "");
+
+                    list.get(i).setDom_locator(locator);
+//                    list.get(i).setDom_locator(Process.getXpath(checkbox));
                     previousElement = checkbox;
                 }
                 if (list.get(i) instanceof SelectAction) {
@@ -265,7 +276,10 @@ public class Process {
                     Element select = res.get(pair);
                     previousElement = select;
                     isAfterHoverAction = false;
-                    list.get(i).setDom_locator(Process.getXpath(select));
+                    String locator = Process.getAbsoluteXpath(select, "");
+
+                    list.get(i).setDom_locator(locator);
+//                    list.get(i).setDom_locator(Process.getXpath(select));
                 }
 //                if (i == list.size() - 1) {
 //                    if (map.containsKey("Input")) {
@@ -441,7 +455,7 @@ public class Process {
         return null;
     }
     public static void main(String[] args) {
-        Pair<String, List<Action>> res = parseJson("src/main/resources/testcase/uitesting.json");
+        Pair<String, List<Action>> res = parseJson("server/src/main/resources/testcase/uitesting2.json");
         String url = res.getFirst();
         List<Action> actions = res.getSecond();
         List<Action> result = detectLocators(actions, url);

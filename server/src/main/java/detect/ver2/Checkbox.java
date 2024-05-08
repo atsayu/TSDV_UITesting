@@ -69,6 +69,7 @@ public class Checkbox {
                 Calculator.calculatePercentBetweenTwoStrings(question, text, visitedWords);
                 double full = 1.0 * visitedWords.size() / distinctWordsInQuestion.size();
                 if (Calculator.compareWeight(max_weight, max_full, weight, full) > 0) {
+                    System.out.println(text + " " + question + " " + full + " " + weight);
                     tmp = text;
                     max_full = full;
                     max_weight = weight;
@@ -104,13 +105,13 @@ public class Checkbox {
     }
 
     public static void main(String[] args) {
-        String linkHtml = "https://form.jotform.com/233591762291461";
+        String linkHtml = "https://uitesting2024.lovestoblog.com/?p=6&i=1";
         String htmlContent = Process.getHtmlContent(linkHtml);
         Document document = Process.getDomTree(htmlContent);
         Map<String, List<String>> map = new HashMap<>();
 //        map.put("hobbies", Arrays.asList("Sports", "Music"));
-        map.put("check symptoms",  Arrays.asList("Chest pain", "Other"));
-        map.put("", Arrays.asList("Cancer", "Asthma"));
+//        map.put("question 1",  Arrays.asList("Welcome to wordpress"));
+        map.put("question 2",  Arrays.asList("Welcome to wordpress"));
         Map<Pair<String, String>, String> res = detectCheckboxElement(map, document);
         for (Map.Entry<Pair<String, String>, String> entry : res.entrySet()) {
             Pair<String, String> pair = entry.getKey();
