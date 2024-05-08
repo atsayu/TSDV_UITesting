@@ -1,16 +1,16 @@
 {
-  "url": "http://shoppingdemo2.test/wp-admin/",
+  "url": "https://uitesting2024.lovestoblog.com/wp-admin/",
   "actions": [
     {
       "type": "input",
       "locator": "username",
-      "value": "minhtam"
+      "value": "uitesting2024"
 
     },
     {
       "type": "input",
       "locator": "password",
-      "value": "minhtam23092003"
+      "value": "uitesting2024"
 
     },
     {
@@ -22,12 +22,8 @@
       "expectedUrl": "http://shoppingdemo2.test/wp-admin/"
     },
     {
-      "type": "hover",
-      "locator": "Posts"
-    },
-    {
       "type": "click",
-      "locator": "All posts"
+      "locator": "posts"
     },
     {
       "type": "assertUrl",
@@ -35,7 +31,7 @@
     },
     {
       "type": "hover",
-      "locator": "Test Post"
+      "locator": "test"
     },
     {
       "type": "click",
@@ -45,10 +41,6 @@
       "type": "input",
       "locator": "title",
       "value": "test"
-    },
-    {
-      "type": "assertUrl",
-      "expectedUrl": "http://shoppingdemo2.test/wp-admin/edit.php"
     },
     {
       "type": "input",

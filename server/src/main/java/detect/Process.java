@@ -455,7 +455,7 @@ public class Process {
         return null;
     }
     public static void main(String[] args) {
-        Pair<String, List<Action>> res = parseJson("server/src/main/resources/testcase/uitesting2.json");
+        Pair<String, List<Action>> res = parseJson("server/src/main/resources/testcase/uitesting1.json");
         String url = res.getFirst();
         List<Action> actions = res.getSecond();
         List<Action> result = detectLocators(actions, url);

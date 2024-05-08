@@ -41,16 +41,17 @@ public class HandleCheckbox {
         int cnt_text = 0;
         String tmp = "";
         for (Element elem : elems) {
-            if (TypeElement.isInteractableElement(elem) && !TypeElement.isCheckboxElement(e)) {
+            if (TypeElement.isInteractableElement(elem) && !TypeElement.isCheckboxElement(elem)) {
                 return "";
             }
-            if (TypeElement.isCheckboxElement(e)) {
+            if (TypeElement.isCheckboxElement(elem)) {
                 cnt_checkbox++;
             }
             String t = elem.ownText();
             if (!t.isEmpty()) {
                 cnt_text++;
                 tmp = t;
+                System.out.println("1" + t + " " + cnt_text + " " + cnt_checkbox);
             }
         }
 
@@ -58,6 +59,7 @@ public class HandleCheckbox {
             return getTextForCheckboxElementInSubtree(e.parent());
         }
         if (cnt_checkbox == 1 && cnt_text == 1) {
+            System.out.println("2" + tmp);
             return tmp;
         }
         return "";
