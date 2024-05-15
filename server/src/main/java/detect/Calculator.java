@@ -67,6 +67,32 @@ public class Calculator {
         return -1;
     }
 
+    public static int compareWeight(int max_weight, double max_full, int current_cmp3, int w, double f, int cmp3) {
+        if (f > max_full) {
+            return 1;
+        } else {
+            if (f == max_full) {
+                if (cmp3 == 1) {
+                    if (current_cmp3 != 1) {
+                        return 1;
+                    } else {
+                        return w - max_weight;
+                    }
+                } else if (cmp3 == 0) {
+                    if (current_cmp3 == 1) {
+                        return -1;
+                    } else {
+                        return w - max_weight;
+                    }
+                } else {
+                    return w - max_weight;
+                }
+            } else {
+                return -1;
+            }
+        }
+    }
+
     public static int compareBetweenTwoString(String source, String target) {
         List<String> wordsInSource = HandleString.separateWordsInString(source);
         HandleString.lowercaseWordsInList(wordsInSource);
@@ -94,6 +120,6 @@ public class Calculator {
     public static void main(String[] args) {
         String s = "Street Address";
         String t = "Street Address Line 2";
-        System.out.println(compareBetweenTwoString(s, t));
+        System.out.println(compareBetweenTwoString(t, s));
     }
 }

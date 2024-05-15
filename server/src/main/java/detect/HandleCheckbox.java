@@ -4,16 +4,35 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import javax.xml.stream.events.EndElement;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class HandleCheckbox {
+    public static List<Element> searchCheckboxInSubtree(Element e) {
+        Elements elems = HandleElement.selectInteractableElementsInSubtree(e);
+        if (elems.size() == 0) {
+            return searchCheckboxInSubtree(e.parent());
+        }
+        List<Element> res = new ArrayList<>();
+        for (Element ele : elems) {
+            if (TypeElement.isCheckboxElement(ele)) {
+                res.add(ele);
+            }
+        }
+        if (res.isEmpty()) {
+            return searchCheckboxInSubtree(e.parent());
+        } else {
+            return res;
+        }
+    }
+
     public static Map<String, Element> searchCheckboxInSubtree(Element e, List<String> choices) {
         Elements elems = HandleElement.selectInteractableElementsInSubtree(e);
         if (elems.size() == 0) {
-            return searchCheckboxInSubtree(e.parent()
-                    , choices);
+            return searchCheckboxInSubtree(e.parent(), choices);
         }
 
         Map<String, Element> res = new HashMap<>();
