@@ -1,18 +1,12 @@
 package detect.ver2;
 
-import detect.Calculator;
-import detect.HandleElement;
-import detect.HandleSelect;
-import detect.Pair;
+import detect.*;
 import detect.Process;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Select {
     public static Map<Pair<String, String>, Element> detectSelectElement(List<Pair<String, String>> list, Elements selectElements) {
@@ -20,24 +14,30 @@ public class Select {
         for (Pair<String, String> pair : list) {
             String question = pair.getFirst();
             String choice = pair.getSecond();
+            int max_weight = 0;
+            double max_full = 0;
+            int current_cmp3 = 2;
+            List<String> wordsInQuestion = HandleString.separateWordsInString(question);
+            HandleString.lowercaseWordsInList(wordsInQuestion);
+            List<String> distinctWordsInQuestion = HandleString.distinctWordsInString(wordsInQuestion);
             Element tmp = null;
-            int max_weight = -1;
-            double max_full = -1;
             for (Element e : selectElements) {
                 if (HandleSelect.hasOption(e, choice)) {
                     if (question.isEmpty()) {
                         tmp = e;
                         break;
                     } else {
-                        String t = HandleSelect.getTextForSelect(e);
-                        System.out.println(question + " " + t);
-                        Weight w = new Weight(question, e, t);
-                        double full = w.getFull();
-                        int weight = w.getWeight();
-                        if (Calculator.compareWeight(max_weight, max_full, weight, full) > 0) {
-                            tmp = e;
+                        String text = HandleSelect.getTextForSelect(e);
+                        Set<String> visitedWords = new HashSet<>();
+                        int weight = Calculator.weightBetweenTwoString(question, text);
+                        Calculator.calculatePercentBetweenTwoStrings(question, text, visitedWords);
+                        double full = 1.0 * visitedWords.size() / distinctWordsInQuestion.size();
+                        int cmp3 = Calculator.compareBetweenTwoString(question, text);
+                        if (Calculator.compareWeight(max_weight, max_full, current_cmp3, weight, full, cmp3) > 0) {
                             max_full = full;
                             max_weight = weight;
+                            current_cmp3 = cmp3;
+                            tmp = e;
                         }
                     }
                 }
