@@ -200,6 +200,6 @@ public class Checkbox {
 //        }
         Pair<String, String> pair = new Pair("Check the symptoms", "loss");
         Element ele = detectCheckboxElement(pair, document);
-        System.out.println(Process.getXpath(ele));
+        System.out.println(document.selectXpath(Process.getXpath(ele)).size());
     }
 }

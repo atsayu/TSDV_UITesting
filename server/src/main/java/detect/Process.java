@@ -86,81 +86,15 @@ public class Process {
 
     public static List<Action> detectLocators(List<Action> list, String url) {
         String htmlContent = getHtmlContent(url);
-        try {
-            FileWriter file = new FileWriter("server/src/main/resources/testcase/pagesource.html");
-            file.write(htmlContent);
-            file.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         Element previousElement = null;
         Document document = getDomTree(htmlContent);
         Elements inputElements = HandleInput.getInputElements(document);
         Elements selectElements = HandleSelect.getSelectElements(document);
         Elements clickableElements = HandleClick.getClickableElements(document);
-        boolean isAfterHoverAction = false;
+        boolean isAfterAssertAction = false;
         List<Action> visited = new ArrayList<>();
-        Map<String, List<Action>> map = new HashMap<>(); //saves actions that needed to  be currently detected
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i) instanceof AssertURL) {
-
-//                if (map.containsKey("Input")) {
-//                    List<Action> inputActions = map.get("Input");
-//                    List<String> text_locators = new ArrayList<>();
-//                    for (Action action : inputActions) {
-//                        text_locators.add(action.getText_locator());
-//                    }
-//                    Map<String, String> res = InputElement.detectInputElement(text_locators, document);
-//                    for (Action action : inputActions) {
-//                        action.setDom_locator(res.get(action.getText_locator()));
-//                    }
-//                }
-//                if (map.containsKey("Click")) {
-//                    List<Action> clickActions = map.get("Click");
-//                    List<String> text_locators = new ArrayList<>();
-//                    for (Action action : clickActions) {
-//                        text_locators.add(action.getText_locator());
-//                    }
-//                    Map<String, String> res = Click.detectClickElement(text_locators, document);
-//                    for (Action action : clickActions) {
-//                        action.setDom_locator(res.get(action.getText_locator()));
-//                    }
-//                }
-//                if (map.containsKey("Checkbox")) {
-//                    List<Action> clickCheckboxActions = map.get("Checkbox");
-//                    List<String> listChoice = new ArrayList<>();
-//                    Map<Action, String> mp = new HashMap<>();
-//                    for (Action action : clickCheckboxActions) {
-//                        ClickCheckboxAction act = (ClickCheckboxAction) action;
-//                        String choice = act.getChoice();
-//                        listChoice.add(choice);
-//                        mp.put(action, choice);
-//                    }
-//                    Map<String, String> res = ClickCheckbox.detectCheckboxElement(listChoice, document);
-//                    for (Action action : clickCheckboxActions) {
-//                        action.setDom_locator(res.get(mp.get(action)));
-//                        System.out.println(res.get(mp.get(action)));
-//                    }
-//                }
-//                if (map.containsKey("Select")) {
-//                    List<Action> selectActions = map.get("Select");
-////                        List<SelectAction> select = new ArrayList<>();
-//                    List<Pair<String, String>> pairList = new ArrayList<>();
-//                    Map<Action, Pair<String, String>> mp = new HashMap<>();
-//                    for (Action action : selectActions) {
-//                        SelectAction selectAction = (SelectAction) action;
-////                            select.add(selectAction);
-//                        String question = selectAction.getQuestion();
-//                        String choice = selectAction.getChoice();
-//                        Pair<String, String> questionAndChoice = new Pair<>(question, choice);
-//                        pairList.add(questionAndChoice);
-//                        mp.put(action, questionAndChoice);
-//                    }
-//                    Map<Pair<String, String>, String> res = Select.detectSelectElement(pairList, document);
-//                    for (Action action : selectActions) {
-//                        action.setDom_locator(res.get(mp.get(action)));
-//                    }
-//                }
                 if (i != list.size() - 1) {
                     WebDriver driver = new ChromeDriver();
                     driver.get(url);
@@ -171,13 +105,6 @@ public class Process {
                         e.printStackTrace();
                     }
                     String pageSource = driver.getPageSource();
-                    try {
-                        FileWriter file = new FileWriter("src/main/resources/testcase/pagesource.html");
-                        file.write(pageSource);
-                        file.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
                     document = getDomTree(pageSource);
                     inputElements = HandleInput.getInputElements(document);
                     selectElements = HandleSelect.getSelectElements(document);
@@ -185,115 +112,180 @@ public class Process {
                     driver.quit();
                 }
                 visited.add(list.get(i));
-                isAfterHoverAction = false;
-                previousElement = null;
+                isAfterAssertAction = true;
             } else {
                 visited.add(list.get(i));
                 if (list.get(i) instanceof InputAction) {
                     String text_locator = list.get(i).getText_locator();
                     List<String> input = Arrays.asList(text_locator);
-                    Map<String, List<Element>> res = InputElement.detectInputElement(input, inputElements, isAfterHoverAction);
-
+                    Map<String, List<Element>> res = InputElement.detectInputElement(input, inputElements);
                     List<Element> elementList = res.get(text_locator);
                     if (elementList.size() == 1) {
                         Element e = elementList.get(0);
-//                        String locator = Process.getXpath(e);
                         String locator = Process.getAbsoluteXpath(e, "");
-                        System.out.println(locator);
+                        System.out.println(Process.getXpath(e));
                         list.get(i).setDom_locator(locator);
                         previousElement = e;
                     } else {
-                        if (previousElement != null) {
-                            Element e = HandleElement.findNearestElementWithSpecifiedElement(previousElement, elementList);
-                            String locator = Process.getAbsoluteXpath(e, "");
-                            System.out.println(locator);
-//                        String locator = Process.getXpath(e);
-                            list.get(i).setDom_locator(locator);
-                            previousElement = e;
+                        if (!isAfterAssertAction) {
+                            if (previousElement != null) {
+                                Element e = HandleElement.findNearestElementWithSpecifiedElement(previousElement, elementList);
+                                String locator = Process.getAbsoluteXpath(e, "");
+                                System.out.println(Process.getXpath(e));
+                                list.get(i).setDom_locator(locator);
+                                previousElement = e;
+                            } else {
+                                Element e = HandleElement.findNearestElementWithSpecifiedElement(document.body(), elementList);
+                                String locator = Process.getAbsoluteXpath(e, "");
+                                System.out.println(Process.getXpath(e));
+                                list.get(i).setDom_locator(locator);
+                                previousElement = e;
+                            }
                         } else {
-                            Element e = HandleElement.findNearestElementWithSpecifiedElement(document.body(), elementList);
-                            String locator = Process.getAbsoluteXpath(e, "");
-                            System.out.println(locator);
-//                        String locator = Process.getXpath(e);
-                            list.get(i).setDom_locator(locator);
-                            previousElement = e;
+                            if (previousElement == null) {
+                                Element e = HandleElement.findNearestElementWithSpecifiedElement(document.body(), elementList);
+                                String locator = Process.getAbsoluteXpath(e, "");
+                                System.out.println(Process.getXpath(e));
+                                list.get(i).setDom_locator(locator);
+                                previousElement = e;
+                            } else {
+                                String xpath_previous_element = Process.getAbsoluteXpath(previousElement, "");
+                                Elements elements = document.selectXpath(xpath_previous_element);
+                                if (elements.isEmpty()) {
+                                    Element e = HandleElement.findNearestElementWithSpecifiedElement(document.body(), elementList);
+                                    String locator = Process.getAbsoluteXpath(e, "");
+                                    System.out.println(Process.getXpath(e));
+                                    list.get(i).setDom_locator(locator);
+                                    previousElement = e;
+                                } else {
+                                    Element e = HandleElement.findNearestElementWithSpecifiedElement(previousElement, elementList);
+                                    String locator = Process.getAbsoluteXpath(e, "");
+                                    System.out.println(Process.getXpath(e));
+                                    list.get(i).setDom_locator(locator);
+                                    previousElement = e;
+                                }
+                            }
                         }
-
                     }
-                    isAfterHoverAction = false;
+                    isAfterAssertAction = false;
                 }
                 if (list.get(i) instanceof ClickAction) {
                     String text_locator = list.get(i).getText_locator();
                     List<String> input = Arrays.asList(text_locator);
-                    Map<String, List<Element>> res = Click.detectClickElement(input, clickableElements, isAfterHoverAction);
-                    isAfterHoverAction = false;
+                    Map<String, List<Element>> res = Click.detectClickElement(input, clickableElements);
                     List<Element> elementList = res.get(text_locator);
                     if (elementList.size() == 1) {
                         Element e = elementList.get(0);
-//                        String locator = Process.getXpath(e);
                         String locator = Process.getAbsoluteXpath(e, "");
-                        System.out.println(locator);
+                        System.out.println(Process.getXpath(e));
                         list.get(i).setDom_locator(locator);
                         previousElement = e;
                     } else {
-                        if (previousElement != null) {
-                            Element e = HandleElement.findNearestElementWithSpecifiedElement(previousElement, elementList);
-                            String locator = Process.getAbsoluteXpath(e, "");
-                            System.out.println(locator);
-//                        String locator = Process.getXpath(e);
-                            list.get(i).setDom_locator(locator);
-                            previousElement = e;
+                        if (!isAfterAssertAction) {
+                            if (previousElement != null) {
+                                Element e = HandleElement.findNearestElementWithSpecifiedElement(previousElement, elementList);
+                                String locator = Process.getAbsoluteXpath(e, "");
+                                System.out.println(Process.getXpath(e));
+                                list.get(i).setDom_locator(locator);
+                                previousElement = e;
+                            } else {
+                                Element e = HandleElement.findNearestElementWithSpecifiedElement(document.body(), elementList);
+                                String locator = Process.getAbsoluteXpath(e, "");
+                                System.out.println(Process.getXpath(e));
+                                list.get(i).setDom_locator(locator);
+                                previousElement = e;
+                            }
                         } else {
-                            Element e = HandleElement.findNearestElementWithSpecifiedElement(document.body(), elementList);
-                            String locator = Process.getAbsoluteXpath(e, "");
-                            System.out.println(locator);
-//                        String locator = Process.getXpath(e);
-                            list.get(i).setDom_locator(locator);
-                            previousElement = e;
+                            if (previousElement == null) {
+                                Element e = HandleElement.findNearestElementWithSpecifiedElement(document.body(), elementList);
+                                String locator = Process.getAbsoluteXpath(e, "");
+                                System.out.println(Process.getXpath(e));
+                                list.get(i).setDom_locator(locator);
+                                previousElement = e;
+                            } else {
+                                String xpath_previous_element = Process.getAbsoluteXpath(previousElement, "");
+                                Elements elements = document.selectXpath(xpath_previous_element);
+                                if (elements.isEmpty()) {
+                                    Element e = HandleElement.findNearestElementWithSpecifiedElement(document.body(), elementList);
+                                    String locator = Process.getAbsoluteXpath(e, "");
+                                    System.out.println(Process.getXpath(e));
+                                    list.get(i).setDom_locator(locator);
+                                    previousElement = e;
+                                } else {
+                                    Element e = HandleElement.findNearestElementWithSpecifiedElement(previousElement, elementList);
+                                    String locator = Process.getAbsoluteXpath(e, "");
+                                    System.out.println(Process.getXpath(e));
+                                    list.get(i).setDom_locator(locator);
+                                    previousElement = e;
+                                }
+                            }
                         }
                     }
+                    isAfterAssertAction = false;
                 }
                 if (list.get(i) instanceof HoverAction) {
                     String text_locator = list.get(i).getText_locator();
                     List<String> input = Arrays.asList(text_locator);
-                    Map<String, List<Element>> res = Hover.detectHoverElement(input, clickableElements, isAfterHoverAction);
-                    isAfterHoverAction = true;
+                    Map<String, List<Element>> res = Hover.detectHoverElement(input, clickableElements);
                     List<Element> elementList = res.get(text_locator);
                     if (elementList.size() == 1) {
                         Element e = elementList.get(0);
-//                        String locator = Process.getXpath(e);
                         String locator = Process.getAbsoluteXpath(e, "");
-                        System.out.println(locator);
+                        System.out.println(Process.getXpath(e));
                         list.get(i).setDom_locator(locator);
                         previousElement = e;
                     } else {
-                        if (previousElement != null) {
-                            Element e = HandleElement.findNearestElementWithSpecifiedElement(previousElement, elementList);
-                            String locator = Process.getAbsoluteXpath(e, "");
-                            System.out.println(locator);
-//                        String locator = Process.getXpath(e);
-                            list.get(i).setDom_locator(locator);
-                            previousElement = e;
+                        if (!isAfterAssertAction) {
+                            if (previousElement != null) {
+                                Element e = HandleElement.findNearestElementWithSpecifiedElement(previousElement, elementList);
+                                String locator = Process.getAbsoluteXpath(e, "");
+                                System.out.println(Process.getXpath(e));
+                                list.get(i).setDom_locator(locator);
+                                previousElement = e;
+                            } else {
+                                Element e = HandleElement.findNearestElementWithSpecifiedElement(document.body(), elementList);
+                                String locator = Process.getAbsoluteXpath(e, "");
+                                System.out.println(Process.getXpath(e));
+                                list.get(i).setDom_locator(locator);
+                                previousElement = e;
+                            }
                         } else {
-                            Element e = HandleElement.findNearestElementWithSpecifiedElement(document.body(), elementList);
-                            String locator = Process.getAbsoluteXpath(e, "");
-                            System.out.println(locator);
-//                        String locator = Process.getXpath(e);
-                            list.get(i).setDom_locator(locator);
-                            previousElement = e;
+                            if (previousElement == null) {
+                                Element e = HandleElement.findNearestElementWithSpecifiedElement(document.body(), elementList);
+                                String locator = Process.getAbsoluteXpath(e, "");
+                                System.out.println(Process.getXpath(e));
+                                list.get(i).setDom_locator(locator);
+                                previousElement = e;
+                            } else {
+                                String xpath_previous_element = Process.getAbsoluteXpath(previousElement, "");
+                                Elements elements = document.selectXpath(xpath_previous_element);
+                                if (elements.isEmpty()) {
+                                    Element e = HandleElement.findNearestElementWithSpecifiedElement(document.body(), elementList);
+                                    String locator = Process.getAbsoluteXpath(e, "");
+                                    System.out.println(Process.getXpath(e));
+                                    list.get(i).setDom_locator(locator);
+                                    previousElement = e;
+                                } else {
+                                    Element e = HandleElement.findNearestElementWithSpecifiedElement(previousElement, elementList);
+                                    String locator = Process.getAbsoluteXpath(e, "");
+                                    System.out.println(Process.getXpath(e));
+                                    list.get(i).setDom_locator(locator);
+                                    previousElement = e;
+                                }
+                            }
                         }
                     }
+                    isAfterAssertAction = false;
                 }
                 if (list.get(i) instanceof ClickCheckboxAction) {
                     ClickCheckboxAction checkboxAction = (ClickCheckboxAction) list.get(i);
                     String choice = checkboxAction.getChoice();
                     Pair<String, String> pair = new Pair("", choice);
                    Element checkbox = Checkbox.detectCheckboxElement(pair, document);
-                    isAfterHoverAction = false;
+                    isAfterAssertAction = false;
                     String locator = Process.getAbsoluteXpath(checkbox, "");
-                    System.out.println(locator);
+                    System.out.println(Process.getXpath(checkbox));
                     list.get(i).setDom_locator(locator);
-//                    list.get(i).setDom_locator(Process.getXpath(checkbox));
                     previousElement = checkbox;
                 }
                 if (list.get(i) instanceof SelectAction) {
@@ -306,72 +298,11 @@ public class Process {
                     Map<Pair<String, String>, Element> res = Select.detectSelectElement(list_pair, selectElements);
                     Element select = res.get(pair);
                     previousElement = select;
-                    isAfterHoverAction = false;
+                    isAfterAssertAction = false;
                     String locator = Process.getAbsoluteXpath(select, "");
-                    System.out.println(locator);
+                    System.out.println(Process.getXpath(select));
                     list.get(i).setDom_locator(locator);
-//                    list.get(i).setDom_locator(Process.getXpath(select));
                 }
-//                if (i == list.size() - 1) {
-//                    if (map.containsKey("Input")) {
-//                        List<Action> inputActions = map.get("Input");
-//                        List<String> text_locators = new ArrayList<>();
-//                        for (Action action : inputActions) {
-//                            text_locators.add(action.getText_locator());
-//                        }
-//                        Map<String, String> res = InputElement.detectInputElement(text_locators, document);
-//                        for (Action action : inputActions) {
-//                            action.setDom_locator(res.get(action.getText_locator()));
-//                        }
-//                    }
-//                    if (map.containsKey("Click")) {
-//                        List<Action> clickActions = map.get("Click");
-//                        List<String> text_locators = new ArrayList<>();
-//                        for (Action action : clickActions) {
-//                            text_locators.add(action.getText_locator());
-//                        }
-//                        Map<String, String> res = Click.detectClickElement(text_locators, document);
-//                        for (Action action : clickActions) {
-//                            action.setDom_locator(res.get(action.getText_locator()));
-//                        }
-//                    }
-//                    if (map.containsKey("Checkbox")) {
-//                        List<Action> clickCheckboxActions = map.get("Checkbox");
-//                        List<String> listChoice = new ArrayList<>();
-//                        Map<Action, String> mp = new HashMap<>();
-//                        for (Action action : clickCheckboxActions) {
-//                            ClickCheckboxAction act = (ClickCheckboxAction) action;
-//                            String choice = act.getChoice();
-//                            listChoice.add(choice);
-//                            mp.put(action, choice);
-//                        }
-//                        Map<String, String> res = ClickCheckbox.detectCheckboxElement(listChoice, document);
-//                        for (Action action : clickCheckboxActions) {
-//                            action.setDom_locator(res.get(mp.get(action)));
-//                            System.out.println(res.get(mp.get(action)));
-//                        }
-//                    }
-//                    if (map.containsKey("Select")) {
-//                        List<Action> selectActions = map.get("Select");
-////                        List<SelectAction> select = new ArrayList<>();
-//                        List<Pair<String, String>> pairList = new ArrayList<>();
-//                        Map<Action, Pair<String, String>> mp = new HashMap<>();
-//                        for (Action action : selectActions) {
-//                            SelectAction selectAction = (SelectAction) action;
-////                            select.add(selectAction);
-//                            String question = selectAction.getQuestion();
-//                            String choice = selectAction.getChoice();
-//                            Pair<String, String> questionAndChoice = new Pair<>(question, choice);
-//                            pairList.add(questionAndChoice);
-//                            mp.put(action, questionAndChoice);
-//                        }
-//                        Map<Pair<String, String>, String> res = Select.detectSelectElement(pairList, document);
-//                        for (Action action : selectActions) {
-//                            action.setDom_locator(res.get(mp.get(action)));
-//                        }
-//                    }
-//                    map.clear();
-//                }
             }
         }
         return list;
@@ -486,7 +417,7 @@ public class Process {
         return null;
     }
     public static void main(String[] args) {
-        Pair<String, List<Action>> res = parseJson("server/src/main/resources/testcase/uitestingselect.json");
+        Pair<String, List<Action>> res = parseJson("src/main/resources/testcase/uitestingselect.json");
         String url = res.getFirst();
         List<Action> actions = res.getSecond();
         List<Action> result = detectLocators(actions, url);
