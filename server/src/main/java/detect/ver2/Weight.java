@@ -102,34 +102,13 @@ public class Weight implements Comparable<Weight> {
         int c2 = o.compareBetweenSourceAndText();
         if (f1 > f2) {
             return 1;
-        } else {
-            if (f1 == f2) {
-                if (c1 < 1) {
-                    if (c2 < 1) {
-                        return w1 - w2;
-                    }
-                    if (c2 == 1) {
-                        return -1;
-                    }
-                    if (c2 > 1) {
-                        return 1;
-                    }
-                } else {
-                    if (c1 == 1) {
-                        if (c2 == 1) {
-                            return w1 - w2;
-                        } else {
-                            return 1;
-                        }
-                    } else {
-                        if (c2 > 1) {
-                            return w1 - w2;
-                        } else {
-                            return -1;
-                        }
-                    }
-                }
+        } else if (f1 == f2) {
+            if (c1 == c2) {
+                return w1 - w2;
+            } else {
+                return c1 - c2;
             }
+        } else {
             return -1;
         }
     }
@@ -141,34 +120,13 @@ public class Weight implements Comparable<Weight> {
         int c2 = o.compareBetweenSourceAndText();
         if (f1 > f2) {
             return 1;
-        } else {
-            if (f1 == f2) {
-                if (c1 < 1) {
-                    if (c2 < 1) {
-                        return 0;
-                    }
-                    if (c2 == 1) {
-                        return -1;
-                    }
-                    if (c2 > 1) {
-                        return 1;
-                    }
-                } else {
-                    if (c1 == 1) {
-                        if (c2 == 1) {
-                            return 0;
-                        } else {
-                            return 1;
-                        }
-                    } else {
-                        if (c2 > 1) {
-                            return 0;
-                        } else {
-                            return -1;
-                        }
-                    }
-                }
+        } else if (f1 == f2) {
+            if (c1 == c2) {
+                return 0;
+            } else {
+                return c1 - c2;
             }
+        } else {
             return -1;
         }
     }
