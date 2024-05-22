@@ -90,7 +90,7 @@ public class HandleElement {
         Element res = null;
         for (Element target : list) {
             int dis = findNearestCommonAncestor(source, target);
-            System.out.println(dis);
+            System.out.println("distance " + dis);
             if (dis >= 0 && dis < min_distance) {
                 min_distance = dis;
                 res = target;
