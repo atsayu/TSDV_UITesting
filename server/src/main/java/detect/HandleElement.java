@@ -1,14 +1,16 @@
 package detect;
 
+import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.json.Json;
 
-import javax.print.Doc;
-import java.util.Arrays;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class HandleElement {
 
@@ -68,28 +70,27 @@ public class HandleElement {
         return false;
     }
 
-    public static int findNearestCommonAncestor (Element source, Element target) {
-        Elements elements = source.select("*");
+    public static int getDistance(Element source, Element target) {
+        Elements elements = source.getAllElements();
         if (elements.contains(target)) {
-            return 0;
-        } else {
-            return 1 + findNearestCommonAncestor(source.parent(), target);
+            return getDistanceFromLeafNodeToRoot(source, target);
         }
-//        if (e != null) {
-//            if (e.equals(target)) {
-//                return 0;
-//            } else {
-//                return 1 + findNearestCommonAncestor(source.parent(), target);
-//            }
-//        }
-//        return -1;
+        return 1 + getDistance(source.parent(), target);
+    }
+
+    public static int getDistanceFromLeafNodeToRoot (Element source, Element target) {
+        if (target == source) {
+            return 0;
+        }
+        return 1 + getDistanceFromLeafNodeToRoot(source, target.parent());
     }
 
     public static Element findNearestElementWithSpecifiedElement(Element source, List<Element> list) {
         int min_distance = Integer.MAX_VALUE;
         Element res = null;
         for (Element target : list) {
-            int dis = findNearestCommonAncestor(source, target);
+            List<Element> visited = new ArrayList<>();
+            int dis = getDistance(source, target, visited);
             System.out.println("distance " + dis);
             if (dis >= 0 && dis < min_distance) {
                 min_distance = dis;
@@ -98,5 +99,52 @@ public class HandleElement {
         }
         return res;
     }
+
+    public static int isContainTargetElement(Element source, Element target, List<Element> visited) {
+        if (source == target) {
+            return 0;
+        }
+        for (Element child : source.children()) {
+            if (!visited.contains(child)) {
+                int dis = 1 + isContainTargetElement(child, target, visited);
+                if (dis > 0) {
+                    return dis;
+                }
+            }
+        }
+        return Integer.MIN_VALUE;
+    }
+
+    public static int getDistance(Element source, Element target, List<Element> visited) {
+        int dis = isContainTargetElement(source, target, visited);
+        if (dis > 0) {
+            return dis;
+        }
+        visited.add(source);
+        return 1 + getDistance(source.parent(), target, visited);
+    }
+
+    public static void main(String[] args) {
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://uitesting2024.lovestoblog.com/wp-admin/");
+        driver.findElement(By.xpath("/html/body/div/form/p[1]/input")).sendKeys("uitesting2024");
+        driver.findElement(By.xpath("/html/body/div/form/div/div/input")).sendKeys("uitesting2024");
+        driver.findElement(By.xpath("/html/body/div/form/p[3]/input[1]")).click();
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        String pageSource = driver.getPageSource();
+        Document document = Jsoup.parse(pageSource);
+        List<Element> visited = new ArrayList<>();
+        List<Element> visited2 = new ArrayList<>();
+        Element hover= document.selectXpath("/html/body/div[1]/div[1]/div[2]/ul/li[24]/a").first();
+        Element hover2 = document.selectXpath("/html/body/div[1]/div[1]/div[2]/ul/li[11]/ul/li[6]/a").first();
+        System.out.println(getDistance(document.body(), hover) + " " + getDistance(document.body(), hover, visited));
+        System.out.println(getDistance(document.body(), hover2) + " " + getDistance(document.body(), hover2, visited2));
+
+    }
+
 
 }
