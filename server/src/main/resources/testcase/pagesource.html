@@ -1,12 +1,12 @@
 <html class="wp-toolbar" lang="en-US"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Posts ‹ UI Testing 2024 — WordPress</title>
+	<title>Reading Settings ‹ UI Testing 2024 — WordPress</title>
 <script type="text/javascript">
 addLoadEvent = function(func){if(typeof jQuery!=='undefined')jQuery(function(){func();});else if(typeof wpOnload!=='function'){wpOnload=func;}else{var oldonload=wpOnload;wpOnload=function(){oldonload();func();}}};
 var ajaxurl = '/wp-admin/admin-ajax.php',
-	pagenow = 'edit-post',
-	typenow = 'post',
-	adminpage = 'edit-php',
+	pagenow = 'options-reading',
+	typenow = '',
+	adminpage = 'options-reading-php',
 	thousandsSeparator = ',',
 	decimalPoint = '.',
 	isRtl = 0;
@@ -42,7 +42,6 @@ var ajaxurl = '/wp-admin/admin-ajax.php',
 	}
 </style>
 <link rel="stylesheet" id="jetpack-jitm-css" href="https://uitesting2024.lovestoblog.com/wp-content/plugins/jetpack/jetpack_vendor/automattic/jetpack-jitm/build/index.css?minify=false&amp;ver=4e1caca8feef909f1031" media="all">
-<link rel="stylesheet" id="wpforms-edit-post-education-css" href="https://uitesting2024.lovestoblog.com/wp-content/plugins/wpforms-lite/assets/lite/css/admin/edit-post-education.min.css?ver=1.8.7.2" media="all">
 <script>
 window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/uitesting2024.lovestoblog.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.4.3"}};
 /*! This file is auto-generated */
@@ -51,19 +50,31 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14
 
 <script>
 /* <![CDATA[ */
-var userSettings = {"url":"\/","uid":"1","time":"1716442188","secure":"1"};/* ]]> */
+var userSettings = {"url":"\/","uid":"1","time":"1716958003","secure":"1"};/* ]]> */
 </script>
 <script src="https://uitesting2024.lovestoblog.com/wp-admin/load-scripts.php?c=0&amp;load%5Bchunk_0%5D=wp-polyfill-inert,regenerator-runtime,wp-polyfill,wp-hooks,jquery-core,jquery-migrate,utils&amp;ver=6.4.3"></script>
-<script src="https://stats.wp.com/w.js?ver=202421" id="woo-tracks-js"></script>
+<script src="https://stats.wp.com/w.js?ver=202422" id="woo-tracks-js"></script>
 <script type="text/javascript">var _wpColorScheme = {"icons":{"base":"#a7aaad","focus":"#72aee6","current":"#fff"}};</script>
-	<link id="wp-admin-canonical" rel="canonical" href="https://uitesting2024.lovestoblog.com/wp-admin/edit.php">
+	<link id="wp-admin-canonical" rel="canonical" href="https://uitesting2024.lovestoblog.com/wp-admin/options-reading.php">
 	<script>
 		if ( window.history.replaceState ) {
 			window.history.replaceState( null, null, document.getElementById( 'wp-admin-canonical' ).href + window.location.hash );
 		}
 	</script>
-	<meta name="viewport" content="width=device-width,initial-scale=1.0"><style>#adminmenu .wpforms-menu-new { color: #f18500; vertical-align: super; font-size: 9px; font-weight: 600; padding-left: 2px; }a.wpforms-sidebar-upgrade-pro { background-color: #00a32a !important; color: #fff !important; font-weight: 600 !important; }</style><script src="https://uitesting2024.lovestoblog.com/wp-includes/js/wp-emoji-release.min.js?ver=6.4.3" defer=""></script></head>
-<body class="wp-admin wp-core-ui js theme-astra cartflows-2.0.6 ast-highlight-wpblock-onhover ast-default-content-style-boxed ast-default-sidebar-style-boxed ast-default-layout-boxed-container ast-separate-container ast-two-container ast-block-custom ast-no-sidebar ast-sidebar-default-no-sidebar jetpack-disconnected wc-wp-version-gte-53 wc-wp-version-gte-55 edit-php auto-fold admin-bar post-type-post branch-6-4 version-6-4-3 admin-color-fresh locale-en-us customize-support dialog-body dialog-buttons-body dialog-container dialog-buttons-container svg e--ua-isTouchDevice e--ua-blink e--ua-chrome e--ua-webkit">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0"><script type="text/javascript">
+	jQuery( function($) {
+		var section = $('#front-static-pages'),
+			staticPage = section.find('input:radio[value="page"]'),
+			selects = section.find('select'),
+			check_disabled = function(){
+				selects.prop( 'disabled', ! staticPage.prop('checked') );
+			};
+		check_disabled();
+		section.find( 'input:radio' ).on( 'change', check_disabled );
+	} );
+</script>
+	<style>#adminmenu .wpforms-menu-new { color: #f18500; vertical-align: super; font-size: 9px; font-weight: 600; padding-left: 2px; }a.wpforms-sidebar-upgrade-pro { background-color: #00a32a !important; color: #fff !important; font-weight: 600 !important; }</style><script src="https://uitesting2024.lovestoblog.com/wp-includes/js/wp-emoji-release.min.js?ver=6.4.3" defer=""></script></head>
+<body class="wp-admin wp-core-ui js theme-astra cartflows-2.0.6 ast-highlight-wpblock-onhover ast-default-content-style-boxed ast-default-sidebar-style-boxed ast-default-layout-boxed-container ast-separate-container ast-two-container ast-block-custom ast-no-sidebar ast-sidebar-default- jetpack-disconnected wc-wp-version-gte-53 wc-wp-version-gte-55 options-reading-php auto-fold admin-bar branch-6-4 version-6-4-3 admin-color-fresh locale-en-us customize-support dialog-body dialog-buttons-body dialog-container dialog-buttons-container svg e--ua-isTouchDevice e--ua-blink e--ua-chrome e--ua-webkit">
 <script type="text/javascript">
 	document.body.className = document.body.className.replace('no-js','js');
 </script>
@@ -101,9 +112,9 @@ var userSettings = {"url":"\/","uid":"1","time":"1716442188","secure":"1"};/* ]]
 	<li class="wp-has-submenu wp-not-current-submenu menu-top toplevel_page_jetpack menu-top-last" id="toplevel_page_jetpack"><a href="admin.php?page=my-jetpack" class="wp-has-submenu wp-not-current-submenu menu-top toplevel_page_jetpack menu-top-last" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class="wp-menu-image svg" style="background-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjIwcHgiIHk9IjIwcHgiIHZpZXdCb3g9Ii00IC01IDQxIDQxIj48cGF0aCBmaWxsPSIjYTdhYWFkIiBkPSJNMTYsMEM3LjIsMCwwLDcuMiwwLDE2czcuMiwxNiwxNiwxNmM4LjgsMCwxNi03LjIsMTYtMTZTMjQuOCwwLDE2LDB6IE0xNS4yLDE4LjdoLThsOC0xNS41VjE4Ljd6IE0xNi44LDI4LjggVjEzLjNoOEwxNi44LDI4Ljh6Ii8+PC9zdmc+&quot;) !important;" aria-hidden="true"><br></div><div class="wp-menu-name">Jetpack</div></a>
 	<ul class="wp-submenu wp-submenu-wrap"><li class="wp-submenu-head" aria-hidden="true">Jetpack</li><li class="wp-first-item"><a href="admin.php?page=my-jetpack" class="wp-first-item">My Jetpack</a></li><li><a href="admin.php?page=jetpack">Jetpack</a></li></ul></li>
 	<li class="wp-not-current-submenu wp-menu-separator" aria-hidden="true"><div class="separator"></div></li>
-	<li class="wp-has-submenu wp-has-current-submenu wp-menu-open menu-top menu-icon-post open-if-no-js menu-top-first" id="menu-posts">
-	<a href="edit.php" class="wp-has-submenu wp-has-current-submenu wp-menu-open menu-top menu-icon-post open-if-no-js menu-top-first" aria-haspopup="false"><div class="wp-menu-arrow"><div></div></div><div class="wp-menu-image dashicons-before dashicons-admin-post" aria-hidden="true"><br></div><div class="wp-menu-name">Posts</div></a>
-	<ul class="wp-submenu wp-submenu-wrap"><li class="wp-submenu-head" aria-hidden="true">Posts</li><li class="wp-first-item current"><a href="edit.php" class="wp-first-item current" aria-current="page">All Posts</a></li><li><a href="post-new.php">Add New Post</a></li><li><a href="edit-tags.php?taxonomy=category">Categories</a></li><li><a href="edit-tags.php?taxonomy=post_tag">Tags</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-post open-if-no-js menu-top-first" id="menu-posts">
+	<a href="edit.php" class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-post open-if-no-js menu-top-first" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class="wp-menu-image dashicons-before dashicons-admin-post" aria-hidden="true"><br></div><div class="wp-menu-name">Posts</div></a>
+	<ul class="wp-submenu wp-submenu-wrap"><li class="wp-submenu-head" aria-hidden="true">Posts</li><li class="wp-first-item"><a href="edit.php" class="wp-first-item">All Posts</a></li><li><a href="post-new.php">Add New Post</a></li><li><a href="edit-tags.php?taxonomy=category">Categories</a></li><li><a href="edit-tags.php?taxonomy=post_tag">Tags</a></li></ul></li>
 	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-media" id="menu-media">
 	<a href="upload.php" class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-media" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class="wp-menu-image dashicons-before dashicons-admin-media" aria-hidden="true"><br></div><div class="wp-menu-name">Media</div></a>
 	<ul class="wp-submenu wp-submenu-wrap"><li class="wp-submenu-head" aria-hidden="true">Media</li><li class="wp-first-item"><a href="upload.php" class="wp-first-item">Library</a></li><li><a href="media-new.php">Add New Media File</a></li></ul></li>
@@ -130,11 +141,11 @@ var userSettings = {"url":"\/","uid":"1","time":"1716442188","secure":"1"};/* ]]
 	<a href="edit.php?post_type=elementor_library&amp;tabs_group=library" class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-elementor_library" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class="wp-menu-image dashicons-before dashicons-admin-page" aria-hidden="true"><br></div><div class="wp-menu-name">Templates</div></a>
 	<ul class="wp-submenu wp-submenu-wrap"><li class="wp-submenu-head" aria-hidden="true">Templates</li><li class="wp-first-item"><a href="edit.php?post_type=elementor_library&amp;tabs_group=library" class="wp-first-item">Saved Templates</a></li><li class="elementor-app-link"><a href="https://uitesting2024.lovestoblog.com/wp-admin/admin.php?page=elementor-app&amp;ver=3.20.3#site-editor/promotion" class="elementor-app-link">Theme Builder</a></li><li><a href="edit.php?post_type=elementor_library&amp;page=e-landing-page">Landing Pages</a></li><li><a href="https://uitesting2024.lovestoblog.com/wp-admin/admin.php?page=elementor-app&amp;ver=3.20.3#/kit-library">Kit Library</a></li><li><a href="edit.php?post_type=elementor_library&amp;page=popup_templates">Popups</a></li><li><a href="https://uitesting2024.lovestoblog.com/wp-admin/edit.php?post_type=elementor_library#add_new">Add New</a></li><li><a href="edit-tags.php?taxonomy=elementor_library_category&amp;post_type=elementor_library">Categories</a></li></ul></li>
 	<li class="wp-has-submenu wp-not-current-submenu menu-top toplevel_page_wpforms-overview menu-top-last" id="toplevel_page_wpforms-overview"><a href="admin.php?page=wpforms-overview" class="wp-has-submenu wp-not-current-submenu menu-top toplevel_page_wpforms-overview menu-top-last" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class="wp-menu-image svg" style="background-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTc5MiIgaGVpZ2h0PSIxNzkyIiB2aWV3Qm94PSIwIDAgMTc5MiAxNzkyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGZpbGw9IiNhN2FhYWQiIGQ9Ik02NDMgOTExdjEyOGgtMjUydi0xMjhoMjUyem0wLTI1NXYxMjdoLTI1MnYtMTI3aDI1MnptNzU4IDUxMXYxMjhoLTM0MXYtMTI4aDM0MXptMC0yNTZ2MTI4aC02NzJ2LTEyOGg2NzJ6bTAtMjU1djEyN2gtNjcydi0xMjdoNjcyem0xMzUgODYwdi0xMjQwcTAtOC02LTE0dC0xNC02aC0zMmwtMzc4IDI1Ni0yMTAtMTcxLTIxMCAxNzEtMzc4LTI1NmgtMzJxLTggMC0xNCA2dC02IDE0djEyNDBxMCA4IDYgMTR0MTQgNmgxMjQwcTggMCAxNC02dDYtMTR6bS04NTUtMTExMGwxODUtMTUwaC00MDZ6bTQzMCAwbDIyMS0xNTBoLTQwNnptNTUzLTEzMHYxMjQwcTAgNjItNDMgMTA1dC0xMDUgNDNoLTEyNDBxLTYyIDAtMTA1LTQzdC00My0xMDV2LTEyNDBxMC02MiA0My0xMDV0MTA1LTQzaDEyNDBxNjIgMCAxMDUgNDN0NDMgMTA1eiIvPjwvc3ZnPg==&quot;) !important;" aria-hidden="true"><br></div><div class="wp-menu-name">WPForms</div></a>
-	<ul class="wp-submenu wp-submenu-wrap"><li class="wp-submenu-head" aria-hidden="true">WPForms</li><li class="wp-first-item"><a href="admin.php?page=wpforms-overview" class="wp-first-item">All Forms</a></li><li><a href="admin.php?page=wpforms-builder">Add New</a></li><li><a href="admin.php?page=wpforms-entries">Entries</a></li><li><a href="admin.php?page=wpforms-payments">Payments<span class="wpforms-menu-new">&nbsp;NEW!</span></a></li><li><a href="admin.php?page=wpforms-templates">Form Templates</a></li><li><a href="admin.php?page=wpforms-settings">Settings</a></li><li><a href="admin.php?page=wpforms-tools">Tools</a></li><li><a href="admin.php?page=wpforms-addons"><span style="color:#f18500">Addons</span></a></li><li><a href="admin.php?page=wpforms-analytics">Analytics</a></li><li><a href="admin.php?page=wpforms-smtp">SMTP</a></li><li><a href="admin.php?page=wpforms-about">About Us</a></li><li><a href="admin.php?page=wpforms-community">Community</a></li><li class="wpforms-sidebar-upgrade-pro"><a href="https://wpforms.com/lite-upgrade/?utm_campaign=liteplugin&amp;utm_source=WordPress&amp;utm_medium=admin-menu&amp;utm_locale=en_US&amp;utm_content=Upgrade%20to%20Pro%20-%20edit" class="wpforms-sidebar-upgrade-pro">Upgrade to Pro</a></li></ul></li>
+	<ul class="wp-submenu wp-submenu-wrap"><li class="wp-submenu-head" aria-hidden="true">WPForms</li><li class="wp-first-item"><a href="admin.php?page=wpforms-overview" class="wp-first-item">All Forms</a></li><li><a href="admin.php?page=wpforms-builder">Add New</a></li><li><a href="admin.php?page=wpforms-entries">Entries</a></li><li><a href="admin.php?page=wpforms-payments">Payments<span class="wpforms-menu-new">&nbsp;NEW!</span></a></li><li><a href="admin.php?page=wpforms-templates">Form Templates</a></li><li><a href="admin.php?page=wpforms-settings">Settings</a></li><li><a href="admin.php?page=wpforms-tools">Tools</a></li><li><a href="admin.php?page=wpforms-addons"><span style="color:#f18500">Addons</span></a></li><li><a href="admin.php?page=wpforms-analytics">Analytics</a></li><li><a href="admin.php?page=wpforms-smtp">SMTP</a></li><li><a href="admin.php?page=wpforms-about">About Us</a></li><li><a href="admin.php?page=wpforms-community">Community</a></li><li class="wpforms-sidebar-upgrade-pro"><a href="https://wpforms.com/lite-upgrade/?utm_campaign=liteplugin&amp;utm_source=WordPress&amp;utm_medium=admin-menu&amp;utm_locale=en_US&amp;utm_content=Upgrade%20to%20Pro%20-%20options-reading" class="wpforms-sidebar-upgrade-pro">Upgrade to Pro</a></li></ul></li>
 	<li class="wp-not-current-submenu wp-menu-separator" aria-hidden="true"><div class="separator"></div></li>
 	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-appearance menu-top-first" id="menu-appearance">
 	<a href="themes.php" class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-appearance menu-top-first" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class="wp-menu-image dashicons-before dashicons-admin-appearance" aria-hidden="true"><br></div><div class="wp-menu-name">Appearance</div></a>
-	<ul class="wp-submenu wp-submenu-wrap"><li class="wp-submenu-head" aria-hidden="true">Appearance</li><li class="wp-first-item"><a href="themes.php" class="wp-first-item">Themes <span class="update-plugins count-4"><span class="theme-count">4</span></span></a></li><li class="hide-if-no-customize"><a href="customize.php?return=%2Fwp-admin%2Fedit.php" class="hide-if-no-customize">Customize</a></li><li><a href="widgets.php">Widgets</a></li><li><a href="nav-menus.php">Menus</a></li><li><a href="themes.php?page=starter-templates">Starter Templates</a></li><li><a href="theme-editor.php">Theme File Editor</a></li></ul></li>
+	<ul class="wp-submenu wp-submenu-wrap"><li class="wp-submenu-head" aria-hidden="true">Appearance</li><li class="wp-first-item"><a href="themes.php" class="wp-first-item">Themes <span class="update-plugins count-4"><span class="theme-count">4</span></span></a></li><li class="hide-if-no-customize"><a href="customize.php?return=%2Fwp-admin%2Foptions-reading.php" class="hide-if-no-customize">Customize</a></li><li><a href="widgets.php">Widgets</a></li><li><a href="nav-menus.php">Menus</a></li><li><a href="themes.php?page=starter-templates">Starter Templates</a></li><li><a href="theme-editor.php">Theme File Editor</a></li></ul></li>
 	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-plugins" id="menu-plugins">
 	<a href="plugins.php" class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-plugins" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class="wp-menu-image dashicons-before dashicons-admin-plugins" aria-hidden="true"><br></div><div class="wp-menu-name">Plugins <span class="update-plugins count-10"><span class="plugin-count">10</span></span></div></a>
 	<ul class="wp-submenu wp-submenu-wrap"><li class="wp-submenu-head" aria-hidden="true">Plugins <span class="update-plugins count-10"><span class="plugin-count">10</span></span></li><li class="wp-first-item"><a href="plugins.php" class="wp-first-item">Installed Plugins</a></li><li><a href="plugin-install.php">Add New Plugin</a></li><li><a href="plugin-editor.php">Plugin File Editor</a></li></ul></li>
@@ -144,17 +155,17 @@ var userSettings = {"url":"\/","uid":"1","time":"1716442188","secure":"1"};/* ]]
 	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-tools" id="menu-tools">
 	<a href="tools.php" class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-tools" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class="wp-menu-image dashicons-before dashicons-admin-tools" aria-hidden="true"><br></div><div class="wp-menu-name">Tools</div></a>
 	<ul class="wp-submenu wp-submenu-wrap"><li class="wp-submenu-head" aria-hidden="true">Tools</li><li class="wp-first-item"><a href="tools.php" class="wp-first-item">Available Tools</a></li><li><a href="import.php">Import</a></li><li><a href="export.php">Export</a></li><li><a href="site-health.php">Site Health <span class="menu-counter site-health-counter count-0"><span class="count">0</span></span></a></li><li><a href="export-personal-data.php">Export Personal Data</a></li><li><a href="erase-personal-data.php">Erase Personal Data</a></li></ul></li>
-	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-settings menu-top-last" id="menu-settings">
-	<a href="options-general.php" class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-settings menu-top-last" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class="wp-menu-image dashicons-before dashicons-admin-settings" aria-hidden="true"><br></div><div class="wp-menu-name">Settings<span class="update-plugins rsssl-update-count"><span class="update-count">2</span></span></div></a>
-	<ul class="wp-submenu wp-submenu-wrap"><li class="wp-submenu-head" aria-hidden="true">Settings<span class="update-plugins rsssl-update-count"><span class="update-count">2</span></span></li><li class="wp-first-item"><a href="options-general.php" class="wp-first-item">General</a></li><li><a href="options-writing.php">Writing</a></li><li><a href="options-reading.php">Reading</a></li><li><a href="options-discussion.php">Discussion</a></li><li><a href="options-media.php">Media</a></li><li><a href="options-permalink.php">Permalinks</a></li><li><a href="options-privacy.php">Privacy</a></li><li><a href="options-general.php?page=really-simple-security">SSL &amp; Security<span class="update-plugins rsssl-update-count"><span class="update-count">2</span></span></a></li></ul></li><li id="collapse-menu" class="hide-if-no-js"><button type="button" id="collapse-button" aria-label="Collapse Main menu" aria-expanded="true"><span class="collapse-button-icon" aria-hidden="true"></span><span class="collapse-button-label">Collapse menu</span></button></li></ul>
+	<li class="wp-has-submenu wp-has-current-submenu wp-menu-open menu-top menu-icon-settings menu-top-last" id="menu-settings">
+	<a href="options-general.php" class="wp-has-submenu wp-has-current-submenu wp-menu-open menu-top menu-icon-settings menu-top-last" aria-haspopup="false"><div class="wp-menu-arrow"><div></div></div><div class="wp-menu-image dashicons-before dashicons-admin-settings" aria-hidden="true"><br></div><div class="wp-menu-name">Settings</div></a>
+	<ul class="wp-submenu wp-submenu-wrap"><li class="wp-submenu-head" aria-hidden="true">Settings</li><li class="wp-first-item"><a href="options-general.php" class="wp-first-item">General</a></li><li><a href="options-writing.php">Writing</a></li><li class="current"><a href="options-reading.php" class="current" aria-current="page">Reading</a></li><li><a href="options-discussion.php">Discussion</a></li><li><a href="options-media.php">Media</a></li><li><a href="options-permalink.php">Permalinks</a></li><li><a href="options-privacy.php">Privacy</a></li></ul></li><li id="collapse-menu" class="hide-if-no-js"><button type="button" id="collapse-button" aria-label="Collapse Main menu" aria-expanded="true"><span class="collapse-button-icon" aria-hidden="true"></span><span class="collapse-button-label">Collapse menu</span></button></li></ul>
 </div>
 </div>
 <div id="wpcontent">
 
 		<div id="wpadminbar" class="nojq">
 						<div class="quicklinks" id="wp-toolbar" role="navigation" aria-label="Toolbar">
-				<ul id="wp-admin-bar-root-default" class="ab-top-menu"><li id="wp-admin-bar-menu-toggle"><a class="ab-item" href="#" aria-expanded="false"><span class="ab-icon" aria-hidden="true"></span><span class="screen-reader-text">Menu</span></a></li><li id="wp-admin-bar-wp-logo" class="menupop"><a class="ab-item" aria-haspopup="true" href="https://uitesting2024.lovestoblog.com/wp-admin/about.php"><span class="ab-icon" aria-hidden="true"></span><span class="screen-reader-text">About WordPress</span></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-wp-logo-default" class="ab-submenu"><li id="wp-admin-bar-about"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/about.php">About WordPress</a></li><li id="wp-admin-bar-contribute"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/contribute.php">Get Involved</a></li></ul><ul id="wp-admin-bar-wp-logo-external" class="ab-sub-secondary ab-submenu"><li id="wp-admin-bar-wporg"><a class="ab-item" href="https://wordpress.org/">WordPress.org</a></li><li id="wp-admin-bar-documentation"><a class="ab-item" href="https://wordpress.org/documentation/">Documentation</a></li><li id="wp-admin-bar-learn"><a class="ab-item" href="https://learn.wordpress.org/">Learn WordPress</a></li><li id="wp-admin-bar-support-forums"><a class="ab-item" href="https://wordpress.org/support/forums/">Support</a></li><li id="wp-admin-bar-feedback"><a class="ab-item" href="https://wordpress.org/support/forum/requests-and-feedback">Feedback</a></li></ul></div></li><li id="wp-admin-bar-site-name" class="menupop"><a class="ab-item" aria-haspopup="true" href="https://uitesting2024.lovestoblog.com/">UI Testing 2024</a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-site-name-default" class="ab-submenu"><li id="wp-admin-bar-view-site"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/">Visit Site</a></li><li id="wp-admin-bar-view-store"><a class="ab-item" href="https://uitesting2024.lovestoblog.com">Visit Store</a></li></ul></div></li><li id="wp-admin-bar-updates"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/update-core.php"><span class="ab-icon" aria-hidden="true"></span><span class="ab-label" aria-hidden="true">15</span><span class="screen-reader-text updates-available-text">15 updates available</span></a></li><li id="wp-admin-bar-comments"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/edit-comments.php"><span class="ab-icon" aria-hidden="true"></span><span class="ab-label awaiting-mod pending-count count-0" aria-hidden="true">0</span><span class="screen-reader-text comments-in-moderation-text">0 Comments in moderation</span></a></li><li id="wp-admin-bar-new-content" class="menupop"><a class="ab-item" aria-haspopup="true" href="https://uitesting2024.lovestoblog.com/wp-admin/post-new.php"><span class="ab-icon" aria-hidden="true"></span><span class="ab-label">New</span></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-new-content-default" class="ab-submenu"><li id="wp-admin-bar-new-post"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/post-new.php">Post</a></li><li id="wp-admin-bar-new-media"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/media-new.php">Media</a></li><li id="wp-admin-bar-new-page"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/post-new.php?post_type=page">Page</a></li><li id="wp-admin-bar-new-e-landing-page"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/edit.php?action=elementor_new_post&amp;post_type=e-landing-page&amp;template_type=landing-page&amp;_wpnonce=d27d012ceb#library">Landing Page</a></li><li id="wp-admin-bar-new-elementor_library"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/post-new.php?post_type=elementor_library">Template</a></li><li id="wp-admin-bar-new-product"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/post-new.php?post_type=product">Product</a></li><li id="wp-admin-bar-new-shop_order"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/post-new.php?post_type=shop_order">Order</a></li><li id="wp-admin-bar-new-shop_coupon"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/post-new.php?post_type=shop_coupon">Coupon</a></li><li id="wp-admin-bar-new-user"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/user-new.php">User</a></li><li id="wp-admin-bar-wpforms"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/admin.php?page=wpforms-builder">WPForms</a></li></ul></div></li><li id="wp-admin-bar-archive"><a class="ab-item" href="https://uitesting2024.lovestoblog.com">View Posts</a></li><li id="wp-admin-bar-wpforms-menu" class="menupop"><a class="ab-item" aria-haspopup="true" href="https://uitesting2024.lovestoblog.com/wp-admin/admin.php?page=wpforms-overview">WPForms</a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-wpforms-menu-default" class="ab-submenu"><li id="wp-admin-bar-wpforms-forms"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/admin.php?page=wpforms-overview">All Forms</a></li><li id="wp-admin-bar-wpforms-payments"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/admin.php?page=wpforms-payments">Payments</a></li><li id="wp-admin-bar-wpforms-add-new"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/admin.php?page=wpforms-builder">Add New</a></li><li id="wp-admin-bar-wpforms-community"><a class="ab-item" href="https://www.facebook.com/groups/wpformsvip/" target="_blank" rel="noopener noreferrer">Community</a></li><li id="wp-admin-bar-wpforms-help-docs"><a class="ab-item" href="https://wpforms.com/docs/?utm_campaign=liteplugin&amp;utm_medium=admin-bar&amp;utm_source=WordPress&amp;utm_content=Documentation" target="_blank" rel="noopener noreferrer">Help Docs</a></li><li id="wp-admin-bar-wpforms-upgrade"><a class="ab-item" href="https://wpforms.com/lite-upgrade/?utm_campaign=liteplugin&amp;utm_source=WordPress&amp;utm_medium=admin-bar&amp;utm_content=Upgrade%20to%20Pro%20-%20edit&amp;utm_locale=en_US" target="_blank" rel="noopener noreferrer">Upgrade to Pro</a></li></ul></div></li></ul><ul id="wp-admin-bar-top-secondary" class="ab-top-secondary ab-top-menu"><li id="wp-admin-bar-my-account" class="menupop with-avatar"><a class="ab-item" aria-haspopup="true" href="https://uitesting2024.lovestoblog.com/wp-admin/profile.php">Howdy, <span class="display-name">uitesting2024</span><img alt="" src="https://secure.gravatar.com/avatar/006c51837152b8791a9cef7c4ccbae5a?s=26&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/006c51837152b8791a9cef7c4ccbae5a?s=52&amp;d=mm&amp;r=g 2x" class="avatar avatar-26 photo" height="26" width="26" decoding="async"></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-user-actions" class="ab-submenu"><li id="wp-admin-bar-user-info"><a class="ab-item" tabindex="-1" href="https://uitesting2024.lovestoblog.com/wp-admin/profile.php"><img alt="" src="https://secure.gravatar.com/avatar/006c51837152b8791a9cef7c4ccbae5a?s=64&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/006c51837152b8791a9cef7c4ccbae5a?s=128&amp;d=mm&amp;r=g 2x" class="avatar avatar-64 photo" height="64" width="64" decoding="async"><span class="display-name">uitesting2024</span></a></li><li id="wp-admin-bar-edit-profile"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/profile.php">Edit Profile</a></li><li id="wp-admin-bar-logout"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-login.php?action=logout&amp;_wpnonce=95dc3c0efe">Log Out</a></li></ul></div></li></ul>			</div>
-						<a class="screen-reader-shortcut" href="https://uitesting2024.lovestoblog.com/wp-login.php?action=logout&amp;_wpnonce=95dc3c0efe">Log Out</a>
+				<ul id="wp-admin-bar-root-default" class="ab-top-menu"><li id="wp-admin-bar-menu-toggle"><a class="ab-item" href="#" aria-expanded="false"><span class="ab-icon" aria-hidden="true"></span><span class="screen-reader-text">Menu</span></a></li><li id="wp-admin-bar-wp-logo" class="menupop"><a class="ab-item" aria-haspopup="true" href="https://uitesting2024.lovestoblog.com/wp-admin/about.php"><span class="ab-icon" aria-hidden="true"></span><span class="screen-reader-text">About WordPress</span></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-wp-logo-default" class="ab-submenu"><li id="wp-admin-bar-about"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/about.php">About WordPress</a></li><li id="wp-admin-bar-contribute"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/contribute.php">Get Involved</a></li></ul><ul id="wp-admin-bar-wp-logo-external" class="ab-sub-secondary ab-submenu"><li id="wp-admin-bar-wporg"><a class="ab-item" href="https://wordpress.org/">WordPress.org</a></li><li id="wp-admin-bar-documentation"><a class="ab-item" href="https://wordpress.org/documentation/">Documentation</a></li><li id="wp-admin-bar-learn"><a class="ab-item" href="https://learn.wordpress.org/">Learn WordPress</a></li><li id="wp-admin-bar-support-forums"><a class="ab-item" href="https://wordpress.org/support/forums/">Support</a></li><li id="wp-admin-bar-feedback"><a class="ab-item" href="https://wordpress.org/support/forum/requests-and-feedback">Feedback</a></li></ul></div></li><li id="wp-admin-bar-site-name" class="menupop"><a class="ab-item" aria-haspopup="true" href="https://uitesting2024.lovestoblog.com/">UI Testing 2024</a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-site-name-default" class="ab-submenu"><li id="wp-admin-bar-view-site"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/">Visit Site</a></li><li id="wp-admin-bar-view-store"><a class="ab-item" href="https://uitesting2024.lovestoblog.com">Visit Store</a></li></ul></div></li><li id="wp-admin-bar-updates"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/update-core.php"><span class="ab-icon" aria-hidden="true"></span><span class="ab-label" aria-hidden="true">15</span><span class="screen-reader-text updates-available-text">15 updates available</span></a></li><li id="wp-admin-bar-comments"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/edit-comments.php"><span class="ab-icon" aria-hidden="true"></span><span class="ab-label awaiting-mod pending-count count-0" aria-hidden="true">0</span><span class="screen-reader-text comments-in-moderation-text">0 Comments in moderation</span></a></li><li id="wp-admin-bar-new-content" class="menupop"><a class="ab-item" aria-haspopup="true" href="https://uitesting2024.lovestoblog.com/wp-admin/post-new.php"><span class="ab-icon" aria-hidden="true"></span><span class="ab-label">New</span></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-new-content-default" class="ab-submenu"><li id="wp-admin-bar-new-post"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/post-new.php">Post</a></li><li id="wp-admin-bar-new-media"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/media-new.php">Media</a></li><li id="wp-admin-bar-new-page"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/post-new.php?post_type=page">Page</a></li><li id="wp-admin-bar-new-e-landing-page"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/edit.php?action=elementor_new_post&amp;post_type=e-landing-page&amp;template_type=landing-page&amp;_wpnonce=94c6f42e39#library">Landing Page</a></li><li id="wp-admin-bar-new-elementor_library"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/post-new.php?post_type=elementor_library">Template</a></li><li id="wp-admin-bar-new-product"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/post-new.php?post_type=product">Product</a></li><li id="wp-admin-bar-new-shop_order"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/post-new.php?post_type=shop_order">Order</a></li><li id="wp-admin-bar-new-shop_coupon"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/post-new.php?post_type=shop_coupon">Coupon</a></li><li id="wp-admin-bar-new-user"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/user-new.php">User</a></li><li id="wp-admin-bar-wpforms"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/admin.php?page=wpforms-builder">WPForms</a></li></ul></div></li><li id="wp-admin-bar-wpforms-menu" class="menupop"><a class="ab-item" aria-haspopup="true" href="https://uitesting2024.lovestoblog.com/wp-admin/admin.php?page=wpforms-overview">WPForms</a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-wpforms-menu-default" class="ab-submenu"><li id="wp-admin-bar-wpforms-forms"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/admin.php?page=wpforms-overview">All Forms</a></li><li id="wp-admin-bar-wpforms-payments"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/admin.php?page=wpforms-payments">Payments</a></li><li id="wp-admin-bar-wpforms-add-new"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/admin.php?page=wpforms-builder">Add New</a></li><li id="wp-admin-bar-wpforms-community"><a class="ab-item" href="https://www.facebook.com/groups/wpformsvip/" target="_blank" rel="noopener noreferrer">Community</a></li><li id="wp-admin-bar-wpforms-help-docs"><a class="ab-item" href="https://wpforms.com/docs/?utm_campaign=liteplugin&amp;utm_medium=admin-bar&amp;utm_source=WordPress&amp;utm_content=Documentation" target="_blank" rel="noopener noreferrer">Help Docs</a></li><li id="wp-admin-bar-wpforms-upgrade"><a class="ab-item" href="https://wpforms.com/lite-upgrade/?utm_campaign=liteplugin&amp;utm_source=WordPress&amp;utm_medium=admin-bar&amp;utm_content=Upgrade%20to%20Pro%20-%20options-reading&amp;utm_locale=en_US" target="_blank" rel="noopener noreferrer">Upgrade to Pro</a></li></ul></div></li></ul><ul id="wp-admin-bar-top-secondary" class="ab-top-secondary ab-top-menu"><li id="wp-admin-bar-my-account" class="menupop with-avatar"><a class="ab-item" aria-haspopup="true" href="https://uitesting2024.lovestoblog.com/wp-admin/profile.php">Howdy, <span class="display-name">uitesting2024</span><img alt="" src="https://secure.gravatar.com/avatar/006c51837152b8791a9cef7c4ccbae5a?s=26&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/006c51837152b8791a9cef7c4ccbae5a?s=52&amp;d=mm&amp;r=g 2x" class="avatar avatar-26 photo" height="26" width="26" decoding="async"></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-user-actions" class="ab-submenu"><li id="wp-admin-bar-user-info"><a class="ab-item" tabindex="-1" href="https://uitesting2024.lovestoblog.com/wp-admin/profile.php"><img alt="" src="https://secure.gravatar.com/avatar/006c51837152b8791a9cef7c4ccbae5a?s=64&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/006c51837152b8791a9cef7c4ccbae5a?s=128&amp;d=mm&amp;r=g 2x" class="avatar avatar-64 photo" height="64" width="64" decoding="async"><span class="display-name">uitesting2024</span></a></li><li id="wp-admin-bar-edit-profile"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-admin/profile.php">Edit Profile</a></li><li id="wp-admin-bar-logout"><a class="ab-item" href="https://uitesting2024.lovestoblog.com/wp-login.php?action=logout&amp;_wpnonce=69b17293ac">Log Out</a></li></ul></div></li></ul>			</div>
+						<a class="screen-reader-shortcut" href="https://uitesting2024.lovestoblog.com/wp-login.php?action=logout&amp;_wpnonce=69b17293ac">Log Out</a>
 					</div>
 
 		
@@ -174,87 +185,37 @@ var userSettings = {"url":"\/","uid":"1","time":"1716442188","secure":"1"};/* ]]
 									Overview								</a>
 							</li>
 							
-							<li id="tab-link-screen-content">
-								<a href="#tab-panel-screen-content" aria-controls="tab-panel-screen-content">
-									Screen Content								</a>
-							</li>
-							
-							<li id="tab-link-action-links">
-								<a href="#tab-panel-action-links" aria-controls="tab-panel-action-links">
-									Available Actions								</a>
-							</li>
-							
-							<li id="tab-link-bulk-actions">
-								<a href="#tab-panel-bulk-actions" aria-controls="tab-panel-bulk-actions">
-									Bulk actions								</a>
+							<li id="tab-link-site-visibility">
+								<a href="#tab-panel-site-visibility" aria-controls="tab-panel-site-visibility">
+									Search engine visibility								</a>
 							</li>
 													</ul>
 					</div>
 
 										<div class="contextual-help-sidebar">
-						<p><strong>For more information:</strong></p><p><a href="https://wordpress.org/documentation/article/posts-screen/">Documentation on Managing Posts</a></p><p><a href="https://wordpress.org/support/forums/">Support forums</a></p>					</div>
+						<p><strong>For more information:</strong></p><p><a href="https://wordpress.org/documentation/article/settings-reading-screen/">Documentation on Reading Settings</a></p><p><a href="https://wordpress.org/support/forums/">Support forums</a></p>					</div>
 					
 					<div class="contextual-help-tabs-wrap">
 						
 							<div id="tab-panel-overview" class="help-tab-content active">
-								<p>This screen provides access to all of your posts. You can customize the display of this screen to suit your workflow.</p>							</div>
+								<p>This screen contains the settings that affect the display of your content.</p><p>You can choose what’s displayed on the homepage of your site. It can be posts in reverse chronological order (classic blog), or a fixed/static page. To set a static homepage, you first need to create two <a href="post-new.php?post_type=page">Pages</a>. One will become the homepage, and the other will be where your posts are displayed.</p><p>You can also control the display of your content in RSS feeds, including the maximum number of posts to display and whether to show full text or an excerpt. <a href="https://wordpress.org/documentation/article/wordpress-feeds/">Learn more about feeds</a>.</p><p>You must click the Save Changes button at the bottom of the screen for new settings to take effect.</p>							</div>
 							
-							<div id="tab-panel-screen-content" class="help-tab-content">
-								<p>You can customize the display of this screen’s contents in a number of ways:</p><ul><li>You can hide/display columns based on your needs and decide how many posts to list per screen using the Screen Options tab.</li><li>You can filter the list of posts by post status using the text links above the posts list to only show posts with that status. The default view is to show all posts.</li><li>You can view posts in a simple title list or with an excerpt using the Screen Options tab.</li><li>You can refine the list to show only posts in a specific category or from a specific month by using the dropdown menus above the posts list. Click the Filter button after making your selection. You also can refine the list by clicking on the post author, category or tag in the posts list.</li></ul>							</div>
-							
-							<div id="tab-panel-action-links" class="help-tab-content">
-								<p>Hovering over a row in the posts list will display action links that allow you to manage your post. You can perform the following actions:</p><ul><li><strong>Edit</strong> takes you to the editing screen for that post. You can also reach that screen by clicking on the post title.</li><li><strong>Quick Edit</strong> provides inline access to the metadata of your post, allowing you to update post details without leaving this screen.</li><li><strong>Trash</strong> removes your post from this list and places it in the Trash, from which you can permanently delete it.</li><li><strong>Preview</strong> will show you what your draft post will look like if you publish it. View will take you to your live site to view the post. Which link is available depends on your post’s status.</li></ul>							</div>
-							
-							<div id="tab-panel-bulk-actions" class="help-tab-content">
-								<p>You can also edit or move multiple posts to the Trash at once. Select the posts you want to act on using the checkboxes, then select the action you want to take from the Bulk actions menu and click Apply.</p><p>When using Bulk Edit, you can change the metadata (categories, author, etc.) for all selected posts at once. To remove a post from the grouping, just click the <span class="dashicons dashicons-dismiss" aria-hidden="true" style="font-size: 16px; width: 16px; vertical-align: middle;"></span><span class="screen-reader-text">remove</span> button next to its name in the Bulk Edit area that appears.</p>							</div>
+							<div id="tab-panel-site-visibility" class="help-tab-content">
+								<p>You can choose whether or not your site will be crawled by robots, ping services, and spiders. If you want those services to ignore your site, click the checkbox next to “Discourage search engines from indexing this site” and click the Save Changes button at the bottom of the screen.</p><p>Note that even when set to discourage search engines, your site is still visible on the web and not all search engines adhere to this directive.</p><p>When this setting is in effect, a reminder is shown in the At a Glance box of the Dashboard that says, “Search engines discouraged”, to remind you that you have directed search engines to not crawl your site.</p>							</div>
 												</div>
 				</div>
 			</div>
-		<div id="screen-options-wrap" class="hidden" tabindex="-1" aria-label="Screen Options Tab">
-<form id="adv-settings" method="post">
-		<fieldset class="metabox-prefs">
-		<legend>Columns</legend>
-		<label><input class="hide-column-tog" name="author-hide" type="checkbox" id="author-hide" value="author" checked="checked">Author</label>
-<label><input class="hide-column-tog" name="categories-hide" type="checkbox" id="categories-hide" value="categories" checked="checked">Categories</label>
-<label><input class="hide-column-tog" name="tags-hide" type="checkbox" id="tags-hide" value="tags" checked="checked">Tags</label>
-<label><input class="hide-column-tog" name="comments-hide" type="checkbox" id="comments-hide" value="comments" checked="checked">Comments</label>
-<label><input class="hide-column-tog" name="date-hide" type="checkbox" id="date-hide" value="date" checked="checked">Date</label>
-		</fieldset>
-				<fieldset class="screen-options">
-		<legend>Pagination</legend>
-							<label for="edit_post_per_page">Number of items per page:</label>
-				<input type="number" step="1" min="1" max="999" class="screen-per-page" name="wp_screen_options[value]" id="edit_post_per_page" maxlength="3" value="20">
-							<input type="hidden" name="wp_screen_options[option]" value="edit_post_per_page">
-		</fieldset>
-				<fieldset class="metabox-prefs view-mode">
-			<legend>View mode</legend>
-			<label for="list-view-mode">
-				<input id="list-view-mode" type="radio" name="mode" value="list" checked="checked">
-				Compact view			</label>
-			<label for="excerpt-view-mode">
-				<input id="excerpt-view-mode" type="radio" name="mode" value="excerpt">
-				Extended view			</label>
-		</fieldset>
-		<p class="submit"><input type="submit" name="screen-options-apply" id="screen-options-apply" class="button button-primary" value="Apply"></p>
-<input type="hidden" id="screenoptionnonce" name="screenoptionnonce" value="d595a481b0">
-</form>
-</div>		</div>
+				</div>
 				<div id="screen-meta-links">
-					<div id="screen-options-link-wrap" class="hide-if-no-js screen-meta-toggle">
-			<button type="button" id="show-settings-link" class="button show-settings" aria-controls="screen-options-wrap" aria-expanded="false">Screen Options</button>
-			</div>
-						<div id="contextual-help-link-wrap" class="hide-if-no-js screen-meta-toggle">
+					<div id="contextual-help-link-wrap" class="hide-if-no-js screen-meta-toggle">
 			<button type="button" id="contextual-help-link" class="button show-settings" aria-controls="contextual-help-wrap" aria-expanded="false">Help</button>
 			</div>
 				</div>
-		<div class="notice notice-warning update-nag inline"><a href="https://wordpress.org/documentation/wordpress-version/version-6-5-3/">WordPress 6.5.3</a> is available! <a href="https://uitesting2024.lovestoblog.com/wp-admin/update-core.php" aria-label="Please update WordPress now">Please update now</a>.</div>		<div class="jetpack-jitm-message" data-nonce="f4595fc8ba" data-ajax-nonce="91959db8dd" data-message-path="wp:edit-post:admin_notices" data-query="" data-redirect="%2Fwp-admin%2Fedit.php"></div>
+		<div class="notice notice-warning update-nag inline"><a href="https://wordpress.org/documentation/wordpress-version/version-6-5-3/">WordPress 6.5.3</a> is available! <a href="https://uitesting2024.lovestoblog.com/wp-admin/update-core.php" aria-label="Please update WordPress now">Please update now</a>.</div>		<div class="jetpack-jitm-message" data-nonce="d77822076b" data-ajax-nonce="f9315a7f96" data-message-path="wp:options-reading:admin_notices" data-query="" data-redirect="%2Fwp-admin%2Foptions-reading.php"></div>
 					
-			<div class="wrap">
-<h1 class="wp-heading-inline">
-Posts</h1>
-
- <a href="https://uitesting2024.lovestoblog.com/wp-admin/post-new.php" class="page-title-action">Add New Post</a>
-<hr class="wp-header-end"><div class="notice notice-warning"><p><strong>Action Scheduler:</strong> 19 <a href="https://uitesting2024.lovestoblog.com/wp-admin/tools.php?page=action-scheduler&amp;status=past-due&amp;order=asc">past-due actions</a> found; something may be wrong. <a href="https://actionscheduler.org/faq/#my-site-has-past-due-actions-what-can-i-do" target="_blank">Read documentation »</a></p></div><div id="astra-sites-5-start-notice" class="astra-notice-wrapper astra-notice notice is-dismissible astra-sites-5-star notice-info" data-repeat-notice-after="">
+			
+<div class="wrap">
+<h1>Reading Settings</h1><div class="notice notice-warning"><p><strong>Action Scheduler:</strong> 19 <a href="https://uitesting2024.lovestoblog.com/wp-admin/tools.php?page=action-scheduler&amp;status=past-due&amp;order=asc">past-due actions</a> found; something may be wrong. <a href="https://actionscheduler.org/faq/#my-site-has-past-due-actions-what-can-i-do" target="_blank">Read documentation »</a></p></div><div id="astra-sites-5-start-notice" class="astra-notice-wrapper astra-notice notice is-dismissible astra-sites-5-star notice-info" data-repeat-notice-after="">
 				<div class="astra-notice-container">
 										<div class="notice-image">
 							<img src="https://uitesting2024.lovestoblog.com/wp-content/plugins/astra-sites/inc/assets/images/logo.svg" class="custom-logo" alt="Starter Templates" style="max-width: 90px"></div>
@@ -285,530 +246,89 @@ Posts</h1>
 		</p>
 		<button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button></div>
 
-
-<h2 class="screen-reader-text">Filter posts list</h2><ul class="subsubsub">
-	<li class="all"><a href="edit.php?post_type=post" class="current" aria-current="page">All <span class="count">(3)</span></a> |</li>
-	<li class="publish"><a href="edit.php?post_status=publish&amp;post_type=post">Published <span class="count">(3)</span></a></li>
+<form method="post" action="options.php">
+<input type="hidden" name="option_page" value="reading"><input type="hidden" name="action" value="update"><input type="hidden" id="_wpnonce" name="_wpnonce" value="18551a266a"><input type="hidden" name="_wp_http_referer" value="/wp-admin/options-reading.php">
+<table class="form-table" role="presentation">
+<tbody><tr>
+<th scope="row">Your homepage displays</th>
+<td id="front-static-pages"><fieldset>
+	<legend class="screen-reader-text"><span>
+		Your homepage displays	</span></legend>
+	<p><label>
+		<input name="show_on_front" type="radio" value="posts" class="tog">
+		Your latest posts	</label>
+	</p>
+	<p><label>
+		<input name="show_on_front" type="radio" value="page" class="tog" checked="checked">
+		A <a href="edit.php?post_type=page">static page</a> (select below)	</label>
+	</p>
+<ul>
+	<li><label for="page_on_front">
+	Homepage: <select name="page_on_front" id="page_on_front">
+	<option value="0">— Select —</option>
+	<option class="level-0" value="10">#10 (no title)</option>
+	<option class="level-0" value="11">#11 (no title)</option>
+	<option class="level-0" value="1319">About</option>
+	<option class="level-0" value="1321">Contact</option>
+	<option class="level-0" value="1318" selected="selected">Home</option>
+	<option class="level-0" value="2">Sample Page</option>
+	<option class="level-0" value="1320">Services</option>
+</select>
+</label></li>
+	<li><label for="page_for_posts">
+	Posts page: <select name="page_for_posts" id="page_for_posts">
+	<option value="0">— Select —</option>
+	<option class="level-0" value="10">#10 (no title)</option>
+	<option class="level-0" value="11">#11 (no title)</option>
+	<option class="level-0" value="1319">About</option>
+	<option class="level-0" value="1321">Contact</option>
+	<option class="level-0" value="1318">Home</option>
+	<option class="level-0" value="2">Sample Page</option>
+	<option class="level-0" value="1320">Services</option>
+</select>
+</label></li>
 </ul>
-<form id="posts-filter" method="get">
+	</fieldset></td>
+</tr>
+<tr>
+<th scope="row"><label for="posts_per_page">Blog pages show at most</label></th>
+<td>
+<input name="posts_per_page" type="number" step="1" min="1" id="posts_per_page" value="10" class="small-text"> posts</td>
+</tr>
+<tr>
+<th scope="row"><label for="posts_per_rss">Syndication feeds show the most recent</label></th>
+<td><input name="posts_per_rss" type="number" step="1" min="1" id="posts_per_rss" value="10" class="small-text"> items</td>
+</tr>
+<tr>
+<th scope="row">For each post in a feed, include </th>
+<td><fieldset>
+	<legend class="screen-reader-text"><span>
+		For each post in a feed, include	</span></legend>
+	<p>
+		<label><input name="rss_use_excerpt" type="radio" value="0" checked="checked"> Full text</label><br>
+		<label><input name="rss_use_excerpt" type="radio" value="1"> Excerpt</label>
+	</p>
+	<p class="description">
+		Your theme determines how content is displayed in browsers. <a href="https://wordpress.org/documentation/article/wordpress-feeds/">Learn more about feeds</a>.	</p>
+</fieldset></td>
+</tr>
 
-<p class="search-box">
-	<label class="screen-reader-text" for="post-search-input">Search Posts:</label>
-	<input type="search" id="post-search-input" name="s" value="">
-		<input type="submit" id="search-submit" class="button" value="Search Posts"></p>
-		
-<input type="hidden" name="post_status" class="post_status_page" value="all">
-<input type="hidden" name="post_type" class="post_type_page" value="post">
+<tr class="option-site-visibility">
+<th scope="row">Search engine visibility </th>
+<td><fieldset>
+	<legend class="screen-reader-text"><span>
+		Search engine visibility	</span></legend>
+	<label for="blog_public"><input name="blog_public" type="checkbox" id="blog_public" value="0">
+	Discourage search engines from indexing this site</label>
+	<p class="description">It is up to search engines to honor this request.</p>
+</fieldset></td>
+</tr>
 
-
-
-<input type="hidden" id="_wpnonce" name="_wpnonce" value="1bfb3ad43d"><input type="hidden" name="_wp_http_referer" value="/wp-admin/edit.php">	<div class="tablenav top">
-
-				<div class="alignleft actions bulkactions">
-			<label for="bulk-action-selector-top" class="screen-reader-text">Select bulk action</label><select name="action" id="bulk-action-selector-top">
-<option value="-1">Bulk actions</option>
-	<option value="edit" class="hide-if-no-js">Edit</option>
-	<option value="trash">Move to Trash</option>
-</select>
-<input type="submit" id="doaction" class="button action" value="Apply">
-		</div>
-					<div class="alignleft actions">
-				<label for="filter-by-date" class="screen-reader-text">Filter by date</label>
-		<select name="m" id="filter-by-date">
-			<option selected="selected" value="0">All dates</option>
-		<option value="202405">May 2024</option>
-<option value="202403">March 2024</option>
-		</select>
-		<label class="screen-reader-text" for="cat">Filter by category</label><select name="cat" id="cat" class="postform">
-	<option value="0">All Categories</option>
-	<option class="level-0" value="25">story</option>
-	<option class="level-0" value="1">Uncategorized</option>
-</select>
-<input type="submit" name="filter_action" id="post-query-submit" class="button" value="Filter">		</div>
-		<div class="tablenav-pages one-page"><span class="displaying-num">3 items</span>
-<span class="pagination-links"><span class="tablenav-pages-navspan button disabled" aria-hidden="true">«</span>
-<span class="tablenav-pages-navspan button disabled" aria-hidden="true">‹</span>
-<span class="paging-input"><label for="current-page-selector" class="screen-reader-text">Current Page</label><input class="current-page" id="current-page-selector" type="text" name="paged" value="1" size="1" aria-describedby="table-paging"><span class="tablenav-paging-text"> of <span class="total-pages">1</span></span></span>
-<span class="tablenav-pages-navspan button disabled" aria-hidden="true">›</span>
-<span class="tablenav-pages-navspan button disabled" aria-hidden="true">»</span></span></div>
-		<br class="clear">
-	</div>
-		<h2 class="screen-reader-text">Posts list</h2><table class="wp-list-table widefat fixed striped table-view-list posts">
-		<caption class="screen-reader-text">Table ordered by Date. Descending.</caption>	<thead>
-	<tr>
-		<td id="cb" class="manage-column column-cb check-column"><input id="cb-select-all-1" type="checkbox">
-			<label for="cb-select-all-1"><span class="screen-reader-text">Select All</span></label></td><th scope="col" id="title" class="manage-column column-title column-primary sortable desc" abbr="Title"><a href="https://uitesting2024.lovestoblog.com/wp-admin/edit.php?orderby=title&amp;order=asc"><span>Title</span><span class="sorting-indicators"><span class="sorting-indicator asc" aria-hidden="true"></span><span class="sorting-indicator desc" aria-hidden="true"></span></span> <span class="screen-reader-text">Sort ascending.</span></a></th><th scope="col" id="author" class="manage-column column-author">Author</th><th scope="col" id="categories" class="manage-column column-categories">Categories</th><th scope="col" id="tags" class="manage-column column-tags">Tags</th><th scope="col" id="comments" class="manage-column column-comments num sortable desc" abbr="Comments"><a href="https://uitesting2024.lovestoblog.com/wp-admin/edit.php?orderby=comment_count&amp;order=asc"><span><span class="vers comment-grey-bubble" title="Comments" aria-hidden="true"></span><span class="screen-reader-text">Comments</span></span><span class="sorting-indicators"><span class="sorting-indicator asc" aria-hidden="true"></span><span class="sorting-indicator desc" aria-hidden="true"></span></span> <span class="screen-reader-text">Sort ascending.</span></a></th><th scope="col" id="date" class="manage-column column-date sorted desc" aria-sort="descending" abbr="Date"><a href="https://uitesting2024.lovestoblog.com/wp-admin/edit.php?orderby=date&amp;order=asc"><span>Date</span><span class="sorting-indicators"><span class="sorting-indicator asc" aria-hidden="true"></span><span class="sorting-indicator desc" aria-hidden="true"></span></span></a></th>	</tr>
-	</thead>
-
-	<tbody id="the-list">
-				<tr id="post-1649" class="iedit author-self level-0 post-1649 type-post status-publish format-standard hentry category-uncategorized">
-			<th scope="row" class="check-column">			<input id="cb-select-1649" type="checkbox" name="post[]" value="1649">
-			<label for="cb-select-1649">
-				<span class="screen-reader-text">
-				Select test				</span>
-			</label>
-			<div class="locked-indicator">
-				<span class="locked-indicator-icon" aria-hidden="true"></span>
-				<span class="screen-reader-text">
-				“test” is locked				</span>
-			</div>
-			</th><td class="title column-title has-row-actions column-primary page-title" data-colname="Title"><div class="locked-info"><span class="locked-avatar"></span> <span class="locked-text"></span></div>
-<strong><a class="row-title" href="https://uitesting2024.lovestoblog.com/wp-admin/post.php?post=1649&amp;action=edit" aria-label="“test” (Edit)">test</a></strong>
-
-<div class="hidden" id="inline_1649">
-	<div class="post_title">test</div><div class="post_name">test</div>
-	<div class="post_author">1</div>
-	<div class="comment_status">open</div>
-	<div class="ping_status">open</div>
-	<div class="_status">publish</div>
-	<div class="jj">07</div>
-	<div class="mm">05</div>
-	<div class="aa">2024</div>
-	<div class="hh">13</div>
-	<div class="mn">06</div>
-	<div class="ss">47</div>
-	<div class="post_password"></div><div class="page_template">default</div><div class="post_category" id="category_1649">1</div><div class="tags_input" id="post_tag_1649"></div><div class="sticky"></div><div class="post_format"></div></div><div class="row-actions"><span class="edit"><a href="https://uitesting2024.lovestoblog.com/wp-admin/post.php?post=1649&amp;action=edit" aria-label="Edit “test”">Edit</a> | </span><span class="inline hide-if-no-js"><button type="button" class="button-link editinline" aria-label="Quick edit “test” inline" aria-expanded="false">Quick&nbsp;Edit</button> | </span><span class="trash"><a href="https://uitesting2024.lovestoblog.com/wp-admin/post.php?post=1649&amp;action=trash&amp;_wpnonce=e2c09bb08d" class="submitdelete" aria-label="Move “test” to the Trash">Trash</a> | </span><span class="view"><a href="https://uitesting2024.lovestoblog.com/test/" rel="bookmark" aria-label="View “test”">View</a></span></div><button type="button" class="toggle-row"><span class="screen-reader-text">Show more details</span></button></td><td class="author column-author" data-colname="Author"><a href="edit.php?post_type=post&amp;author=1">uitesting2024</a></td><td class="categories column-categories" data-colname="Categories"><a href="edit.php?category_name=uncategorized">Uncategorized</a></td><td class="tags column-tags" data-colname="Tags"><span aria-hidden="true">—</span><span class="screen-reader-text">No tags</span></td><td class="comments column-comments" data-colname="Comments">		<div class="post-com-count-wrapper">
-		<span aria-hidden="true">—</span><span class="screen-reader-text">No comments</span><span class="post-com-count post-com-count-pending post-com-count-no-pending"><span class="comment-count comment-count-no-pending" aria-hidden="true">0</span><span class="screen-reader-text">No comments</span></span>		</div>
-		</td><td class="date column-date" data-colname="Date">Published<br>2024/05/07 at 1:06 pm</td>		</tr>
-				<tr id="post-6" class="iedit author-self level-0 post-6 type-post status-publish format-standard hentry category-uncategorized">
-			<th scope="row" class="check-column">			<input id="cb-select-6" type="checkbox" name="post[]" value="6">
-			<label for="cb-select-6">
-				<span class="screen-reader-text">
-				Select Test detect locator				</span>
-			</label>
-			<div class="locked-indicator">
-				<span class="locked-indicator-icon" aria-hidden="true"></span>
-				<span class="screen-reader-text">
-				“Test detect locator” is locked				</span>
-			</div>
-			</th><td class="title column-title has-row-actions column-primary page-title" data-colname="Title"><div class="locked-info"><span class="locked-avatar"></span> <span class="locked-text"></span></div>
-<strong><a class="row-title" href="https://uitesting2024.lovestoblog.com/wp-admin/post.php?post=6&amp;action=edit" aria-label="“Test detect locator” (Edit)">Test detect locator</a></strong>
-
-<div class="hidden" id="inline_6">
-	<div class="post_title">Test detect locator</div><div class="post_name">test-detect-locator</div>
-	<div class="post_author">1</div>
-	<div class="comment_status">open</div>
-	<div class="ping_status">open</div>
-	<div class="_status">publish</div>
-	<div class="jj">19</div>
-	<div class="mm">03</div>
-	<div class="aa">2024</div>
-	<div class="hh">13</div>
-	<div class="mn">15</div>
-	<div class="ss">11</div>
-	<div class="post_password"></div><div class="page_template">default</div><div class="post_category" id="category_6">1</div><div class="tags_input" id="post_tag_6"></div><div class="sticky"></div><div class="post_format"></div></div><div class="row-actions"><span class="edit"><a href="https://uitesting2024.lovestoblog.com/wp-admin/post.php?post=6&amp;action=edit" aria-label="Edit “Test detect locator”">Edit</a> | </span><span class="inline hide-if-no-js"><button type="button" class="button-link editinline" aria-label="Quick edit “Test detect locator” inline" aria-expanded="false">Quick&nbsp;Edit</button> | </span><span class="trash"><a href="https://uitesting2024.lovestoblog.com/wp-admin/post.php?post=6&amp;action=trash&amp;_wpnonce=6dd2ea572d" class="submitdelete" aria-label="Move “Test detect locator” to the Trash">Trash</a> | </span><span class="view"><a href="https://uitesting2024.lovestoblog.com/test-detect-locator/" rel="bookmark" aria-label="View “Test detect locator”">View</a></span></div><button type="button" class="toggle-row"><span class="screen-reader-text">Show more details</span></button></td><td class="author column-author" data-colname="Author"><a href="edit.php?post_type=post&amp;author=1">uitesting2024</a></td><td class="categories column-categories" data-colname="Categories"><a href="edit.php?category_name=uncategorized">Uncategorized</a></td><td class="tags column-tags" data-colname="Tags"><span aria-hidden="true">—</span><span class="screen-reader-text">No tags</span></td><td class="comments column-comments" data-colname="Comments">		<div class="post-com-count-wrapper">
-		<span aria-hidden="true">—</span><span class="screen-reader-text">No comments</span><span class="post-com-count post-com-count-pending post-com-count-no-pending"><span class="comment-count comment-count-no-pending" aria-hidden="true">0</span><span class="screen-reader-text">No comments</span></span>		</div>
-		</td><td class="date column-date" data-colname="Date">Published<br>2024/03/19 at 1:15 pm</td>		</tr>
-				<tr id="post-1" class="iedit author-self level-0 post-1 type-post status-publish format-standard hentry category-uncategorized">
-			<th scope="row" class="check-column">			<input id="cb-select-1" type="checkbox" name="post[]" value="1">
-			<label for="cb-select-1">
-				<span class="screen-reader-text">
-				Select Hello world!				</span>
-			</label>
-			<div class="locked-indicator">
-				<span class="locked-indicator-icon" aria-hidden="true"></span>
-				<span class="screen-reader-text">
-				“Hello world!” is locked				</span>
-			</div>
-			</th><td class="title column-title has-row-actions column-primary page-title" data-colname="Title"><div class="locked-info"><span class="locked-avatar"></span> <span class="locked-text"></span></div>
-<strong><a class="row-title" href="https://uitesting2024.lovestoblog.com/wp-admin/post.php?post=1&amp;action=edit" aria-label="“Hello world!” (Edit)">Hello world!</a></strong>
-
-<div class="hidden" id="inline_1">
-	<div class="post_title">Hello world!</div><div class="post_name">hello-world</div>
-	<div class="post_author">1</div>
-	<div class="comment_status">open</div>
-	<div class="ping_status">open</div>
-	<div class="_status">publish</div>
-	<div class="jj">19</div>
-	<div class="mm">03</div>
-	<div class="aa">2024</div>
-	<div class="hh">13</div>
-	<div class="mn">08</div>
-	<div class="ss">57</div>
-	<div class="post_password"></div><div class="page_template">default</div><div class="post_category" id="category_1">1</div><div class="tags_input" id="post_tag_1"></div><div class="sticky"></div><div class="post_format"></div></div><div class="row-actions"><span class="edit"><a href="https://uitesting2024.lovestoblog.com/wp-admin/post.php?post=1&amp;action=edit" aria-label="Edit “Hello world!”">Edit</a> | </span><span class="inline hide-if-no-js"><button type="button" class="button-link editinline" aria-label="Quick edit “Hello world!” inline" aria-expanded="false">Quick&nbsp;Edit</button> | </span><span class="trash"><a href="https://uitesting2024.lovestoblog.com/wp-admin/post.php?post=1&amp;action=trash&amp;_wpnonce=40ac6b7525" class="submitdelete" aria-label="Move “Hello world!” to the Trash">Trash</a> | </span><span class="view"><a href="https://uitesting2024.lovestoblog.com/hello-world/" rel="bookmark" aria-label="View “Hello world!”">View</a></span></div><button type="button" class="toggle-row"><span class="screen-reader-text">Show more details</span></button></td><td class="author column-author" data-colname="Author"><a href="edit.php?post_type=post&amp;author=1">uitesting2024</a></td><td class="categories column-categories" data-colname="Categories"><a href="edit.php?category_name=uncategorized">Uncategorized</a></td><td class="tags column-tags" data-colname="Tags"><span aria-hidden="true">—</span><span class="screen-reader-text">No tags</span></td><td class="comments column-comments" data-colname="Comments">		<div class="post-com-count-wrapper">
-		<a href="https://uitesting2024.lovestoblog.com/wp-admin/edit-comments.php?p=1&amp;comment_status=approved" class="post-com-count post-com-count-approved"><span class="comment-count-approved" aria-hidden="true">1</span><span class="screen-reader-text">1 comment</span></a><span class="post-com-count post-com-count-pending post-com-count-no-pending"><span class="comment-count comment-count-no-pending" aria-hidden="true">0</span><span class="screen-reader-text">No pending comments</span></span>		</div>
-		</td><td class="date column-date" data-colname="Date">Published<br>2024/03/19 at 1:08 pm</td>		</tr>
-			</tbody>
-
-	<tfoot>
-	<tr>
-		<td class="manage-column column-cb check-column"><input id="cb-select-all-2" type="checkbox">
-			<label for="cb-select-all-2"><span class="screen-reader-text">Select All</span></label></td><th scope="col" class="manage-column column-title column-primary sortable desc" abbr="Title"><a href="https://uitesting2024.lovestoblog.com/wp-admin/edit.php?orderby=title&amp;order=asc"><span>Title</span><span class="sorting-indicators"><span class="sorting-indicator asc" aria-hidden="true"></span><span class="sorting-indicator desc" aria-hidden="true"></span></span> <span class="screen-reader-text">Sort ascending.</span></a></th><th scope="col" class="manage-column column-author">Author</th><th scope="col" class="manage-column column-categories">Categories</th><th scope="col" class="manage-column column-tags">Tags</th><th scope="col" class="manage-column column-comments num sortable desc" abbr="Comments"><a href="https://uitesting2024.lovestoblog.com/wp-admin/edit.php?orderby=comment_count&amp;order=asc"><span><span class="vers comment-grey-bubble" title="Comments" aria-hidden="true"></span><span class="screen-reader-text">Comments</span></span><span class="sorting-indicators"><span class="sorting-indicator asc" aria-hidden="true"></span><span class="sorting-indicator desc" aria-hidden="true"></span></span> <span class="screen-reader-text">Sort ascending.</span></a></th><th scope="col" class="manage-column column-date sorted desc" aria-sort="descending" abbr="Date"><a href="https://uitesting2024.lovestoblog.com/wp-admin/edit.php?orderby=date&amp;order=asc"><span>Date</span><span class="sorting-indicators"><span class="sorting-indicator asc" aria-hidden="true"></span><span class="sorting-indicator desc" aria-hidden="true"></span></span></a></th>	</tr>
-	</tfoot>
-
-</table>
-			<div class="tablenav bottom">
-
-				<div class="alignleft actions bulkactions">
-			<label for="bulk-action-selector-bottom" class="screen-reader-text">Select bulk action</label><select name="action2" id="bulk-action-selector-bottom">
-<option value="-1">Bulk actions</option>
-	<option value="edit" class="hide-if-no-js">Edit</option>
-	<option value="trash">Move to Trash</option>
-</select>
-<input type="submit" id="doaction2" class="button action" value="Apply">
-		</div>
-					<div class="alignleft actions">
-				</div>
-		<div class="tablenav-pages one-page"><span class="displaying-num">3 items</span>
-<span class="pagination-links"><span class="tablenav-pages-navspan button disabled" aria-hidden="true">«</span>
-<span class="tablenav-pages-navspan button disabled" aria-hidden="true">‹</span>
-<span class="screen-reader-text">Current Page</span><span id="table-paging" class="paging-input"><span class="tablenav-paging-text">1 of <span class="total-pages">1</span></span></span>
-<span class="tablenav-pages-navspan button disabled" aria-hidden="true">›</span>
-<span class="tablenav-pages-navspan button disabled" aria-hidden="true">»</span></span></div>
-		<br class="clear">
-	</div>
-		
-</form>
+</tbody></table>
 
 
-		<form method="get">
-		<table style="display: none"><tbody id="inlineedit">
-					<tr id="inline-edit" class="inline-edit-row inline-edit-row-post quick-edit-row quick-edit-row-post inline-edit-post" style="display: none">
-			<td colspan="7" class="colspanchange">
-			<div class="inline-edit-wrapper" role="region" aria-labelledby="quick-edit-legend">
-			<fieldset class="inline-edit-col-left">
-				<legend class="inline-edit-legend" id="quick-edit-legend">Quick Edit</legend>
-				<div class="inline-edit-col">
-
-				
-					
-						<label>
-							<span class="title">Title</span>
-							<span class="input-text-wrap"><input type="text" name="post_title" class="ptitle" value=""></span>
-						</label>
-
-						
-							<label>
-								<span class="title">Slug</span>
-								<span class="input-text-wrap"><input type="text" name="post_name" value="" autocomplete="off" spellcheck="false"></span>
-							</label>
-
-						
-					
-				
-									<fieldset class="inline-edit-date">
-						<legend><span class="title">Date</span></legend>
-						<div class="timestamp-wrap"><label><span class="screen-reader-text">Month</span><select class="form-required" name="mm">
-			<option value="01" data-text="Jan">01-Jan</option>
-			<option value="02" data-text="Feb">02-Feb</option>
-			<option value="03" data-text="Mar">03-Mar</option>
-			<option value="04" data-text="Apr">04-Apr</option>
-			<option value="05" data-text="May" selected="selected">05-May</option>
-			<option value="06" data-text="Jun">06-Jun</option>
-			<option value="07" data-text="Jul">07-Jul</option>
-			<option value="08" data-text="Aug">08-Aug</option>
-			<option value="09" data-text="Sep">09-Sep</option>
-			<option value="10" data-text="Oct">10-Oct</option>
-			<option value="11" data-text="Nov">11-Nov</option>
-			<option value="12" data-text="Dec">12-Dec</option>
-</select></label> <label><span class="screen-reader-text">Day</span><input type="text" name="jj" value="07" size="2" maxlength="2" autocomplete="off" class="form-required"></label>, <label><span class="screen-reader-text">Year</span><input type="text" name="aa" value="2024" size="4" maxlength="4" autocomplete="off" class="form-required"></label> at <label><span class="screen-reader-text">Hour</span><input type="text" name="hh" value="13" size="2" maxlength="2" autocomplete="off" class="form-required"></label>:<label><span class="screen-reader-text">Minute</span><input type="text" name="mn" value="06" size="2" maxlength="2" autocomplete="off" class="form-required"></label></div><input type="hidden" id="ss" name="ss" value="47">					</fieldset>
-					<br class="clear">
-				
-				<label class="inline-edit-author"><span class="title">Author</span><select name="post_author" class="authors">
-	<option value="1">uitesting2024 (uitesting2024)</option>
-</select></label>
-				
-					<div class="inline-edit-group wp-clearfix">
-						<label class="alignleft">
-							<span class="title">Password</span>
-							<span class="input-text-wrap"><input type="text" name="post_password" class="inline-edit-password-input" value=""></span>
-						</label>
-
-						<span class="alignleft inline-edit-or">
-							–OR–						</span>
-						<label class="alignleft inline-edit-private">
-							<input type="checkbox" name="keep_private" value="private">
-							<span class="checkbox-title">Private</span>
-						</label>
-					</div>
-
-				
-				</div>
-			</fieldset>
-
-			
-				<fieldset class="inline-edit-col-center inline-edit-categories">
-					<div class="inline-edit-col">
-
-					
-						<span class="title inline-edit-categories-label">Categories</span>
-						<input type="hidden" name="post_category[]" value="0">
-						<ul class="cat-checklist category-checklist">
-							
-<li id="category-25"><label class="selectit"><input value="25" type="checkbox" name="post_category[]" id="in-category-25"> story</label></li>
-
-<li id="category-1" class="popular-category"><label class="selectit"><input value="1" type="checkbox" name="post_category[]" id="in-category-1"> Uncategorized</label></li>
-						</ul>
-
-					
-					</div>
-				</fieldset>
-
-			
-			<fieldset class="inline-edit-col-right">
-				<div class="inline-edit-col">
-
-				
-				
-				
-					<label>
-						<span class="title">Template</span>
-						<select name="page_template">
-																					<option value="default">Default template</option>
-							
-	<option value="elementor_canvas">Elementor Canvas</option>
-	<option value="elementor_header_footer">Elementor Full Width</option>
-	<option value="elementor_theme">Theme</option>						</select>
-					</label>
-
-				
-				
-					
-																				<div class="inline-edit-tags-wrap">
-							<label class="inline-edit-tags">
-								<span class="title">Tags</span>
-								<textarea data-wp-taxonomy="post_tag" cols="22" rows="1" name="tax_input[post_tag]" class="tax_input_post_tag" aria-describedby="inline-edit-post_tag-desc"></textarea>
-							</label>
-							<p class="howto" id="inline-edit-post_tag-desc">Separate tags with commas</p>
-							</div>
-						
-					
-				
-				
-					
-						<div class="inline-edit-group wp-clearfix">
-
-						
-							<label class="alignleft">
-								<input type="checkbox" name="comment_status" value="open">
-								<span class="checkbox-title">Allow Comments</span>
-							</label>
-
-						
-						
-							<label class="alignleft">
-								<input type="checkbox" name="ping_status" value="open">
-								<span class="checkbox-title">Allow Pings</span>
-							</label>
-
-						
-						</div>
-
-					
-				
-					<div class="inline-edit-group wp-clearfix">
-
-						<label class="inline-edit-status alignleft">
-							<span class="title">Status</span>
-							<select name="_status">
-								
-																	<option value="publish">Published</option>
-									<option value="future">Scheduled</option>
-																	
-								<option value="pending">Pending Review</option>
-								<option value="draft">Draft</option>
-							</select>
-						</label>
-
-						
-							
-								<label class="alignleft">
-									<input type="checkbox" name="sticky" value="sticky">
-									<span class="checkbox-title">Make this post sticky</span>
-								</label>
-
-							
-						
-					</div>
-
-				
-				</div>
-			</fieldset>
-
-			
-			<div class="submit inline-edit-save">
-									<input type="hidden" id="_inline_edit" name="_inline_edit" value="359bbd8a55">					<button type="button" class="button button-primary save">Update</button>
-				
-				<button type="button" class="button cancel">Cancel</button>
-
-									<span class="spinner"></span>
-				
-				<input type="hidden" name="post_view" value="list">
-				<input type="hidden" name="screen" value="edit-post">
-				
-				<div class="notice notice-error notice-alt inline hidden"><p class="error"></p></div>			</div>
-		</div> <!-- end of .inline-edit-wrapper -->
-
-			</td></tr>
-
-						<tr id="bulk-edit" class="inline-edit-row inline-edit-row-post bulk-edit-row bulk-edit-row-post bulk-edit-post" style="display: none">
-			<td colspan="7" class="colspanchange">
-			<div class="inline-edit-wrapper" role="region" aria-labelledby="bulk-edit-legend">
-			<fieldset class="inline-edit-col-left">
-				<legend class="inline-edit-legend" id="bulk-edit-legend">Bulk Edit</legend>
-				<div class="inline-edit-col">
-
-				
-					
-						<div id="bulk-title-div">
-							<div id="bulk-titles"></div>
-						</div>
-
-					
-				
-				
-				
-				
-				</div>
-			</fieldset><fieldset class="inline-edit-col-center inline-edit-categories">
-					<div class="inline-edit-col">
-
-					
-						<span class="title inline-edit-categories-label">Categories</span>
-						<input type="hidden" name="post_category[]" value="0">
-						<ul class="cat-checklist category-checklist">
-							
-<li id="category-25"><label class="selectit"><input value="25" type="checkbox" name="post_category[]" id="in-category-25"> story</label></li>
-
-<li id="category-1" class="popular-category"><label class="selectit"><input value="1" type="checkbox" name="post_category[]" id="in-category-1"> Uncategorized</label></li>
-						</ul>
-
-					
-					</div>
-				</fieldset>
-
-			
-			<fieldset class="inline-edit-col-right"><div class="inline-edit-tags-wrap">
-							<label class="inline-edit-tags">
-								<span class="title">Tags</span>
-								<textarea data-wp-taxonomy="post_tag" cols="22" rows="1" name="tax_input[post_tag]" class="tax_input_post_tag" aria-describedby="inline-edit-post_tag-desc"></textarea>
-							</label>
-							<p class="howto" id="inline-edit-post_tag-desc">Separate tags with commas</p>
-							</div>
-				<div class="inline-edit-col">
-
-				<label class="inline-edit-author"><span class="title">Author</span><select name="post_author" class="authors">
-	<option value="-1">— No Change —</option>
-	<option value="1">uitesting2024 (uitesting2024)</option>
-</select></label>
-				
-				
-					<label>
-						<span class="title">Template</span>
-						<select name="page_template">
-														<option value="-1">— No Change —</option>
-																					<option value="default">Default template</option>
-							
-	<option value="elementor_canvas">Elementor Canvas</option>
-	<option value="elementor_header_footer">Elementor Full Width</option>
-	<option value="elementor_theme">Theme</option>						</select>
-					</label>
-
-				
-				
-				
-					
-						<div class="inline-edit-group wp-clearfix">
-
-						
-							<label class="alignleft">
-								<span class="title">Comments</span>
-								<select name="comment_status">
-									<option value="">— No Change —</option>
-									<option value="open">Allow</option>
-									<option value="closed">Do not allow</option>
-								</select>
-							</label>
-
-						
-						
-							<label class="alignright">
-								<span class="title">Pings</span>
-								<select name="ping_status">
-									<option value="">— No Change —</option>
-									<option value="open">Allow</option>
-									<option value="closed">Do not allow</option>
-								</select>
-							</label>
-
-						
-						</div>
-
-					
-				
-					<div class="inline-edit-group wp-clearfix">
-
-						<label class="inline-edit-status alignleft">
-							<span class="title">Status</span>
-							<select name="_status">
-																	<option value="-1">— No Change —</option>
-								
-																	<option value="publish">Published</option>
-									
-																			<option value="private">Private</option>
-																	
-								<option value="pending">Pending Review</option>
-								<option value="draft">Draft</option>
-							</select>
-						</label>
-
-						
-							
-								<label class="alignright">
-									<span class="title">Sticky</span>
-									<select name="sticky">
-										<option value="-1">— No Change —</option>
-										<option value="sticky">Sticky</option>
-										<option value="unsticky">Not Sticky</option>
-									</select>
-								</label>
-
-							
-						
-					</div>
-
-									
-					<label class="alignleft">
-						<span class="title">Format</span>
-						<select name="post_format">
-							<option value="-1">— No Change —</option>
-							<option value="0">Standard</option>
-																								<option value="gallery">Gallery</option>
-																	<option value="image">Image</option>
-																	<option value="link">Link</option>
-																	<option value="quote">Quote</option>
-																	<option value="video">Video</option>
-																	<option value="audio">Audio</option>
-																	<option value="status">Status</option>
-																	<option value="aside">Aside</option>
-																					</select>
-					</label>
-
-				
-				</div>
-			</fieldset>
-
-			
-			<div class="submit inline-edit-save">
-									<input type="submit" name="bulk_edit" id="bulk_edit" class="button button-primary" value="Update">				
-				<button type="button" class="button cancel">Cancel</button>
-
-				
-				<input type="hidden" name="post_view" value="list">
-				<input type="hidden" name="screen" value="edit-post">
-				
-				<div class="notice notice-error notice-alt inline hidden"><p class="error"></p></div>			</div>
-		</div> <!-- end of .inline-edit-wrapper -->
-
-			</td></tr>
-
-					</tbody></table>
-		</form>
-		
-<div id="ajax-response"></div>
-<div class="clear"></div>
+<p class="submit"><input type="submit" name="submit" id="submit" class="button button-primary" value="Save Changes"></p></form>
 </div>
-
 
 <div class="clear"></div></div><!-- wpbody-content -->
 <div class="clear"></div></div><!-- wpbody -->
@@ -940,45 +460,6 @@ Posts</h1>
 	</div>
 </script>
 
-<script type="text/html" id="tmpl-wpforms-settings-lite-connect-modal-content">
-	<div class="wpforms-settings-lite-connect-modal-content">
-		<img src="https://uitesting2024.lovestoblog.com/wp-content/plugins/wpforms-lite/assets/images/sullie-alt.png" alt="Sullie the WPForms mascot" class="wpforms-mascot">
-
-		<h2>Form Entry Backups</h2>
-		<p>
-			If your email notifications aren&#039;t delivered, you’ll lose form entries. Turn on free backups now and restore your entries when you upgrade to Pro.		</p>
-
-		<div class="wpforms-features">
-			<section>
-				<img src="https://uitesting2024.lovestoblog.com/wp-content/plugins/wpforms-lite/assets/images/lite-connect/lock-alt.svg" alt="Security and Protection.">
-				<aside>
-					<h4>Security and Protection</h4>
-					<p>
-						Entries are stored securely and privately until you&#039;re ready to upgrade. Our team cannot view your forms or entries.					</p>
-				</aside>
-			</section>
-			<section>
-				<img src="https://uitesting2024.lovestoblog.com/wp-content/plugins/wpforms-lite/assets/images/lite-connect/cloud.svg" alt="Backup and Restore.">
-				<aside>
-					<h4>Backup and Restore</h4>
-					<p>
-						When you upgrade to WPForms Pro, we&#039;ll automatically restore all of the entries that you collected in WPForms Lite.					</p>
-				</aside>
-			</section>
-			<section>
-				<img src="https://uitesting2024.lovestoblog.com/wp-content/plugins/wpforms-lite/assets/images/lite-connect/envelope.svg" alt="WPForms Newsletter.">
-				<aside>
-					<h4>WPForms Newsletter</h4>
-					<p>
-						Ready to grow your website? Get the latest pro tips and updates from the WPForms team.					</p>
-				</aside>
-			</section>
-		</div>
-
-		<footer>
-			By enabling Lite Connect you agree to our <a href="https://wpforms.com/terms/?utm_campaign=liteplugin&#038;utm_source=WordPress&#038;utm_medium=Lite%20Connect%20Modal&#038;utm_content=Terms%20of%20Service&#038;utm_locale=en_US" target="_blank" rel="noopener noreferrer">Terms of Service</a> and to share your information with WPForms.		</footer>
-	</div>
-</script>
 <div id="wcf-json-importer"></div><script type="text/template" id="tmpl-elementor-templates-modal__header">
 	<div class="elementor-templates-modal__header__logo-area"></div>
 	<div class="elementor-templates-modal__header__menu-area"></div>
@@ -1083,7 +564,7 @@ Posts</h1>
 
 				const eventName = 'wcadmin_' + name;
 				let eventProperties = properties || {};
-				eventProperties = { ...eventProperties, ...{"_via_ua":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/124.0.0.0 Safari\/537.36","_via_ip":"1.55.210.225","_lg":"en-US,en;q=0.9","_dr":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/?i=1","_dl":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/edit.php","url":"https:\/\/uitesting2024.lovestoblog.com","blog_lang":"en_US","blog_id":false,"store_id":"493c7a0c-43d6-4338-b952-2a61e9c4a334","products_count":0,"wc_version":"8.6.1"} };
+				eventProperties = { ...eventProperties, ...{"_via_ua":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/125.0.0.0 Safari\/537.36","_via_ip":"58.186.128.115","_lg":"en-US,en;q=0.9","_dr":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/?i=1","_dl":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/options-reading.php","url":"https:\/\/uitesting2024.lovestoblog.com","blog_lang":"en_US","blog_id":false,"store_id":"493c7a0c-43d6-4338-b952-2a61e9c4a334","products_count":0,"wc_version":"8.6.1"} };
 				if ( window.wp && window.wp.hooks && window.wp.hooks.applyFilters ) {
 					eventProperties = window.wp.hooks.applyFilters( 'woocommerce_tracks_client_event_properties', eventProperties, eventName );
 					delete( eventProperties._ui );
@@ -1151,27 +632,13 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
 <script src="https://uitesting2024.lovestoblog.com/wp-admin/js/common.min.js?ver=6.4.3" id="common-js"></script>
 <script src="https://uitesting2024.lovestoblog.com/wp-includes/js/hoverintent-js.min.js?ver=2.2.1" id="hoverintent-js-js"></script>
 <script src="https://uitesting2024.lovestoblog.com/wp-includes/js/admin-bar.min.js?ver=6.4.3" id="admin-bar-js"></script>
-<script src="https://uitesting2024.lovestoblog.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.2" id="jquery-ui-core-js"></script>
-<script src="https://uitesting2024.lovestoblog.com/wp-includes/js/jquery/ui/menu.min.js?ver=1.13.2" id="jquery-ui-menu-js"></script>
-<script src="https://uitesting2024.lovestoblog.com/wp-includes/js/dist/dom-ready.min.js?ver=392bdd43726760d1f3ca" id="wp-dom-ready-js"></script>
-<script src="https://uitesting2024.lovestoblog.com/wp-includes/js/dist/a11y.min.js?ver=7032343a947cfccf5608" id="wp-a11y-js"></script>
-<script id="jquery-ui-autocomplete-js-extra">
-var uiAutocompleteL10n = {"noResults":"No results found.","oneResult":"1 result found. Use up and down arrow keys to navigate.","manyResults":"%d results found. Use up and down arrow keys to navigate.","itemSelected":"Item selected."};
-</script>
-<script src="https://uitesting2024.lovestoblog.com/wp-includes/js/jquery/ui/autocomplete.min.js?ver=1.13.2" id="jquery-ui-autocomplete-js"></script>
-<script src="https://uitesting2024.lovestoblog.com/wp-admin/js/tags-suggest.min.js?ver=6.4.3" id="tags-suggest-js"></script>
-<script src="https://uitesting2024.lovestoblog.com/wp-admin/js/inline-edit-post.min.js?ver=6.4.3" id="inline-edit-post-js"></script>
+<script src="https://uitesting2024.lovestoblog.com/wp-admin/js/svg-painter.js?ver=6.4.3" id="svg-painter-js"></script>
 <script id="heartbeat-js-extra">
-var heartbeatSettings = {"nonce":"7d6f681233"};
+var heartbeatSettings = {"nonce":"5607a9dceb"};
 </script>
 <script src="https://uitesting2024.lovestoblog.com/wp-includes/js/heartbeat.min.js?ver=6.4.3" id="heartbeat-js"></script>
-<script src="https://uitesting2024.lovestoblog.com/wp-admin/js/svg-painter.js?ver=6.4.3" id="svg-painter-js"></script>
 <script src="https://uitesting2024.lovestoblog.com/wp-includes/js/wp-auth-check.min.js?ver=6.4.3" id="wp-auth-check-js"></script>
 <script src="//uitesting2024.lovestoblog.com/wp-content/plugins/pinterest-for-woocommerce/assets/js/admin/pinterest-for-woocommerce-admin.min.js?ver=1.3.23" id="pinterest-for-woocommerce-admin-js"></script>
-<script id="wpforms-lite-admin-education-lite-connect-js-extra">
-var wpforms_education_lite_connect = {"ajax_url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin-ajax.php","nonce":"26db17dbd4","is_enabled":"0","enable_modal":{"confirm":"Enable Entry Backups","cancel":"No Thanks"},"disable_modal":{"title":"Are you sure?","content":"If you disable Lite Connect, you will no longer be able to restore your entries when you upgrade to WPForms Pro.","confirm":"Disable Entry Backups","cancel":"Cancel"},"update_result":{"enabled_title":"Entry Backups Enabled","enabled":"Awesome! If you decide to upgrade to WPForms Pro, you can restore your entries and will have instant access to reports.","disabled_title":"Entry Backups Disabled","disabled":"Form Entry Backups were successfully disabled.","error_title":"Error","error":"Unfortunately, the error occurs while updating Form Entry Backups setting. Please try again later.","close":"Close"}};
-</script>
-<script src="https://uitesting2024.lovestoblog.com/wp-content/plugins/wpforms-lite/assets/lite/js/admin/education/lite-connect.min.js?ver=1.8.7.2" id="wpforms-lite-admin-education-lite-connect-js"></script>
 <script src="https://uitesting2024.lovestoblog.com/wp-includes/js/dist/vendor/react.min.js?ver=18.2.0" id="react-js"></script>
 <script src="https://uitesting2024.lovestoblog.com/wp-includes/js/dist/vendor/react-dom.min.js?ver=18.2.0" id="react-dom-js"></script>
 <script src="https://uitesting2024.lovestoblog.com/wp-includes/js/dist/escape-html.min.js?ver=03e27a7b6ae14f7afaa6" id="wp-escape-html-js"></script>
@@ -1180,6 +647,7 @@ var wpforms_education_lite_connect = {"ajax_url":"https:\/\/uitesting2024.lovest
 var astra_theme_builder = {"title":"Site Builder","rest_url":"\/wp-json\/astra-addon\/v1\/custom-layouts\/","new_custom_layout_base_url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/post-new.php?post_type=astra-advanced-hook","astra_pricing_page_url":"https:\/\/wpastra.com\/pricing\/","astra_docs_page_url":"https:\/\/wpastra.com\/docs\/custom-layouts-pro\/","admin_url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/"};
 </script>
 <script src="https://uitesting2024.lovestoblog.com/wp-content/themes/astra/admin/assets/theme-builder/build/index.js?ver=4.6.8" id="astra-theme-builder-script-js"></script>
+<script src="https://uitesting2024.lovestoblog.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.2" id="jquery-ui-core-js"></script>
 <script src="https://uitesting2024.lovestoblog.com/wp-includes/js/jquery/ui/mouse.min.js?ver=1.13.2" id="jquery-ui-mouse-js"></script>
 <script src="https://uitesting2024.lovestoblog.com/wp-includes/js/jquery/ui/draggable.min.js?ver=1.13.2" id="jquery-ui-draggable-js"></script>
 <script src="https://uitesting2024.lovestoblog.com/wp-includes/js/underscore.min.js?ver=1.13.4" id="underscore-js"></script>
@@ -1188,12 +656,12 @@ var astra_theme_builder = {"title":"Site Builder","rest_url":"\/wp-json\/astra-a
 <script src="https://uitesting2024.lovestoblog.com/wp-content/plugins/elementor/assets/lib/backbone/backbone.radio.min.js?ver=1.0.4" id="backbone-radio-js"></script>
 <script src="https://uitesting2024.lovestoblog.com/wp-content/plugins/elementor/assets/js/common-modules.min.js?ver=3.20.3" id="elementor-common-modules-js"></script>
 <script id="elementor-web-cli-js-before">
-var elementorWebCliConfig = {"isDebug":false,"urls":{"rest":"https:\/\/uitesting2024.lovestoblog.com\/wp-json\/","assets":"https:\/\/uitesting2024.lovestoblog.com\/wp-content\/plugins\/elementor\/assets\/"},"nonce":"f4595fc8ba","version":"3.20.3"};
+var elementorWebCliConfig = {"isDebug":false,"urls":{"rest":"https:\/\/uitesting2024.lovestoblog.com\/wp-json\/","assets":"https:\/\/uitesting2024.lovestoblog.com\/wp-content\/plugins\/elementor\/assets\/"},"nonce":"d77822076b","version":"3.20.3"};
 </script>
 <script src="https://uitesting2024.lovestoblog.com/wp-content/plugins/elementor/assets/js/web-cli.min.js?ver=3.20.3" id="elementor-web-cli-js"></script>
 <script src="https://uitesting2024.lovestoblog.com/wp-content/plugins/elementor/assets/lib/dialog/dialog.min.js?ver=4.9.0" id="elementor-dialog-js"></script>
 <script id="wp-api-request-js-extra">
-var wpApiSettings = {"root":"https:\/\/uitesting2024.lovestoblog.com\/wp-json\/","nonce":"f4595fc8ba","versionString":"wp\/v2\/"};
+var wpApiSettings = {"root":"https:\/\/uitesting2024.lovestoblog.com\/wp-json\/","nonce":"d77822076b","versionString":"wp\/v2\/"};
 </script>
 <script src="https://uitesting2024.lovestoblog.com/wp-includes/js/api-request.min.js?ver=6.4.3" id="wp-api-request-js"></script>
 <script id="elementor-dev-tools-js-before">
@@ -1203,8 +671,8 @@ var elementorDevToolsConfig = {"isDebug":false,"urls":{"assets":"https:\/\/uites
 <script src="https://uitesting2024.lovestoblog.com/wp-content/plugins/elementor/assets/js/dev-tools.min.js?ver=3.20.3" id="elementor-dev-tools-js"></script>
 <script id="elementor-common-js-before">
 var elementorCommonConfig = {"version":"3.20.3","isRTL":false,"isDebug":false,"isElementorDebug":false,"activeModules":["ajax","finder","connect","event-tracker"],"experimentalFeatures":{"e_optimized_assets_loading":true,"e_optimized_css_loading":true,"e_font_icon_svg":true,"additional_custom_breakpoints":true,"container":true,"e_swiper_latest":true,"container_grid":true,"block_editor_assets_optimize":true,"ai-layout":true,"landing-pages":true,"e_image_loading_optimization":true},"urls":{"assets":"https:\/\/uitesting2024.lovestoblog.com\/wp-content\/plugins\/elementor\/assets\/","rest":"https:\/\/uitesting2024.lovestoblog.com\/wp-json\/"},"filesUpload":{"unfilteredFiles":true},"library_connect":{"is_connected":false,"subscription_plans":{"free":{"label":null,"promotion_url":null,"color":null},"essential":{"label":"Pro","promotion_url":"https:\/\/elementor.com\/pro\/?utm_source=template-library&utm_medium=wp-dash&utm_campaign=gopro","color":"#92003B"},"essential-oct2023":{"label":"Advanced","promotion_url":"https:\/\/elementor.com\/pro\/?utm_source=template-library&utm_medium=wp-dash&utm_campaign=gopro","color":"#92003B"},"advanced":{"label":"Advanced","promotion_url":"https:\/\/elementor.com\/pro\/?utm_source=template-library&utm_medium=wp-dash&utm_campaign=gopro","color":"#92003B"},"expert":{"label":"Expert","promotion_url":"https:\/\/elementor.com\/pro\/?utm_source=template-library&utm_medium=wp-dash&utm_campaign=gopro","color":"#92003B"},"agency":{"label":"Agency","promotion_url":"https:\/\/elementor.com\/pro\/?utm_source=template-library&utm_medium=wp-dash&utm_campaign=gopro","color":"#92003B"}},
-"base_access_level":0,"base_access_tier":"free","current_access_level":0,"current_access_tier":"free"},"ajax":{"url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin-ajax.php","nonce":"a304c21c45"},"finder":{"data":{"edit":{"title":"Edit","dynamic":true,"name":"edit"},"general":{"title":"General","dynamic":false,"items":{"saved-templates":{"title":"Saved Templates","icon":"library-save","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/edit.php?post_type=elementor_library&tabs_group=library","keywords":["template","section","page","library"]},"system-info":{"title":"System Info","icon":"info-circle-o","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin.php?page=elementor-system-info","keywords":["system","info","environment","elementor"]},"role-manager":{"title":"Role Manager","icon":"person","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin.php?page=elementor-role-manager","keywords":["role","manager","user","elementor"]},"knowledge-base":{"title":"Knowledge Base","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin.php?page=go_knowledge_base_site","keywords":["help","knowledge","docs","elementor"]},"theme-builder":{"title":"Theme Builder","icon":"library-save","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin.php?page=elementor-app&ver=3.20.3#site-editor\/promotion","keywords":["template","header","footer","single","archive","search","404","library"]},"kit-library":{"title":"Kit Library","icon":"kit-parts","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin.php?page=elementor-app&ver=3.20.3#\/kit-library","keywords":["kit library","kit","library","site parts","parts","assets","templates"]}},
-"name":"general"},"create":{"title":"Create","dynamic":false,"items":{"page":{"title":"Add New Page Template","icon":"plus-circle-o","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/edit.php?action=elementor_new_post&post_type=elementor_library&template_type=page&_wpnonce=d27d012ceb","keywords":["Add New Page Template","post","page","template","new","create"]},"section":{"title":"Add New Section","icon":"plus-circle-o","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/edit.php?action=elementor_new_post&post_type=elementor_library&template_type=section&_wpnonce=d27d012ceb","keywords":["Add New Section","post","page","template","new","create"]},"container":{"title":"Add New Container","icon":"plus-circle-o","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/edit.php?action=elementor_new_post&post_type=elementor_library&template_type=container&_wpnonce=d27d012ceb","keywords":["Add New Container","post","page","template","new","create"]},"wp-post":{"title":"Add New Post","icon":"plus-circle-o","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/edit.php?action=elementor_new_post&post_type=post&template_type=wp-post&_wpnonce=d27d012ceb","keywords":["Add New Post","post","page","template","new","create"]},"wp-page":{"title":"Add New Page","icon":"plus-circle-o","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/edit.php?action=elementor_new_post&post_type=page&template_type=wp-page&_wpnonce=d27d012ceb","keywords":["Add New Page","post","page","template","new","create"]},"landing-page":{"title":"Add New Landing Page","icon":"plus-circle-o","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/edit.php?action=elementor_new_post&post_type=e-landing-page&template_type=landing-page&_wpnonce=d27d012ceb#library","keywords":["Add New Landing Page","post","page","template","new","create"]},"cartflows_step":{"title":"Add New Step","icon":"plus-circle-o","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/edit.php?action=elementor_new_post&post_type=cartflows_step&_wpnonce=d27d012ceb","keywords":["Add New Step","post","page","template","new","create"]}},
+"base_access_level":0,"base_access_tier":"free","current_access_level":0,"current_access_tier":"free"},"ajax":{"url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin-ajax.php","nonce":"a18b47daa9"},"finder":{"data":{"edit":{"title":"Edit","dynamic":true,"name":"edit"},"general":{"title":"General","dynamic":false,"items":{"saved-templates":{"title":"Saved Templates","icon":"library-save","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/edit.php?post_type=elementor_library&tabs_group=library","keywords":["template","section","page","library"]},"system-info":{"title":"System Info","icon":"info-circle-o","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin.php?page=elementor-system-info","keywords":["system","info","environment","elementor"]},"role-manager":{"title":"Role Manager","icon":"person","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin.php?page=elementor-role-manager","keywords":["role","manager","user","elementor"]},"knowledge-base":{"title":"Knowledge Base","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin.php?page=go_knowledge_base_site","keywords":["help","knowledge","docs","elementor"]},"theme-builder":{"title":"Theme Builder","icon":"library-save","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin.php?page=elementor-app&ver=3.20.3#site-editor\/promotion","keywords":["template","header","footer","single","archive","search","404","library"]},"kit-library":{"title":"Kit Library","icon":"kit-parts","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin.php?page=elementor-app&ver=3.20.3#\/kit-library","keywords":["kit library","kit","library","site parts","parts","assets","templates"]}},
+"name":"general"},"create":{"title":"Create","dynamic":false,"items":{"page":{"title":"Add New Page Template","icon":"plus-circle-o","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/edit.php?action=elementor_new_post&post_type=elementor_library&template_type=page&_wpnonce=94c6f42e39","keywords":["Add New Page Template","post","page","template","new","create"]},"section":{"title":"Add New Section","icon":"plus-circle-o","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/edit.php?action=elementor_new_post&post_type=elementor_library&template_type=section&_wpnonce=94c6f42e39","keywords":["Add New Section","post","page","template","new","create"]},"container":{"title":"Add New Container","icon":"plus-circle-o","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/edit.php?action=elementor_new_post&post_type=elementor_library&template_type=container&_wpnonce=94c6f42e39","keywords":["Add New Container","post","page","template","new","create"]},"wp-post":{"title":"Add New Post","icon":"plus-circle-o","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/edit.php?action=elementor_new_post&post_type=post&template_type=wp-post&_wpnonce=94c6f42e39","keywords":["Add New Post","post","page","template","new","create"]},"wp-page":{"title":"Add New Page","icon":"plus-circle-o","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/edit.php?action=elementor_new_post&post_type=page&template_type=wp-page&_wpnonce=94c6f42e39","keywords":["Add New Page","post","page","template","new","create"]},"landing-page":{"title":"Add New Landing Page","icon":"plus-circle-o","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/edit.php?action=elementor_new_post&post_type=e-landing-page&template_type=landing-page&_wpnonce=94c6f42e39#library","keywords":["Add New Landing Page","post","page","template","new","create"]},"cartflows_step":{"title":"Add New Step","icon":"plus-circle-o","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/edit.php?action=elementor_new_post&post_type=cartflows_step&_wpnonce=94c6f42e39","keywords":["Add New Step","post","page","template","new","create"]}},
 "name":"create"},"site":{"title":"Site","dynamic":false,"items":{"homepage":{"title":"Homepage","url":"https:\/\/uitesting2024.lovestoblog.com","icon":"home-heart","keywords":["home","page"]},"wordpress-dashboard":{"title":"Dashboard","icon":"dashboard","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/","keywords":["dashboard","wordpress"]},"wordpress-menus":{"title":"Menus","icon":"wordpress","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/nav-menus.php","keywords":["menu","wordpress"]},"wordpress-themes":{"title":"Themes","icon":"wordpress","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/themes.php","keywords":["themes","wordpress"]},"wordpress-customizer":{"title":"Customizer","icon":"wordpress","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/customize.php","keywords":["customizer","wordpress"]},"wordpress-plugins":{"title":"Plugins","icon":"wordpress","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/plugins.php","keywords":["plugins","wordpress"]},"wordpress-users":{"title":"Users","icon":"wordpress","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/users.php","keywords":["users","profile","wordpress"]},"apps":{"title":"Add-ons","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin.php?page=elementor-apps","icon":"apps","keywords":["apps","addon","plugin","extension","integration"]}},
 "name":"site"},"settings":{"title":"Settings","dynamic":false,"items":{"general-settings":{"title":"General Settings","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin.php?page=elementor","keywords":["general","settings","elementor"]},"advanced":{"title":"Advanced","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin.php?page=elementor#tab-advanced","keywords":["advanced","settings","elementor"]},"experiments":{"title":"Experiments","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin.php?page=elementor#tab-experiments","keywords":["settings","elementor","experiments"]},"features":{"title":"Features","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin.php?page=elementor#tab-experiments","keywords":["settings","elementor","features"]},"element-manager":{"title":"Element Manager","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin.php?page=elementor-element-manager","keywords":["settings","elements","widgets","manager"]}},
 "name":"settings"},"tools":{"title":"Tools","dynamic":false,"items":{"tools":{"title":"Tools","icon":"tools","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin.php?page=elementor-tools","keywords":["tools","regenerate css","safe mode","debug bar","sync library","elementor"]},"replace-url":{"title":"Replace URL","icon":"tools","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin.php?page=elementor-tools#tab-replace_url","keywords":["tools","replace url","domain","elementor"]},"maintenance-mode":{"title":"Maintenance Mode","icon":"tools","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin.php?page=elementor-tools#tab-maintenance_mode","keywords":["tools","maintenance","coming soon","elementor"]},"import-export":{"title":"Import Export","icon":"import-export","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin.php?page=elementor-tools#tab-import-export-kit","keywords":["tools","import export","import","export","kit"]},"version-control":{"title":"Version Control","icon":"time-line","url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin.php?page=elementor-tools#tab-versions","keywords":["tools","version","control","rollback","beta","elementor"]}},
@@ -1218,18 +686,18 @@ var elementorImportExport = {"lastImportedSession":[],"appUrl":"https:\/\/uitest
 <script src="https://uitesting2024.lovestoblog.com/wp-content/plugins/elementor/assets/js/import-export-admin.min.js?ver=3.20.3" id="elementor-import-export-admin-js"></script>
 <script id="elementor-app-loader-js-before">
 var elementorAppConfig = {"menu_url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin.php?page=elementor-app&ver=3.20.3#site-editor\/promotion","assets_url":"https:\/\/uitesting2024.lovestoblog.com\/wp-content\/plugins\/elementor\/assets\/","pages_url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/edit.php?post_type=page","return_url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/?i=1","hasPro":false,"admin_url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/","login_url":"https:\/\/uitesting2024.lovestoblog.com\/wp-login.php","base_url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin.php?page=elementor-app&ver=3.20.3","kit-library":{"has_access_to_module":true,"subscription_plans":{"free":{"label":null,"promotion_url":null,"color":null},"essential":{"label":"Pro","promotion_url":"https:\/\/elementor.com\/pro\/?utm_source=kit-library&utm_medium=wp-dash&utm_campaign=gopro","color":"#92003B"},"essential-oct2023":{"label":"Advanced","promotion_url":"https:\/\/elementor.com\/pro\/?utm_source=kit-library&utm_medium=wp-dash&utm_campaign=gopro","color":"#92003B"},"advanced":{"label":"Advanced","promotion_url":"https:\/\/elementor.com\/pro\/?utm_source=kit-library&utm_medium=wp-dash&utm_campaign=gopro","color":"#92003B"},"expert":{"label":"Expert","promotion_url":"https:\/\/elementor.com\/pro\/?utm_source=kit-library&utm_medium=wp-dash&utm_campaign=gopro","color":"#92003B"},"agency":{"label":"Agency","promotion_url":"https:\/\/elementor.com\/pro\/?utm_source=kit-library&utm_medium=wp-dash&utm_campaign=gopro","color":"#92003B"}},
-"is_pro":false,"is_library_connected":false,"library_connect_url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin.php?page=elementor-connect&app=library&action=authorize&nonce=b99825380e&utm_source=kit-library&utm_medium=wp-dash&utm_campaign=library-connect&utm_term=%%page%%","access_level":0,"access_tier":"free","app_url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin.php?page=elementor-app&ver=3.20.3#\/kit-library"},"site-editor":[],"import-export":[],"onboarding":[]};
+"is_pro":false,"is_library_connected":false,"library_connect_url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin.php?page=elementor-connect&app=library&action=authorize&nonce=bb6a26bf0f&utm_source=kit-library&utm_medium=wp-dash&utm_campaign=library-connect&utm_term=%%page%%","access_level":0,"access_tier":"free","app_url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin.php?page=elementor-app&ver=3.20.3#\/kit-library"},"site-editor":[],"import-export":[],"onboarding":[]};
 </script>
 <script src="https://uitesting2024.lovestoblog.com/wp-content/plugins/elementor/assets/js/app-loader.min.js?ver=3.20.3" id="elementor-app-loader-js"></script>
 <script src="https://uitesting2024.lovestoblog.com/wp-content/plugins/elementor/assets/js/admin-modules.min.js?ver=3.20.3" id="elementor-admin-modules-js"></script>
 <script id="elementor-admin-js-before">
 var elementorAdminConfig = {"home_url":"https:\/\/uitesting2024.lovestoblog.com","settings_url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin.php?page=elementor","user":{"introduction":{"ai-get-started-announcement":true},"restrictions":[],"is_administrator":true},"beta_tester":{"beta_tester_signup":"beta_tester_signup","has_email":"","option_enabled":false,"signup_dismissed":false},"experiments":{"e_optimized_assets_loading":{"name":"e_optimized_assets_loading","title":"Improved Asset Loading","state":"default","default":"active","dependencies":[],"messages":[]},"e_optimized_css_loading":{"name":"e_optimized_css_loading","title":"Improved CSS Loading","state":"default","default":"active","dependencies":[],"messages":[]},"e_font_icon_svg":{"name":"e_font_icon_svg","title":"Inline Font Icons","state":"default","default":"active","dependencies":[],"messages":[]},"additional_custom_breakpoints":{"name":"additional_custom_breakpoints","title":"Additional Custom Breakpoints","state":"default","default":"active","dependencies":[],"messages":[]},"admin_menu_rearrangement":{"name":"admin_menu_rearrangement","title":"admin_menu_rearrangement","state":"default","default":"inactive","dependencies":[],"messages":[]},"container":{"name":"container","title":"Flexbox Container","state":"active","default":"active","dependencies":[],"messages":{"on_deactivate":"Container-based content will be hidden from your site and may not be recoverable in all cases. <a target=\"_blank\" href=\"https:\/\/go.elementor.com\/wp-dash-deactivate-container\/\">Learn more<\/a>"}},
 "e_swiper_latest":{"name":"e_swiper_latest","title":"Upgrade Swiper Library","state":"default","default":"active","dependencies":[],"messages":[]},"container_grid":{"name":"container_grid","title":"Grid Container","state":"default","default":"active","dependencies":["container"],"messages":[]},"editor_v2":{"name":"editor_v2","title":"Editor Top Bar","state":"default","default":"inactive","dependencies":[],"messages":[]},"block_editor_assets_optimize":{"name":"block_editor_assets_optimize","title":"Optimized Gutenberg Loading","state":"default","default":"active","dependencies":[],"messages":[]},"ai-layout":{"name":"ai-layout","title":"Build with AI","state":"default","default":"active","dependencies":["container"],"messages":[]},"landing-pages":{"name":"landing-pages","title":"Landing Pages","state":"default","default":"active","dependencies":[],"messages":[]},"nested-elements":{"name":"nested-elements","title":"Nested Elements","state":"default","default":"inactive","dependencies":["container"],"messages":[]},"e_lazyload":{"name":"e_lazyload","title":"Lazy Load Background Images","state":"default","default":"inactive","dependencies":[],"messages":[]},"e_image_loading_optimization":{"name":"e_image_loading_optimization","title":"Optimize Image Loading","state":"default","default":"active","dependencies":[],"messages":[]}},
-"urls":{"addNewLandingPageUrl":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/edit.php?action=elementor_new_post&post_type=e-landing-page&template_type=landing-page&_wpnonce=d27d012ceb#library"},"landingPages":{"landingPagesHasPages":false,"isLandingPageAdminEdit":false},"feedback":[],"admin-notices":[]};
+"urls":{"addNewLandingPageUrl":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/edit.php?action=elementor_new_post&post_type=e-landing-page&template_type=landing-page&_wpnonce=94c6f42e39#library"},"landingPages":{"landingPagesHasPages":false,"isLandingPageAdminEdit":false},"feedback":[],"admin-notices":[]};
 </script>
 <script src="https://uitesting2024.lovestoblog.com/wp-content/plugins/elementor/assets/js/admin.min.js?ver=3.20.3" id="elementor-admin-js"></script>
 <script id="media-hints-js-extra">
-var elementorAdminHints = {"mediaHint":{"display":true,"type":"info","content":"Don\u2019t let unoptimized images be the downfall of your site\u2019s performance. <a class='e-btn-1' href='https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/update.php?action=install-plugin&amp;plugin=image-optimization&amp;_wpnonce=b1916b8b7c' target='_blank'>Install Image Optimizer<\/a>!","icon":true,"dismissible":"image-optimization-once-media-modal","dismiss":"Dismiss this notice.","button_event":"image-optimization-once-media-modal","button_data":"eyJhY3Rpb25fdXJsIjoiaHR0cHM6XC9cL3VpdGVzdGluZzIwMjQubG92ZXN0b2Jsb2cuY29tXC93cC1hZG1pblwvdXBkYXRlLnBocD9hY3Rpb249aW5zdGFsbC1wbHVnaW4mYW1wO3BsdWdpbj1pbWFnZS1vcHRpbWl6YXRpb24mYW1wO193cG5vbmNlPWIxOTE2YjhiN2MifQ=="}};
+var elementorAdminHints = {"mediaHint":{"display":true,"type":"info","content":"Don\u2019t let unoptimized images be the downfall of your site\u2019s performance. <a class='e-btn-1' href='https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/update.php?action=install-plugin&amp;plugin=image-optimization&amp;_wpnonce=4b0163ad95' target='_blank'>Install Image Optimizer<\/a>!","icon":true,"dismissible":"image-optimization-once-media-modal","dismiss":"Dismiss this notice.","button_event":"image-optimization-once-media-modal","button_data":"eyJhY3Rpb25fdXJsIjoiaHR0cHM6XC9cL3VpdGVzdGluZzIwMjQubG92ZXN0b2Jsb2cuY29tXC93cC1hZG1pblwvdXBkYXRlLnBocD9hY3Rpb249aW5zdGFsbC1wbHVnaW4mYW1wO3BsdWdpbj1pbWFnZS1vcHRpbWl6YXRpb24mYW1wO193cG5vbmNlPTRiMDE2M2FkOTUifQ=="}};
 </script>
 <script src="https://uitesting2024.lovestoblog.com/wp-content/plugins/elementor/assets/js/media-hints.min.js?ver=3.20.3" id="media-hints-js"></script>
 <script id="thickbox-js-extra">
@@ -1237,36 +705,34 @@ var thickboxL10n = {"next":"Next >","prev":"< Prev","image":"Image","of":"of","c
 </script>
 <script src="https://uitesting2024.lovestoblog.com/wp-includes/js/thickbox/thickbox.js?ver=3.1-20121105" id="thickbox-js"></script>
 <script id="jptracks-js-extra">
-var jpTracksAJAX = {"ajaxurl":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin-ajax.php","jpTracksAJAX_nonce":"77a0d2bede"};
+var jpTracksAJAX = {"ajaxurl":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin-ajax.php","jpTracksAJAX_nonce":"d4cd6671bb"};
 </script>
 <script src="https://uitesting2024.lovestoblog.com/wp-content/plugins/jetpack/jetpack_vendor/automattic/jetpack-connection/dist/tracks-ajax.js?minify=false&amp;ver=2c644cc46566ed615c42" id="jptracks-js"></script>
 <script id="jetpack-jitm-js-extra">
-var jitm_config = {"api_root":"https:\/\/uitesting2024.lovestoblog.com\/wp-json\/","activate_module_text":"Activate","activated_module_text":"Activated","activating_module_text":"Activating","settings_module_text":"Settings","nonce":"f4595fc8ba"};
+var jitm_config = {"api_root":"https:\/\/uitesting2024.lovestoblog.com\/wp-json\/","activate_module_text":"Activate","activated_module_text":"Activated","activating_module_text":"Activating","settings_module_text":"Settings","nonce":"d77822076b"};
 </script>
 <script src="https://uitesting2024.lovestoblog.com/wp-content/plugins/jetpack/jetpack_vendor/automattic/jetpack-jitm/build/index.js?minify=false&amp;ver=4e1caca8feef909f1031" id="jetpack-jitm-js"></script>
-<script id="wpforms-edit-post-education-js-extra">
-var wpforms_edit_post_education = {"ajax_url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin-ajax.php","education_nonce":"363a1bd421"};
-</script>
-<script src="https://uitesting2024.lovestoblog.com/wp-content/plugins/wpforms-lite/assets/lite/js/admin/education/edit-post.es5.min.js?ver=1.8.7.2" id="wpforms-edit-post-education-js"></script>
 <script id="wp-util-js-extra">
 var _wpUtilSettings = {"ajax":{"url":"\/wp-admin\/admin-ajax.php"}};
 </script>
 <script src="https://uitesting2024.lovestoblog.com/wp-includes/js/wp-util.min.js?ver=6.4.3" id="wp-util-js"></script>
+<script src="https://uitesting2024.lovestoblog.com/wp-includes/js/dist/dom-ready.min.js?ver=392bdd43726760d1f3ca" id="wp-dom-ready-js"></script>
+<script src="https://uitesting2024.lovestoblog.com/wp-includes/js/dist/a11y.min.js?ver=7032343a947cfccf5608" id="wp-a11y-js"></script>
 <script src="https://uitesting2024.lovestoblog.com/wp-includes/js/wp-sanitize.min.js?ver=6.4.3" id="wp-sanitize-js"></script>
 <script id="updates-js-extra">
-var _wpUpdatesSettings = {"ajax_nonce":"348122eb6f"};
+var _wpUpdatesSettings = {"ajax_nonce":"bb7ef9c8ed"};
 </script>
 <script src="https://uitesting2024.lovestoblog.com/wp-admin/js/updates.min.js?ver=6.4.3" id="updates-js"></script>
 <script id="astra-sites-install-theme-js-extra">
-var AstraSitesInstallThemeVars = {"installed":"Installed! Activating..","activating":"Activating...","activated":"Activated!","installing":"Installing...","ajaxurl":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin-ajax.php","_ajax_nonce":"2a2a19cd4a"};
+var AstraSitesInstallThemeVars = {"installed":"Installed! Activating..","activating":"Activating...","activated":"Activated!","installing":"Installing...","ajaxurl":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin-ajax.php","_ajax_nonce":"7ee9e44cac"};
 </script>
 <script src="https://uitesting2024.lovestoblog.com/wp-content/plugins/astra-sites/inc/assets/js/install-theme.js?ver=4.1.0" id="astra-sites-install-theme-js"></script>
 <script id="astra-notices-js-extra">
-var astraNotices = {"_notice_nonce":"ea6478b912"};
+var astraNotices = {"_notice_nonce":"91ef4ba89e"};
 </script>
 <script src="https://uitesting2024.lovestoblog.com/wp-content/plugins/astra-sites/inc/lib/astra-notices/notices.js?ver=1.1.11" id="astra-notices-js"></script>
 <script id="wpforms-admin-notices-js-extra">
-var wpforms_admin_notices = {"ajax_url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin-ajax.php","nonce":"d38a903461"};
+var wpforms_admin_notices = {"ajax_url":"https:\/\/uitesting2024.lovestoblog.com\/wp-admin\/admin-ajax.php","nonce":"bae1603de4"};
 </script>
 <script src="https://uitesting2024.lovestoblog.com/wp-content/plugins/wpforms-lite/assets/js/admin/notices.min.js?ver=1.8.7.2" id="wpforms-admin-notices-js"></script>
 

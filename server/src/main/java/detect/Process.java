@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.*;
 
 import detect.ver2.*;
@@ -17,8 +18,12 @@ import org.jsoup.nodes.Attributes;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import javax.print.Doc;
 
@@ -188,13 +193,25 @@ public class Process {
                 isAfterHoverAction = false;
                 previousElement = null;
             } else {
-                visited.add(list.get(i));
                 if (list.get(i) instanceof InputAction) {
                     String text_locator = list.get(i).getText_locator();
                     List<String> input = Arrays.asList(text_locator);
                     Map<String, List<Element>> res = InputElement.detectInputElement(input, inputElements, isAfterHoverAction);
 
-                    List<Element> elementList = res.get(text_locator);
+                    List<Element> elements = res.get(text_locator);
+                    List<Element> elementList = new ArrayList<>();
+                    WebDriver driver = new ChromeDriver();
+                    driver.get(url);
+                    Action.runActions(visited, driver);
+                    for (Element e : elements) {
+                        String xpath = Process.getAbsoluteXpath(e, "");
+                        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+                        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+                        if (driver.findElement(By.xpath(xpath)).isDisplayed()) {
+                            elementList.add(e);
+                        }
+                    }
+                    driver.quit();
                     if (elementList.size() == 1) {
                         Element e = elementList.get(0);
 //                        String locator = Process.getXpath(e);
@@ -227,7 +244,20 @@ public class Process {
                     List<String> input = Arrays.asList(text_locator);
                     Map<String, List<Element>> res = Click.detectClickElement(input, clickableElements, isAfterHoverAction);
                     isAfterHoverAction = false;
-                    List<Element> elementList = res.get(text_locator);
+                    List<Element> elements = res.get(text_locator);
+                    List<Element> elementList = new ArrayList<>();
+                    WebDriver driver = new ChromeDriver();
+                    driver.get(url);
+                    Action.runActions(visited, driver);
+                    for (Element e : elements) {
+                        String xpath = Process.getAbsoluteXpath(e, "");
+                        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+                        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+                        if (driver.findElement(By.xpath(xpath)).isDisplayed()) {
+                            elementList.add(e);
+                        }
+                    }
+                    driver.quit();
                     if (elementList.size() == 1) {
                         Element e = elementList.get(0);
 //                        String locator = Process.getXpath(e);
@@ -258,7 +288,20 @@ public class Process {
                     List<String> input = Arrays.asList(text_locator);
                     Map<String, List<Element>> res = Hover.detectHoverElement(input, clickableElements, isAfterHoverAction);
                     isAfterHoverAction = true;
-                    List<Element> elementList = res.get(text_locator);
+                    List<Element> elements = res.get(text_locator);
+                    List<Element> elementList = new ArrayList<>();
+                    WebDriver driver = new ChromeDriver();
+                    driver.get(url);
+                    Action.runActions(visited, driver);
+                    for (Element e : elements) {
+                        String xpath = Process.getAbsoluteXpath(e, "");
+                        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+                        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+                        if (driver.findElement(By.xpath(xpath)).isDisplayed()) {
+                            elementList.add(e);
+                        }
+                    }
+                    driver.quit();
                     if (elementList.size() == 1) {
                         Element e = elementList.get(0);
 //                        String locator = Process.getXpath(e);
@@ -312,66 +355,7 @@ public class Process {
                     list.get(i).setDom_locator(locator);
 //                    list.get(i).setDom_locator(Process.getXpath(select));
                 }
-//                if (i == list.size() - 1) {
-//                    if (map.containsKey("Input")) {
-//                        List<Action> inputActions = map.get("Input");
-//                        List<String> text_locators = new ArrayList<>();
-//                        for (Action action : inputActions) {
-//                            text_locators.add(action.getText_locator());
-//                        }
-//                        Map<String, String> res = InputElement.detectInputElement(text_locators, document);
-//                        for (Action action : inputActions) {
-//                            action.setDom_locator(res.get(action.getText_locator()));
-//                        }
-//                    }
-//                    if (map.containsKey("Click")) {
-//                        List<Action> clickActions = map.get("Click");
-//                        List<String> text_locators = new ArrayList<>();
-//                        for (Action action : clickActions) {
-//                            text_locators.add(action.getText_locator());
-//                        }
-//                        Map<String, String> res = Click.detectClickElement(text_locators, document);
-//                        for (Action action : clickActions) {
-//                            action.setDom_locator(res.get(action.getText_locator()));
-//                        }
-//                    }
-//                    if (map.containsKey("Checkbox")) {
-//                        List<Action> clickCheckboxActions = map.get("Checkbox");
-//                        List<String> listChoice = new ArrayList<>();
-//                        Map<Action, String> mp = new HashMap<>();
-//                        for (Action action : clickCheckboxActions) {
-//                            ClickCheckboxAction act = (ClickCheckboxAction) action;
-//                            String choice = act.getChoice();
-//                            listChoice.add(choice);
-//                            mp.put(action, choice);
-//                        }
-//                        Map<String, String> res = ClickCheckbox.detectCheckboxElement(listChoice, document);
-//                        for (Action action : clickCheckboxActions) {
-//                            action.setDom_locator(res.get(mp.get(action)));
-//                            System.out.println(res.get(mp.get(action)));
-//                        }
-//                    }
-//                    if (map.containsKey("Select")) {
-//                        List<Action> selectActions = map.get("Select");
-////                        List<SelectAction> select = new ArrayList<>();
-//                        List<Pair<String, String>> pairList = new ArrayList<>();
-//                        Map<Action, Pair<String, String>> mp = new HashMap<>();
-//                        for (Action action : selectActions) {
-//                            SelectAction selectAction = (SelectAction) action;
-////                            select.add(selectAction);
-//                            String question = selectAction.getQuestion();
-//                            String choice = selectAction.getChoice();
-//                            Pair<String, String> questionAndChoice = new Pair<>(question, choice);
-//                            pairList.add(questionAndChoice);
-//                            mp.put(action, questionAndChoice);
-//                        }
-//                        Map<Pair<String, String>, String> res = Select.detectSelectElement(pairList, document);
-//                        for (Action action : selectActions) {
-//                            action.setDom_locator(res.get(mp.get(action)));
-//                        }
-//                    }
-//                    map.clear();
-//                }
+                visited.add(list.get(i));
             }
         }
         return list;
@@ -486,7 +470,7 @@ public class Process {
         return null;
     }
     public static void main(String[] args) {
-        Pair<String, List<Action>> res = parseJson("src/main/resources/testcase/uitesting1.json");
+        Pair<String, List<Action>> res = parseJson("src/main/resources/testcase/uitestingselect.json");
         String url = res.getFirst();
         List<Action> actions = res.getSecond();
         List<Action> result = detectLocators(actions, url);
