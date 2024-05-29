@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.*;
 
 import detect.ver2.*;
@@ -17,8 +18,12 @@ import org.jsoup.nodes.Attributes;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import javax.print.Doc;
 
@@ -114,12 +119,24 @@ public class Process {
                 visited.add(list.get(i));
                 isAfterAssertAction = true;
             } else {
-                visited.add(list.get(i));
                 if (list.get(i) instanceof InputAction) {
                     String text_locator = list.get(i).getText_locator();
                     List<String> input = Arrays.asList(text_locator);
                     Map<String, List<Element>> res = InputElement.detectInputElement(input, inputElements);
-                    List<Element> elementList = res.get(text_locator);
+                    List<Element> elems = res.get(text_locator);
+                    List<Element> elementList = new ArrayList<>();
+                    WebDriver driver = new ChromeDriver();
+                    driver.get(url);
+                    Action.runActions(visited, driver);
+                    for (Element e : elems) {
+                        String xpath = Process.getAbsoluteXpath(e, "");
+                        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+                        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+                        if (driver.findElement(By.xpath(xpath)).isDisplayed()) {
+                            elementList.add(e);
+                        }
+                    }
+                    driver.quit();
                     if (elementList.size() == 1) {
                         Element e = elementList.get(0);
                         String locator = Process.getAbsoluteXpath(e, "");
@@ -173,7 +190,20 @@ public class Process {
                     String text_locator = list.get(i).getText_locator();
                     List<String> input = Arrays.asList(text_locator);
                     Map<String, List<Element>> res = Click.detectClickElement(input, clickableElements);
-                    List<Element> elementList = res.get(text_locator);
+                    List<Element> elems = res.get(text_locator);
+                    List<Element> elementList = new ArrayList<>();
+                    WebDriver driver = new ChromeDriver();
+                    driver.get(url);
+                    Action.runActions(visited, driver);
+                    for (Element e : elems) {
+                        String xpath = Process.getAbsoluteXpath(e, "");
+                        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+                        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+                        if (driver.findElement(By.xpath(xpath)).isDisplayed()) {
+                            elementList.add(e);
+                        }
+                    }
+                    driver.quit();
                     if (elementList.size() == 1) {
                         Element e = elementList.get(0);
                         String locator = Process.getAbsoluteXpath(e, "");
@@ -227,7 +257,20 @@ public class Process {
                     String text_locator = list.get(i).getText_locator();
                     List<String> input = Arrays.asList(text_locator);
                     Map<String, List<Element>> res = Hover.detectHoverElement(input, clickableElements);
-                    List<Element> elementList = res.get(text_locator);
+                    List<Element> elems = res.get(text_locator);
+                    List<Element> elementList = new ArrayList<>();
+                    WebDriver driver = new ChromeDriver();
+                    driver.get(url);
+                    Action.runActions(visited, driver);
+                    for (Element e : elems) {
+                        String xpath = Process.getAbsoluteXpath(e, "");
+                        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+                        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+                        if (driver.findElement(By.xpath(xpath)).isDisplayed()) {
+                            elementList.add(e);
+                        }
+                    }
+                    driver.quit();
                     if (elementList.size() == 1) {
                         Element e = elementList.get(0);
                         String locator = Process.getAbsoluteXpath(e, "");
@@ -303,6 +346,7 @@ public class Process {
                     System.out.println(Process.getXpath(select));
                     list.get(i).setDom_locator(locator);
                 }
+                visited.add(list.get(i));
             }
         }
         return list;
