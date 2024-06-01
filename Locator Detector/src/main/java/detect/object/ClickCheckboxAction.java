@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.time.Duration;
 
 public class ClickCheckboxAction extends Action{
@@ -15,7 +15,7 @@ public class ClickCheckboxAction extends Action{
         this.choice = choice;
         this.dom_locator = "";
     }
-    
+
     public String getChoice() {
         return choice;
     }
@@ -30,9 +30,9 @@ public class ClickCheckboxAction extends Action{
 
     @Override
     public void run(WebDriver driver) {
+        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(dom_locator)));
         WebElement element = driver.findElement(By.xpath(dom_locator));
-        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(4));
-        wait.until(driver1 -> driver.findElement(By.xpath(dom_locator)).isEnabled() && driver.findElement(By.xpath(dom_locator)).isDisplayed());
         element.click();
     }
 }

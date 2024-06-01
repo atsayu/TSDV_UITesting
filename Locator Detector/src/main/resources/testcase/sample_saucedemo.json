@@ -22,11 +22,6 @@
             "expectedUrl": "https://www.saucedemo.com/inventory.html"
         },
         {
-            "type": "select",
-            "question": "",
-            "choice": "Price (high to low)"
-        },
-        {
             "type": "click",
             "locator": "Add to cart Sauce Labs Backpack btn"
         },
